@@ -1,36 +1,43 @@
 extends Area3D
 
-@export var inserted_item: res_item
+@export var inserted_item: Node3D
+var can_insert := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-func insert_item(object: res_item) -> void:
-	if inserted_item:
-		for i in $InsertPos.get_children():
-			i.queue_free()
-		var eject_item = inserted_item.scene.instantiate()
-		eject_item.linear_velocity = Game.player_last_direction * 5
-		eject_item.position = $InsertPos.global_position
-		var dir = Game.player_last_direction.normalized()
-		eject_item.rotation.y = atan2(-dir.x, -dir.z)
-		add_sibling(eject_item)
-	inserted_item = object
-	var item_inst = object.scene.instantiate()
-	item_inst.freeze = true
-	if "refresh_item" in item_inst:
-		item_inst.refresh_item()
-	$InsertPos.add_child(item_inst)
+func insert_item(object: Node3D) -> void:
+	if object.item_resource.plug:
+		pass
+	else:
+		if inserted_item:
+			print("there is an item here: ", inserted_item)
+			Game.reparent_to_world.emit(inserted_item)
+			inserted_item.freeze = false
+			inserted_item.linear_velocity = Game.player_last_direction * 5
+			inserted_item.position = $InsertPos.global_position
+			var dir = Game.player_last_direction.normalized()
+			inserted_item.rotation.y = atan2(-dir.x, -dir.z)
+			inserted_item = null
+			can_insert = true
+		
+		if inserted_item != object:
+			inserted_item = object
+			can_insert = false
+			$InsertLimit.start()
+			object.reparent($InsertPos)
+			object.position = Vector3.ZERO
+			object.freeze = true
+			if "refresh_item" in object:
+				object.refresh_item()
+		else:
+			push_warning("item not compatible with socket")
 
-var can_insert := true
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Item") and can_insert:
-		insert_item(body.item_resource)
-		body.queue_free()
-		can_insert = false
-		$InsertLimit.start()
+		insert_item(body)
 
 
 func _on_insert_limit_timeout() -> void:

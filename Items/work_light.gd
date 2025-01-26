@@ -4,6 +4,8 @@ extends RigidBody3D
 @export var item_resource: res_item
 @export var input: Node3D
 
+var is_inserted: bool
+
 func _ready() -> void:
 	item_resource = load("res://Items/WorkLight.tres").duplicate()
 
