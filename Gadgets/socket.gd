@@ -25,6 +25,7 @@ func insert_item(object: Node3D) -> void:
 			eject_object(output_node)
 			output_node = null
 		output_node = object
+		object.plugged_into = self
 		object.global_position = $PlugPos.global_position
 		object.freeze = true
 		can_insert = false
@@ -46,7 +47,7 @@ func insert_item(object: Node3D) -> void:
 				if "refresh_item" in object:
 					object.refresh_item()
 		else:
-			push_warning("item not compatible with socket")
+			push_warning("item not compatible with socket. Batteries only!")
 
 
 func _on_body_entered(body: Node3D) -> void:

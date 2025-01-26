@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="res_prompt" load_steps=4 format=3 uid="uid://cxgm32irecip8"]
+
+[ext_resource type="Texture2D" uid="uid://kjnybqdaj0pt" path="res://UI/Prompts/x_gamepad.png" id="1_4o8tl"]
+[ext_resource type="Script" path="res://Resources/res_prompt.gd" id="1_pnejq"]
+[ext_resource type="Texture2D" uid="uid://ytdqlynck1ha" path="res://UI/Prompts/e_keyboard.png" id="2_fn4ug"]
+
+[resource]
+script = ExtResource("1_pnejq")
+gamepad_glyph = ExtResource("1_4o8tl")
+keyboard_glyph = ExtResource("2_fn4ug")
+message = "Unplug"

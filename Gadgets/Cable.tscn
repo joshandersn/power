@@ -9,11 +9,13 @@ line_resolution = 6
 cable_a = NodePath("PlugHeadA")
 cable_b = NodePath("PlugHeadB")
 
-[node name="PlugHeadA" parent="." instance=ExtResource("2_7q6yv")]
+[node name="PlugHeadA" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.704087, 0.460642, -0.355837)
+other_plug = NodePath("../PlugHeadB")
 
-[node name="PlugHeadB" parent="." instance=ExtResource("2_7q6yv")]
+[node name="PlugHeadB" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533567, 0.886056, 0.770197)
+other_plug = NodePath("../PlugHeadA")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
 polygon = PackedVector2Array(0, 0.1, 0.0866025, 0.05, 0.0866025, -0.05, 1.22465e-17, -0.1, -0.0866025, -0.05, -0.0866025, 0.05)

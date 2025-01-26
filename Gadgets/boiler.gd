@@ -1,6 +1,9 @@
 extends Area3D
 
 var output: Node3D
+var power := 100.0
+var power_current := 5.0
+
 
 func eject_object(object) -> void:
 	object.position += Vector3(0, 0.5, 0)
@@ -16,4 +19,12 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.item_resource.plug:
 		output = body
 		body.freeze = true
+		body.plugged_into = self
 		body.global_position = $PlugPos.global_position
+		$ServeTimer.start()
+
+func _on_serve_timer_timeout() -> void:
+	if power >= power_current:
+		output.item_resource.power =+ power_current
+		power -= power_current
+		print("sending ", power_current, " to ", output)
