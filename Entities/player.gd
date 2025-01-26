@@ -29,7 +29,8 @@ func drop_item() -> void:
 		var dropped_item = picked_up_item.scene.instantiate()
 		dropped_item.position = $PickupPos.global_position
 		dropped_item.linear_velocity = last_direction * throw_power
-		dropped_item.rotation.y = last_direction.x
+		var dir = last_direction.normalized()
+		dropped_item.rotation.y = atan2(-dir.x, -dir.z)
 		add_sibling(dropped_item)
 		clear_pickups()
 	else:

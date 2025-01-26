@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Resources/res_item.gd" id="6_lfve5"]
 [ext_resource type="PackedScene" uid="uid://d2mloe1w5y5wg" path="res://BuildingBlocks/block.tscn" id="6_vu8qr"]
 
-[sub_resource type="Resource" id="Resource_nfapp"]
+[sub_resource type="Resource" id="Resource_llaa2"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -17,7 +17,7 @@ knocked_over = false
 broken = false
 heavy = false
 
-[sub_resource type="Resource" id="Resource_kdjp3"]
+[sub_resource type="Resource" id="Resource_nqcan"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -48,11 +48,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40562, 1.02854, -0.110928)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 0.258043, 0.831653, 2.09793)
-item_resource = SubResource("Resource_nfapp")
+item_resource = SubResource("Resource_llaa2")
 
 [node name="WorkLight2" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.16216, 0, -0.986786, 0, 1, 0, 0.986786, 0, 0.16216, -3.62437, 0.831653, -2.48611)
-item_resource = SubResource("Resource_kdjp3")
+item_resource = SubResource("Resource_nqcan")
 
 [node name="Block" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(1.91333, 0, -1.64596, 0, 2.52389, 0, 1.64596, 0, 1.91333, 1.57699, 0.774811, -2.75338)
