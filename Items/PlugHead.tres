@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://iu3eetlnf1cu"]
+
+[ext_resource type="PackedScene" uid="uid://cmi0lslwaq7nx" path="res://Items/PlugHead.tscn" id="1_73gl4"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="2_7x3s3"]
+
+[resource]
+script = ExtResource("2_7x3s3")
+scene = ExtResource("1_73gl4")
+title = "Plug Head"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = false
+plug = true

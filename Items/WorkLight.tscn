@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
 [ext_resource type="Script" path="res://Resources/res_item.gd" id="2_6vmfs"]
 
-[sub_resource type="Resource" id="Resource_qma3o"]
+[sub_resource type="Resource" id="Resource_k4hm5"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -12,6 +12,7 @@ power = 0.0
 knocked_over = false
 broken = false
 heavy = false
+plug = false
 
 [sub_resource type="BoxMesh" id="BoxMesh_jxper"]
 
@@ -21,7 +22,7 @@ heavy = false
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_qma3o")
+item_resource = SubResource("Resource_k4hm5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_jxper")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmi0lslwaq7nx"]
+
+[ext_resource type="Script" path="res://Items/plug_head.gd" id="1_4p1ry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3awq2"]
+size = Vector3(0.8, 0.5, 0.8)
+
+[sub_resource type="SphereMesh" id="SphereMesh_r0hon"]
+radius = 0.2
+height = 0.4
+
+[node name="PlugHead" type="RigidBody3D" groups=["Item"]]
+collision_layer = 2
+script = ExtResource("1_4p1ry")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3awq2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_r0hon")

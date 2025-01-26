@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8rubgifvu7ns"]
+
+[ext_resource type="Script" path="res://Gadgets/cable.gd" id="1_g6xrb"]
+[ext_resource type="PackedScene" uid="uid://cmi0lslwaq7nx" path="res://Items/PlugHead.tscn" id="2_7q6yv"]
+
+[sub_resource type="Curve3D" id="Curve3D_4m3ol"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, -0.5),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Cable" type="Node3D" node_paths=PackedStringArray("cable_a", "cable_b")]
+script = ExtResource("1_g6xrb")
+line_resolution = 6
+cable_a = NodePath("PlugHeadA")
+cable_b = NodePath("PlugHeadB")
+
+[node name="PlugHeadA" parent="." instance=ExtResource("2_7q6yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="PlugHeadB" parent="." instance=ExtResource("2_7q6yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+polygon = PackedVector2Array(0, 0.1, 0.0866025, 0.05, 0.0866025, -0.05, 1.22465e-17, -0.1, -0.0866025, -0.05, -0.0866025, 0.05)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+smooth_faces = true
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(0.985606, 0, -0.169057, 0, 1, 0, 0.169057, 0, 0.985606, 0, 0, 0)
+curve = SubResource("Curve3D_4m3ol")

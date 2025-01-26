@@ -8,3 +8,4 @@ class_name res_item
 @export var knocked_over: bool
 @export var broken: bool
 @export var heavy: bool
+@export var plug: bool

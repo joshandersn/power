@@ -5,15 +5,22 @@ extends CharacterBody3D
 
 
 var pickup_field: Array[Node3D]
-var picked_up_item: res_item
+var picked_up_item: Node3D
 var can_pickup := true
 
+func replace_plug_node(object, new_object) -> void:
+	if "cable_a" in object.get_parent():
+		if object.get_parent().cable_a == object:
+			object.get_parent().cable_a = new_object
+	if "cable_b" in object.get_parent():
+		if object.get_parent().cable_b == object:
+			object.get_parent().cable_b = new_object
+
 func pickup(object: Node3D) -> void:
-	picked_up_item = object.item_resource
-	var new_picked_up_item = object.item_resource.scene.instantiate()
-	new_picked_up_item.freeze = true
-	$PickupPos.add_child(new_picked_up_item)
-	object.queue_free()
+	picked_up_item = object
+	object.reparent($PickupPos)
+	object.position = Vector3.ZERO
+	object.freeze = true
 	can_pickup = false
 	$PickupTimer.start()
 
@@ -24,13 +31,13 @@ func clear_pickups() -> void:
 
 func drop_item() -> void:
 	if picked_up_item:
-		var dropped_item = picked_up_item.scene.instantiate()
-		dropped_item.position = $PickupPos.global_position
-		dropped_item.linear_velocity = Game.player_last_direction * throw_power
+		Game.reparent_to_world.emit(picked_up_item)
+		picked_up_item.freeze = false
+		picked_up_item.position = $PickupPos.global_position
+		picked_up_item.linear_velocity = Game.player_last_direction * throw_power
 		var dir = Game.player_last_direction.normalized()
-		dropped_item.rotation.y = atan2(-dir.x, -dir.z)
-		add_sibling(dropped_item)
-		clear_pickups()
+		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
+		picked_up_item = null
 	else:
 		push_warning("no item is held!")
 
