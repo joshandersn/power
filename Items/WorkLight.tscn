@@ -1,15 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvu5rhbq64dqb"]
+[gd_scene load_steps=7 format=3 uid="uid://dvu5rhbq64dqb"]
 
 [ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="2_6vmfs"]
+
+[sub_resource type="Resource" id="Resource_sa6ei"]
+script = ExtResource("2_6vmfs")
+scene = null
+title = "Work Light"
+power = "0"
+knocked_over = false
+broken = false
+heavy = false
 
 [sub_resource type="BoxMesh" id="BoxMesh_jxper"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
 
 [node name="WorkLight" type="RigidBody3D" groups=["Item"]]
+transform = Transform3D(-0.999928, 0, -0.0141896, 0, 1, 0, 0.0141896, 0, -0.999928, 0, 0, 0)
 collision_layer = 2
+lock_rotation = true
 script = ExtResource("1_stoc6")
+item_resource = SubResource("Resource_sa6ei")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_jxper")
