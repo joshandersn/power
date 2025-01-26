@@ -38,7 +38,7 @@ func _on_pickup_field_body_entered(body: Node3D) -> void:
 		pickup_field.append(body.item_resource)
 		var modded_prompt = load("res://UI/Prompts/pickup.tres")
 		modded_prompt.message = str("Pickup ", body.item_resource.title)
-		Game.push_prompt.emit(load("res://UI/Prompts/pickup.tres"))
+		Game.push_prompt.emit(load("res://UI/Prompts/pickup.tres"), 0)
 		print("found", pickup_field)
 	else:
 		push_warning(body, ' is not a valid item')
