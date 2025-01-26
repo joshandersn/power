@@ -7,6 +7,9 @@ Enjoy emergent and dynamic gameplay by moving charging and throwing items like b
 
 ### Team
 @joshandersn - Project lead, Programming, Music.
+
 @zoofries - Animation, 3d modeling, Design, Testing.
+
 @abyyaeh - Art, Cutscenes, Testing.
+
 Chloe - Addition Animation, Testing.
