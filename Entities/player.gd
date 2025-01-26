@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 var pickup_field: Array[Node3D]
 var picked_up_item: Node3D
+var held_plug: Node3D
 var can_pickup := true
 
 func replace_plug_node(object, new_object) -> void:
@@ -17,10 +18,13 @@ func replace_plug_node(object, new_object) -> void:
 			object.get_parent().cable_b = new_object
 
 func pickup(object: Node3D) -> void:
-	picked_up_item = object
-	object.reparent($PickupPos)
-	object.position = Vector3.ZERO
-	object.freeze = true
+	if object.item_resource.plug:
+		picked_up_item = object
+	else:
+		picked_up_item = object
+		object.reparent($PickupPos)
+		object.position = Vector3.ZERO
+		object.freeze = true
 	can_pickup = false
 	$PickupTimer.start()
 
@@ -31,9 +35,12 @@ func clear_pickups() -> void:
 
 func drop_item() -> void:
 	if picked_up_item:
-		Game.reparent_to_world.emit(picked_up_item)
+		if picked_up_item.item_resource.plug:
+			pass
+		else:
+			Game.reparent_to_world.emit(picked_up_item)
+			picked_up_item.position = $PickupPos.global_position
 		picked_up_item.freeze = false
-		picked_up_item.position = $PickupPos.global_position
 		picked_up_item.linear_velocity = Game.player_last_direction * throw_power
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
@@ -50,6 +57,9 @@ func _input(_event: InputEvent) -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	if picked_up_item and picked_up_item.item_resource.plug:
+		picked_up_item.global_position = $PickupPos.global_position
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		

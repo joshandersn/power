@@ -2,6 +2,7 @@ extends Area3D
 
 @export var inserted_item: Node3D
 var can_insert := true
+var outputs: Array[Node3D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
