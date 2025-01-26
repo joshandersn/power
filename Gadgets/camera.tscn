@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://gb6v11hpxp6g"]
+
+[ext_resource type="Script" path="res://Gadgets/camera.gd" id="1_uxyda"]
+
+[node name="Camera" type="Node3D"]
+script = ExtResource("1_uxyda")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.767769, 0.640726, 0, -0.640726, 0.767769, 0, 2.79891, 2.84112)

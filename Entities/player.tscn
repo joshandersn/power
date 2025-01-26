@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqjf7xe6278u7"]
+
+[ext_resource type="Script" path="res://Entities/player.gd" id="1_66pwa"]
+[ext_resource type="Material" uid="uid://demvvkrlb5k7r" path="res://Materials/blue.tres" id="2_86vdo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u54bi"]
+radius = 1.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_ki6ae"]
+material = ExtResource("2_86vdo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_66pwa")
+
+[node name="PickupField" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupField"]
+shape = SubResource("SphereShape3D_u54bi")
+
+[node name="PickupPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ki6ae")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qutdp")
+
+[connection signal="body_entered" from="PickupField" to="." method="_on_pickup_field_body_entered"]
+[connection signal="body_exited" from="PickupField" to="." method="_on_pickup_field_body_exited"]

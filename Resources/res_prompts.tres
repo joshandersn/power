@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="res_prompt" load_steps=2 format=3 uid="uid://hk3j6bsxjndk"]
+
+[ext_resource type="Script" path="res://Resources/res_prompt.gd" id="1_y2ow0"]
+
+[resource]
+script = ExtResource("1_y2ow0")
+message = ""

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://bx2k6brjbqvfn"]
+
+[ext_resource type="PackedScene" uid="uid://dvu5rhbq64dqb" path="res://Items/WorkLight.tscn" id="1_770x4"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="1_o8afu"]
+
+[resource]
+script = ExtResource("1_o8afu")
+scene = ExtResource("1_770x4")
+title = "Work Light"
+power = "0"
+knocked_over = false
+broken = false
+heavy = false

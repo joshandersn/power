@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvq27kwals3vt"]
+
+[ext_resource type="Script" path="res://Scenes/titleScreenUI.gd" id="1_51pf0"]
+
+[node name="TitleScreen" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51pf0")
+
+[node name="Play" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_top = -139.0
+offset_right = 164.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play"
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.0
+offset_top = 68.0
+offset_right = 94.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Bigmode Gamejam 2025"
+
+[connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]

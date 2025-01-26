@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=2 format=3 uid="uid://eda12v0tc4e0"]
+
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="1_vcihd"]
+
+[resource]
+script = ExtResource("1_vcihd")
+title = ""
+power = ""
+knocked_over = false
+broken = false
+heavy = false

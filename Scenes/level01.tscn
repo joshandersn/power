@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://b02cujpkxg8ny"]
+
+[ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
+[ext_resource type="Environment" uid="uid://cwttqnj0psej4" path="res://Materials/night.tres" id="2_n5dp5"]
+[ext_resource type="PackedScene" uid="uid://dqjf7xe6278u7" path="res://Entities/player.tscn" id="3_ehfn2"]
+[ext_resource type="PackedScene" uid="uid://gb6v11hpxp6g" path="res://Gadgets/camera.tscn" id="3_gsc6c"]
+[ext_resource type="PackedScene" uid="uid://dvu5rhbq64dqb" path="res://Items/WorkLight.tscn" id="4_410tk"]
+[ext_resource type="PackedScene" uid="uid://d2mloe1w5y5wg" path="res://BuildingBlocks/block.tscn" id="6_vu8qr"]
+
+[node name="Level01" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_vx0we")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16691, 0, -0.16431)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.251411, 0.96788, 0, -0.96788, -0.251411, 0, 1.33442, 0)
+light_color = Color(0.782491, 0.890318, 1, 1)
+light_energy = 0.06
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_n5dp5")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_gsc6c")]
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_ehfn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40562, 1.02854, -0.110928)
+
+[node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258043, 0.831653, 2.09793)
+
+[node name="Block" parent="." instance=ExtResource("6_vu8qr")]
+transform = Transform3D(1.91333, 0, -1.64596, 0, 2.52389, 0, 1.64596, 0, 1.91333, 1.57699, 0.774811, -2.75338)

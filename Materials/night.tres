@@ -1,0 +1,12 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cwttqnj0psej4"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yobhy"]
+rayleigh_coefficient = 0.14
+
+[sub_resource type="Sky" id="Sky_ftsve"]
+sky_material = SubResource("PhysicalSkyMaterial_yobhy")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_ftsve")
+ambient_light_source = 3

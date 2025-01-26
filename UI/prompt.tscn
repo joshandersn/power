@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0lqdjgfwko45"]
+
+[ext_resource type="Script" path="res://UI/prompt.gd" id="1_34ggi"]
+[ext_resource type="Texture2D" uid="uid://btvk14vxncmjy" path="res://UI/Prompts/a_gamepad.png" id="2_buw4u"]
+
+[node name="Prompt" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 227.0
+offset_bottom = 51.0
+script = ExtResource("1_34ggi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 53.0
+offset_top = 11.0
+offset_right = 184.0
+offset_bottom = 34.0
+text = "Prompt Text"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 49.0
+offset_bottom = 49.0
+texture = ExtResource("2_buw4u")
+expand_mode = 1
+
+[node name="Fade" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Fade" to="." method="_on_fade_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

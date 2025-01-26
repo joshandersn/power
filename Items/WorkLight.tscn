@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvu5rhbq64dqb"]
+
+[ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
+[ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxper"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
+
+[node name="WorkLight" type="RigidBody3D" groups=["Item"]]
+collision_layer = 2
+script = ExtResource("1_stoc6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jxper")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kxpk0")
+
+[node name="ConeLight" parent="." instance=ExtResource("1_283g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.610479)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4psucw2hky4q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w2mxh"]
+radius = 0.516075
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4xhmi"]
+radius = 1.97178
+
+[node name="ConeLight" type="Area3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567171)
+shape = SubResource("SphereShape3D_w2mxh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54082)
+shape = SubResource("SphereShape3D_4xhmi")
