@@ -13,7 +13,6 @@ func push_prompt(prompt: res_prompt, time := 1) -> void:
 	new_prompt.prompt_resource = prompt
 	new_prompt.time = time
 	$Prompts.add_child(new_prompt)
-	print("prompting")
 
 func dismiss_all_prompts() -> void:
 	for i in $Prompts.get_children():

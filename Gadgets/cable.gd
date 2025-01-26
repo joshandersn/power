@@ -1,4 +1,3 @@
-@tool
 extends Node3D
 
 @export var line_radius := 0.1
@@ -7,7 +6,12 @@ extends Node3D
 @export var cable_a: Node3D
 @export var cable_b: Node3D
 
-var new_curve = Curve3D
+func _ready() -> void:
+	if cable_a and cable_b:
+		var new_curve = Curve3D.new()
+		new_curve.add_point(cable_a.position)
+		new_curve.add_point(cable_b.position)
+		$Path3D.curve = new_curve
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

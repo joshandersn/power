@@ -2,24 +2,36 @@ extends Area3D
 
 @export var inserted_item: Node3D
 var can_insert := true
-var outputs: Array[Node3D]
+var output_node: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+func eject_object(object) -> void:
+	if object.item_resource.plug:
+		print("what?", object.item_resource.plug)
+	else:
+		object.position = $InsertPos.global_position
+		Game.reparent_to_world.emit(object)
+	object.freeze = false
+	object.linear_velocity = Game.player_last_direction * 5
+	var dir = Game.player_last_direction.normalized()
+	object.rotation.y = atan2(-dir.x, -dir.z)
+
 func insert_item(object: Node3D) -> void:
 	if object.item_resource.plug:
-		pass
+		if output_node:
+			eject_object(output_node)
+			output_node = null
+		output_node = object
+		object.global_position = $PlugPos.global_position
+		object.freeze = true
+		can_insert = false
+		$InsertLimit.start()	
 	else:
 		if inserted_item:
-			print("there is an item here: ", inserted_item)
-			Game.reparent_to_world.emit(inserted_item)
-			inserted_item.freeze = false
-			inserted_item.linear_velocity = Game.player_last_direction * 5
-			inserted_item.position = $InsertPos.global_position
-			var dir = Game.player_last_direction.normalized()
-			inserted_item.rotation.y = atan2(-dir.x, -dir.z)
+			eject_object(inserted_item)
 			inserted_item = null
 			can_insert = true
 		

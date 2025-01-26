@@ -1,14 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8rubgifvu7ns"]
+[gd_scene load_steps=3 format=3 uid="uid://c8rubgifvu7ns"]
 
 [ext_resource type="Script" path="res://Gadgets/cable.gd" id="1_g6xrb"]
 [ext_resource type="PackedScene" uid="uid://cmi0lslwaq7nx" path="res://Items/PlugHead.tscn" id="2_7q6yv"]
-
-[sub_resource type="Curve3D" id="Curve3D_4m3ol"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.704087, 0.460642, -0.355837, 0, 0, 0, 0, 0, 0, 0.533567, 0.886056, 0.770197),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
 
 [node name="Cable" type="Node3D" node_paths=PackedStringArray("cable_a", "cable_b")]
 script = ExtResource("1_g6xrb")
@@ -37,4 +30,3 @@ path_joined = false
 smooth_faces = true
 
 [node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_4m3ol")
