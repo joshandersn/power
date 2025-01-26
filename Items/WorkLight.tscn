@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
 [ext_resource type="Script" path="res://Resources/res_item.gd" id="2_6vmfs"]
 
-[sub_resource type="Resource" id="Resource_sa6ei"]
+[sub_resource type="Resource" id="Resource_qma3o"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
-power = "0"
+power = 0.0
 knocked_over = false
 broken = false
 heavy = false
@@ -18,11 +18,10 @@ heavy = false
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
 
 [node name="WorkLight" type="RigidBody3D" groups=["Item"]]
-transform = Transform3D(-0.999928, 0, -0.0141896, 0, 1, 0, 0.0141896, 0, -0.999928, 0, 0, 0)
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_sa6ei")
+item_resource = SubResource("Resource_qma3o")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_jxper")

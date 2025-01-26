@@ -9,8 +9,6 @@ var picked_up_item: res_item
 var can_pickup := true
 
 func pickup(object: Node3D) -> void:
-	if picked_up_item:
-		drop_item()
 	picked_up_item = object.item_resource
 	var new_picked_up_item = object.item_resource.scene.instantiate()
 	new_picked_up_item.freeze = true
@@ -28,23 +26,21 @@ func drop_item() -> void:
 	if picked_up_item:
 		var dropped_item = picked_up_item.scene.instantiate()
 		dropped_item.position = $PickupPos.global_position
-		dropped_item.linear_velocity = last_direction * throw_power
-		var dir = last_direction.normalized()
+		dropped_item.linear_velocity = Game.player_last_direction * throw_power
+		var dir = Game.player_last_direction.normalized()
 		dropped_item.rotation.y = atan2(-dir.x, -dir.z)
 		add_sibling(dropped_item)
 		clear_pickups()
 	else:
 		push_warning("no item is held!")
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pickup"):
-		if pickup_field.size() >= 1 and can_pickup:
+		if pickup_field.size() >= 1 and !picked_up_item:
 			pickup(pickup_field[0])
 		elif picked_up_item:
 			drop_item()
 		
-
-var last_direction: Vector3
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -56,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		last_direction = direction
+		Game.player_last_direction = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)

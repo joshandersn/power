@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://coeyes7iqgxn"]
+
+[ext_resource type="PackedScene" uid="uid://bq2xb3uuaqivf" path="res://Items/Battery.tscn" id="1_qvsbr"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="2_kmtwp"]
+
+[resource]
+script = ExtResource("2_kmtwp")
+scene = ExtResource("1_qvsbr")
+title = "Battery"
+power = "100"
+knocked_over = false
+broken = false
+heavy = false
