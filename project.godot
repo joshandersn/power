@@ -82,3 +82,4 @@ use_cable={
 3d_physics/layer_1="env"
 3d_physics/layer_2="items"
 3d_physics/layer_3="entity"
+3d_physics/layer_4="plug"

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqax8s62i3xmi"]
+
+[ext_resource type="Script" path="res://Gadgets/boiler.gd" id="1_mnqfa"]
+[ext_resource type="Material" uid="uid://bvt6jte321obm" path="res://Materials/red.tres" id="2_vmb2p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i45vt"]
+material = ExtResource("2_vmb2p")
+
+[node name="Boiler" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_mnqfa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("SphereShape3D_oblf1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_i45vt")
+
+[node name="InsertLimit" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="PlugPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363748, 0.851561)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

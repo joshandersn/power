@@ -9,3 +9,4 @@ class_name res_item
 @export var broken: bool
 @export var heavy: bool
 @export var plug: bool
+@export var battery: bool

@@ -11,3 +11,4 @@ func update_battery() -> void:
 	var new_height = (item_resource.power / 100)
 	var scaled_value = new_height * 0.9
 	$juice.mesh.height = scaled_value
+	$juice.position.y = (-0.4 + $juice.mesh.height/2)

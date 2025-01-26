@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func eject_object(object) -> void:
 	if object.item_resource.plug:
-		print("what?", object.item_resource.plug)
+		object.position += Vector3(0, 0.5, 0)
 	else:
 		object.position = $InsertPos.global_position
 		Game.reparent_to_world.emit(object)
@@ -28,22 +28,23 @@ func insert_item(object: Node3D) -> void:
 		object.global_position = $PlugPos.global_position
 		object.freeze = true
 		can_insert = false
-		$InsertLimit.start()	
+		$InsertLimit.start()
 	else:
-		if inserted_item:
-			eject_object(inserted_item)
-			inserted_item = null
-			can_insert = true
-		
-		if inserted_item != object:
-			inserted_item = object
-			can_insert = false
-			$InsertLimit.start()
-			object.reparent($InsertPos)
-			object.position = Vector3.ZERO
-			object.freeze = true
-			if "refresh_item" in object:
-				object.refresh_item()
+		if object.item_resource.battery:
+			if inserted_item:
+				eject_object(inserted_item)
+				inserted_item = null
+				can_insert = true
+			
+			if inserted_item != object:
+				inserted_item = object
+				can_insert = false
+				$InsertLimit.start()
+				object.reparent($InsertPos)
+				object.position = Vector3.ZERO
+				object.freeze = true
+				if "refresh_item" in object:
+					object.refresh_item()
 		else:
 			push_warning("item not compatible with socket")
 
