@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://demvvkrlb5k7r" path="res://Materials/blue.tres" id="2_86vdo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u54bi"]
-radius = 1.5
+radius = 0.83754
 
 [sub_resource type="BoxMesh" id="BoxMesh_ki6ae"]
 material = ExtResource("2_86vdo")

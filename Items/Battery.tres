@@ -7,7 +7,7 @@
 script = ExtResource("2_kmtwp")
 scene = ExtResource("1_qvsbr")
 title = "Battery"
-power = 0.0
+power = 50.0
 knocked_over = false
 broken = false
 heavy = false

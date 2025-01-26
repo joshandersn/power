@@ -5,9 +5,11 @@
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="3_uo7td"]
 
 [node name="Game" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_i72wx")
 
 [node name="Scene" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 

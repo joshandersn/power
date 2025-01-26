@@ -1,7 +1,7 @@
 extends Area3D
 
 var output: Node3D
-var power := 100.0
+var power := 100000.0
 var power_current := 5.0
 
 
@@ -25,6 +25,5 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_serve_timer_timeout() -> void:
 	if power >= power_current:
-		output.item_resource.power =+ power_current
-		power -= power_current
+		output.pass_power(power_current)
 		print("sending ", power_current, " to ", output)

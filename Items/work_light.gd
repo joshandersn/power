@@ -10,7 +10,12 @@ var is_inserted: bool
 func _ready() -> void:
 	item_resource = load("res://Items/WorkLight.tres").duplicate()
 
+func recive_power(_amt: int):
+	#item_resource.power += amt
+	update_item()
+
 func update_item() -> void:
+	print
 	if input.item_resource.power:
 		$ConeLight.active = true
 	else:
@@ -33,7 +38,6 @@ func _process(_delta: float) -> void:
 		input.global_position = $PlugPos.global_position
 
 func _on_plug_detect_body_entered(body: Node3D) -> void:
-	print("lol")
 	if input:
 		eject_object(input)
 		input = null
