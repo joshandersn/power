@@ -17,7 +17,7 @@ script = ExtResource("1_66pwa")
 
 [node name="PickupField" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 10
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupField"]
@@ -36,6 +36,8 @@ shape = SubResource("BoxShape3D_qutdp")
 wait_time = 0.1
 one_shot = true
 
+[connection signal="area_entered" from="PickupField" to="." method="_on_pickup_field_area_entered"]
+[connection signal="area_exited" from="PickupField" to="." method="_on_pickup_field_area_exited"]
 [connection signal="body_entered" from="PickupField" to="." method="_on_pickup_field_body_entered"]
 [connection signal="body_exited" from="PickupField" to="." method="_on_pickup_field_body_exited"]
 [connection signal="timeout" from="PickupTimer" to="." method="_on_pickup_timer_timeout"]

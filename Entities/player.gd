@@ -96,3 +96,15 @@ func _on_pickup_field_body_exited(body: Node3D) -> void:
 
 func _on_pickup_timer_timeout() -> void:
 	can_pickup = true
+
+var detected_plug: Node3D
+
+func _on_pickup_field_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Socket") and area.output_node:
+		Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
+		detected_plug = area.output_node
+
+func _on_pickup_field_area_exited(area: Area3D) -> void:
+	if area.is_in_group("Socket"):
+		Game.dismiss_all_prompts.emit()
+		detected_plug = null

@@ -9,10 +9,9 @@ top_radius = 0.7
 bottom_radius = 1.0
 height = 0.1
 
-[node name="Socket" type="Area3D"]
-collision_layer = 0
+[node name="Socket" type="Area3D" groups=["Socket"]]
+collision_layer = 2
 collision_mask = 2
-monitorable = false
 script = ExtResource("1_y2hsj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

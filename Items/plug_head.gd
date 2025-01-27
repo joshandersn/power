@@ -9,14 +9,6 @@ var connected_to_power: bool
 func _ready() -> void:
 	item_resource = load("res://Items/PlugHead.tres").duplicate()
 
-func connection_established():
-	pass
-	#if plugged_into and plugged_into.is_output:
-		#other_plug.plugged_into.recieve_power()
-		#print(plugged_into.is_output)
-	#if other_plug.plugged_into:
-		#print(other_plug.plugged_into.is_output)
-
 func pass_power(amt: int):
 	connected_to_power = true
 	other_plug.connected_to_power = true

@@ -28,6 +28,7 @@ func insert_item(object: Node3D) -> void:
 	if object.item_resource.plug:
 		if output_node:
 			eject_object(output_node)
+			output_node.plugged_into = null
 			output_node = null
 		output_node = object
 		object.plugged_into = self
