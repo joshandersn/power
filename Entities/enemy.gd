@@ -1,7 +1,13 @@
 extends CharacterBody3D
 
-@export var speed := 0.5
+@export var speed := 1.5
 @export var target: Node3D
+
+var near_light_source: bool
+var is_hesitant: bool
+
+func incenerate() -> void:
+	queue_free()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -9,7 +15,13 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir: Vector3
 	if target:
-		input_dir = -(position - target.position)
+		if !is_hesitant:
+			if near_light_source:
+				input_dir = (position - target.position)
+				if !$FearTimer.time_left:
+					$FearTimer.start()
+			else:
+				input_dir = -(position - target.position)
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
 	if direction:
@@ -25,3 +37,13 @@ func _physics_process(delta: float) -> void:
 func _on_detection_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		target = body
+
+
+func _on_fear_timer_timeout() -> void:
+	near_light_source = false
+	is_hesitant = true
+	$HesitateTimer.start()
+
+
+func _on_hesitate_timer_timeout() -> void:
+	is_hesitant = false

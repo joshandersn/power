@@ -20,6 +20,8 @@ collision_mask = 4
 script = ExtResource("1_3t8qb")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
+spot_angle = 60.0
+spot_angle_attenuation = 1.7411
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567171)
@@ -30,6 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54082)
 shape = SubResource("SphereShape3D_4xhmi")
 
 [node name="DeathZone" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567171)

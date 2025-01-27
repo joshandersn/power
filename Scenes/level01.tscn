@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dqax8s62i3xmi" path="res://Gadgets/boiler.tscn" id="12_wiy3a"]
 [ext_resource type="PackedScene" uid="uid://b6r1g0axogd5i" path="res://Entities/enemy.tscn" id="13_yme2v"]
 
-[sub_resource type="Resource" id="Resource_s3uqr"]
+[sub_resource type="Resource" id="Resource_h8bu0"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -25,7 +25,7 @@ heavy = false
 plug = false
 battery = false
 
-[sub_resource type="Resource" id="Resource_ewv80"]
+[sub_resource type="Resource" id="Resource_s3b0c"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -67,15 +67,21 @@ target = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40562, 1.02854, -0.110928)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
-transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 0.623409, 0.831653, 2.63247)
-item_resource = SubResource("Resource_s3uqr")
+transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 2.77677, 0.831653, 2.93278)
+item_resource = SubResource("Resource_h8bu0")
 
 [node name="WorkLight2" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.16216, 0, -0.986786, 0, 1, 0, 0.986786, 0, 0.16216, -3.62437, 0.831653, -2.48611)
-item_resource = SubResource("Resource_ewv80")
+item_resource = SubResource("Resource_s3b0c")
 
 [node name="Block" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(1.91333, 0, -1.64596, 0, 2.52389, 0, 1.64596, 0, 1.91333, 1.57699, 0.774811, -2.75338)
+
+[node name="Block2" parent="." instance=ExtResource("6_vu8qr")]
+transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 8.65993, 0.774811, -3.29521)
+
+[node name="Block3" parent="." instance=ExtResource("6_vu8qr")]
+transform = Transform3D(-3.70029, 0, 0.908115, 0, 2.52389, 0, -5.55614, 0, -0.604789, 13.6247, 0.774811, -0.584485)
 
 [node name="Battery" parent="." instance=ExtResource("8_xfpns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63558, 0.924251, 2.30835)

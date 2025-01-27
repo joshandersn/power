@@ -14,7 +14,7 @@ size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 collision_layer = 4
 script = ExtResource("1_tdvmb")
 
@@ -32,4 +32,12 @@ mesh = SubResource("BoxMesh_oplhu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qutdp")
 
+[node name="FearTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HesitateTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
+[connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]
