@@ -19,6 +19,11 @@ func eject_object(object) -> void:
 	var dir = Game.player_last_direction.normalized()
 	object.rotation.y = atan2(-dir.x, -dir.z)
 
+func receive_power(amt):
+	if inserted_item:
+		inserted_item.receive_power(amt)
+		inserted_item.update_item()
+
 func insert_item(object: Node3D) -> void:
 	if object.item_resource.plug:
 		if output_node:
@@ -30,24 +35,22 @@ func insert_item(object: Node3D) -> void:
 		object.freeze = true
 		can_insert = false
 		$InsertLimit.start()
-	else:
-		if object.item_resource.battery:
-			if inserted_item:
-				eject_object(inserted_item)
-				inserted_item = null
-				can_insert = true
-			
-			if inserted_item != object:
-				inserted_item = object
-				can_insert = false
-				$InsertLimit.start()
-				object.reparent($InsertPos)
-				object.position = Vector3.ZERO
-				object.freeze = true
-				if "refresh_item" in object:
-					object.refresh_item()
+	elif object.item_resource.battery:
+		if inserted_item:
+			eject_object(inserted_item)
+			inserted_item = null
+			can_insert = true
 		else:
-			push_warning("item not compatible with socket. Batteries only!")
+			inserted_item = object
+			can_insert = false
+			$InsertLimit.start()
+			object.reparent($InsertPos)
+			object.position = Vector3.ZERO
+			object.freeze = true
+			if "refresh_item" in object:
+				object.refresh_item()
+	else:
+		push_warning("item not compatible with socket. Batteries only!")
 
 
 func _on_body_entered(body: Node3D) -> void:

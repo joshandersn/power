@@ -3,6 +3,7 @@ extends Area3D
 var output: Node3D
 var power := 100000.0
 var power_current := 5.0
+const is_output := true
 
 
 func eject_object(object) -> void:
@@ -15,15 +16,19 @@ func eject_object(object) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if output:
 		eject_object(output)
+		body.plugged_into = null
+		output.is_reciever = false
 		output = null
 	if body.item_resource.plug:
+		print("hey?")
 		output = body
-		body.freeze = true
-		body.plugged_into = self
-		body.global_position = $PlugPos.global_position
+		output.freeze = true
+		output.plugged_into = self
+		output.is_reciever = true
+		output.pass_power(power_current)
+		output.global_position = $PlugPos.global_position
 		$ServeTimer.start()
 
 func _on_serve_timer_timeout() -> void:
 	if power >= power_current:
 		output.pass_power(power_current)
-		print("sending ", power_current, " to ", output)
