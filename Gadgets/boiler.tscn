@@ -8,10 +8,9 @@
 [sub_resource type="BoxMesh" id="BoxMesh_i45vt"]
 material = ExtResource("2_vmb2p")
 
-[node name="Boiler" type="Area3D"]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
+[node name="Boiler" type="Area3D" groups=["Socket"]]
+collision_layer = 8
+collision_mask = 10
 script = ExtResource("1_mnqfa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

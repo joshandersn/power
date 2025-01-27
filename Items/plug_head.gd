@@ -14,7 +14,23 @@ func pass_power(amt: int):
 	other_plug.connected_to_power = true
 	if plugged_into and plugged_into.is_output:
 		if other_plug.plugged_into:
-			print("work")
 			other_plug.plugged_into.receive_power(amt)
-	elif other_plug.plugged_into.is_output:
+	elif other_plug.plugged_into.dis_output:
 		plugged_into.receive_power(amt)
+
+func get_current():
+	if connected_to_power and other_plug.plugged_into:
+		return true
+	else:
+		return false
+		
+
+func disconnect_plug() -> void:
+	connected_to_power = false 
+	print(get_current())
+	var recent_plug = plugged_into
+	plugged_into = null
+	if "update_item" in recent_plug:
+		recent_plug.update_item()
+	if "update_item" in other_plug.plugged_into:
+		other_plug.plugged_into.update_item()

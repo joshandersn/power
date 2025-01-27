@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvu5rhbq64dqb"]
+[gd_scene load_steps=9 format=3 uid="uid://dvu5rhbq64dqb"]
 
 [ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
 [ext_resource type="Script" path="res://Resources/res_item.gd" id="2_6vmfs"]
+[ext_resource type="Script" path="res://Items/plug_detect.gd" id="4_s8lqt"]
 
-[sub_resource type="Resource" id="Resource_a7ixn"]
+[sub_resource type="Resource" id="Resource_xlfvl"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -22,11 +23,11 @@ battery = false
 [sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
 radius = 0.756222
 
-[node name="WorkLight" type="RigidBody3D" groups=["Item"]]
+[node name="WorkLight" type="RigidBody3D" groups=["Item", "Socket"]]
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_a7ixn")
+item_resource = SubResource("Resource_xlfvl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_jxper")
@@ -37,10 +38,10 @@ shape = SubResource("BoxShape3D_kxpk0")
 [node name="ConeLight" parent="." instance=ExtResource("1_283g0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.610479)
 
-[node name="PlugDetect" type="Area3D" parent="."]
+[node name="PlugDetect" type="Area3D" parent="." groups=["Socket"]]
 collision_layer = 8
 collision_mask = 8
-monitorable = false
+script = ExtResource("4_s8lqt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlugDetect"]
 shape = SubResource("SphereShape3D_83ln2")

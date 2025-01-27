@@ -8,6 +8,7 @@ var pickup_field: Array[Node3D]
 var picked_up_item: Node3D
 var held_plug: Node3D
 var can_pickup := true
+var detected_plug: Node3D
 
 func replace_plug_node(object, new_object) -> void:
 	if "cable_a" in object.get_parent():
@@ -18,13 +19,9 @@ func replace_plug_node(object, new_object) -> void:
 			object.get_parent().cable_b = new_object
 
 func pickup(object: Node3D) -> void:
-	if object.item_resource.plug:
-		picked_up_item = object
-	else:
-		picked_up_item = object
-		object.reparent($PickupPos)
-		object.position = Vector3.ZERO
-		object.freeze = true
+	picked_up_item = object
+	object.freeze = true
+	detected_plug = null
 	can_pickup = false
 	$PickupTimer.start()
 
@@ -32,6 +29,16 @@ func clear_pickups() -> void:
 	picked_up_item = null
 	for i in $PickupPos.get_children():
 		i.queue_free()
+
+func throw_item() -> void:
+	if picked_up_item:
+		picked_up_item.freeze = false
+		picked_up_item.linear_velocity = Game.player_last_direction * throw_power
+		var dir = Game.player_last_direction.normalized()
+		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
+		picked_up_item = null
+	else:
+		push_warning("no item is held!")
 
 func drop_item() -> void:
 	if picked_up_item:
@@ -41,12 +48,19 @@ func drop_item() -> void:
 			Game.reparent_to_world.emit(picked_up_item)
 			picked_up_item.position = $PickupPos.global_position
 		picked_up_item.freeze = false
-		picked_up_item.linear_velocity = Game.player_last_direction * throw_power
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
 		picked_up_item = null
 	else:
 		push_warning("no item is held!")
+		
+func unplug_cable():
+	if picked_up_item == null:
+		if detected_plug:
+			detected_plug.disconnect_plug()
+			picked_up_item = detected_plug
+			detected_plug = null
+	
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pickup"):
@@ -54,10 +68,14 @@ func _input(_event: InputEvent) -> void:
 			pickup(pickup_field[0])
 		elif picked_up_item:
 			drop_item()
+	if Input.is_action_just_pressed("throw") and picked_up_item:
+		throw_item()
+	if Input.is_action_just_pressed("use_cable"):
+		unplug_cable()
 		
 
 func _physics_process(delta: float) -> void:
-	if picked_up_item and picked_up_item.item_resource.plug:
+	if picked_up_item:
 		picked_up_item.global_position = $PickupPos.global_position
 	
 	if not is_on_floor():
@@ -84,6 +102,10 @@ func _on_pickup_field_body_entered(body: Node3D) -> void:
 		Game.push_prompt.emit(load("res://UI/Prompts/pickup.tres"), 0)
 	else:
 		push_warning(body, ' is not a valid item')
+		
+	#if body.is_in_group("Socket") and body.output_node:
+		#Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
+		#detected_plug = body.output_node
 
 func _on_pickup_field_body_exited(body: Node3D) -> void:
 	if "item_resource" in body:
@@ -97,7 +119,6 @@ func _on_pickup_field_body_exited(body: Node3D) -> void:
 func _on_pickup_timer_timeout() -> void:
 	can_pickup = true
 
-var detected_plug: Node3D
 
 func _on_pickup_field_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Socket") and area.output_node:

@@ -1,6 +1,6 @@
 extends Area3D
 
-var output: Node3D
+var output_node: Node3D
 var power := 100000.0
 var power_current := 5.0
 const is_output := true
@@ -14,21 +14,25 @@ func eject_object(object) -> void:
 	object.rotation.y = atan2(-dir.x, -dir.z)
 
 func _on_body_entered(body: Node3D) -> void:
-	if output:
-		eject_object(output)
+	if output_node and "plugged_into" in body:
+		eject_object(output_node)
 		body.plugged_into = null
-		output.is_reciever = false
-		output = null
+		output_node.is_reciever = false
+		output_node = null
 	if body.item_resource.plug:
 		print("hey?")
-		output = body
-		output.freeze = true
-		output.plugged_into = self
-		output.is_reciever = true
-		output.pass_power(power_current)
-		output.global_position = $PlugPos.global_position
+		output_node = body
+		output_node.freeze = true
+		output_node.plugged_into = self
+		output_node.is_reciever = true
+		output_node.pass_power(power_current)
+		output_node.global_position = $PlugPos.global_position
 		$ServeTimer.start()
 
 func _on_serve_timer_timeout() -> void:
-	if power >= power_current:
-		output.pass_power(power_current)
+	if output_node.plugged_into:
+		if power >= power_current:
+			output_node.pass_power(power_current)
+	else:
+		output_node = null
+		$ServeTimer.stop()
