@@ -11,28 +11,21 @@ func _ready() -> void:
 
 func update_connections():
 	if plugged_into and "update_item" in plugged_into:
-		print("asljkd")
 		plugged_into.update_item()
 	if other_plug.plugged_into and "update_item" in other_plug.plugged_into:
 		other_plug.plugged_into.update_item()
-		print("asljkasdasdd", other_plug.plugged_into)
 		
 
 func pass_power(amt: int):
 	if other_plug.plugged_into and plugged_into:
-		print(other_plug.plugged_into.is_output)
 		if other_plug.plugged_into.is_output:
-			print("current", other_plug.plugged_into)
 			if plugged_into and "recevie_power" in plugged_into:
 				other_plug.plugged_into.item_resource.power -= amt
 				plugged_into.receive_power(amt)
-				print("A) sending power to ", plugged_into)
 		elif plugged_into.is_output:
-			print("current ", plugged_into)
 			if other_plug.plugged_into and "receive_power" in other_plug.plugged_into:
 				plugged_into.item_resource.power -= amt
 				other_plug.plugged_into.receive_power(amt)
-				print("B) sending power to ", other_plug.plugged_into)	
 		update_connections()
 		
 

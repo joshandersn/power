@@ -7,7 +7,7 @@
 script = ExtResource("1_3c0y3")
 scene = ExtResource("1_b67er")
 title = "Boiler"
-power = 1000.0
+power = 0.0
 knocked_over = false
 broken = false
 heavy = true

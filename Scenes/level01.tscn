@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b6r1g0axogd5i" path="res://Entities/enemy.tscn" id="13_yme2v"]
 [ext_resource type="PackedScene" uid="uid://c27gfin0lxrxy" path="res://Gadgets/bounds.tscn" id="14_7ul4e"]
 
-[sub_resource type="Resource" id="Resource_ci4uu"]
+[sub_resource type="Resource" id="Resource_j0umq"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -26,7 +26,7 @@ heavy = false
 plug = false
 battery = false
 
-[sub_resource type="Resource" id="Resource_fg8yx"]
+[sub_resource type="Resource" id="Resource_2781w"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -69,11 +69,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88481, 1.02854, 1.88391)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 2.77677, 0.831653, 2.93278)
-item_resource = SubResource("Resource_ci4uu")
+item_resource = SubResource("Resource_j0umq")
 
 [node name="WorkLight2" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.16216, 0, -0.986786, 0, 1, 0, 0.986786, 0, 0.16216, -3.62437, 0.831653, -2.48611)
-item_resource = SubResource("Resource_fg8yx")
+item_resource = SubResource("Resource_2781w")
 
 [node name="Block" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(1.91333, 0, -1.64596, 0, 2.52389, 0, 1.64596, 0, 1.91333, 1.57699, 0.774811, -2.75338)
