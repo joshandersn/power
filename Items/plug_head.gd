@@ -27,7 +27,6 @@ func get_current():
 
 func disconnect_plug() -> void:
 	connected_to_power = false 
-	print(get_current())
 	var recent_plug = plugged_into
 	plugged_into = null
 	if "update_item" in recent_plug:

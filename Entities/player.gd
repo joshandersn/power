@@ -42,12 +42,10 @@ func throw_item() -> void:
 
 func drop_item() -> void:
 	if picked_up_item:
-		if picked_up_item.item_resource.plug:
-			pass
-		else:
-			Game.reparent_to_world.emit(picked_up_item)
-			picked_up_item.position = $PickupPos.global_position
 		picked_up_item.freeze = false
+		picked_up_item.position.y -= 1.5
+		picked_up_item.position += Game.player_last_direction * 0.8
+		picked_up_item.linear_velocity = Game.player_last_direction * 1
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
 		picked_up_item = null
@@ -124,6 +122,7 @@ func _on_pickup_field_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Socket") and area.output_node:
 		Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
 		detected_plug = area.output_node
+		print(detected_plug)
 
 func _on_pickup_field_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Socket"):

@@ -17,7 +17,6 @@ func update_item() -> void:
 		$ConeLight.active = true
 	else:
 		$ConeLight.active = false
-	print("cone ", $ConeLight.active)
 	$ConeLight.update_item()
 
 func eject_object(object) -> void:
