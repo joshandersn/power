@@ -32,6 +32,7 @@ window/size/viewport_height=1080
 
 Item="things we pick up"
 Socket="things that items fit into"
+Player="you"
 
 [input]
 

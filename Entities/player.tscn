@@ -8,10 +8,11 @@ radius = 0.83754
 
 [sub_resource type="BoxMesh" id="BoxMesh_ki6ae"]
 material = ExtResource("2_86vdo")
+size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 4
 script = ExtResource("1_66pwa")
 

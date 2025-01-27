@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b02cujpkxg8ny"]
+[gd_scene load_steps=16 format=3 uid="uid://b02cujpkxg8ny"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_vvgl1"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dpqd7qs18dur5" path="res://Gadgets/Socket.tscn" id="9_akx66"]
 [ext_resource type="PackedScene" uid="uid://c8rubgifvu7ns" path="res://Gadgets/Cable.tscn" id="10_5yowi"]
 [ext_resource type="PackedScene" uid="uid://dqax8s62i3xmi" path="res://Gadgets/boiler.tscn" id="12_wiy3a"]
+[ext_resource type="PackedScene" uid="uid://b6r1g0axogd5i" path="res://Entities/enemy.tscn" id="13_yme2v"]
 
-[sub_resource type="Resource" id="Resource_wtgmp"]
+[sub_resource type="Resource" id="Resource_s3uqr"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -24,7 +25,7 @@ heavy = false
 plug = false
 battery = false
 
-[sub_resource type="Resource" id="Resource_ll6wl"]
+[sub_resource type="Resource" id="Resource_ewv80"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -66,30 +67,33 @@ target = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40562, 1.02854, -0.110928)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
-transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 0.258043, 0.831653, 2.09793)
-item_resource = SubResource("Resource_wtgmp")
+transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 0.623409, 0.831653, 2.63247)
+item_resource = SubResource("Resource_s3uqr")
 
 [node name="WorkLight2" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.16216, 0, -0.986786, 0, 1, 0, 0.986786, 0, 0.16216, -3.62437, 0.831653, -2.48611)
-item_resource = SubResource("Resource_ll6wl")
+item_resource = SubResource("Resource_ewv80")
 
 [node name="Block" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(1.91333, 0, -1.64596, 0, 2.52389, 0, 1.64596, 0, 1.91333, 1.57699, 0.774811, -2.75338)
 
 [node name="Battery" parent="." instance=ExtResource("8_xfpns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00023, 0.924251, 2.30835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63558, 0.924251, 2.30835)
 
 [node name="Battery2" parent="." instance=ExtResource("8_xfpns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2984, 0.924251, 3.31281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.93375, 0.924251, 3.31281)
 
 [node name="Socket" parent="." instance=ExtResource("9_akx66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57335, 0.25, 3.83284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77277, 0.25, 3.83284)
 
 [node name="Cable" parent="." instance=ExtResource("10_5yowi")]
 transform = Transform3D(0.999203, 0.0399225, 0, -0.0399225, 0.999203, 0, 0, 0, 1, -6.71506, 1.09409, 0.627947)
 
 [node name="Cable2" parent="." instance=ExtResource("10_5yowi")]
-transform = Transform3D(0.999203, 0.0399225, 0, -0.0399225, 0.999203, 0, 0, 0, 1, 2.49827, 1.09409, 4.55796)
+transform = Transform3D(0.999203, 0.0399225, 0, -0.0399225, 0.999203, 0, 0, 0, 1, -2.53853, 0.258568, 1.82696)
 
 [node name="Boiler" parent="." instance=ExtResource("12_wiy3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52334, 0.25, -0.118327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98085, 0.25, 3.97736)
+
+[node name="Enemy" parent="." instance=ExtResource("13_yme2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27573, 1.01116, 0.427783)

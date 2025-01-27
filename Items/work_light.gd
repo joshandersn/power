@@ -41,5 +41,4 @@ func _on_plug_detect_body_entered(body: Node3D) -> void:
 		body.freeze = true
 		body.plugged_into = self
 		body.global_position = $PlugPos.global_position
-		body.connection_established()
 		update_item()
