@@ -17,14 +17,13 @@ func receive_power(_amt: int):
 	update_item()
 
 func update_item() -> void:
-	if output_node and output_node.plugged_into:
-		if output_node.get_current():
-			$ConeLight.active = true
-		else:
-			$ConeLight.active = false
-	else:
-		output_node = null
-		$ConeLight.active = false
+	if output_node:
+		if output_node.other_plug.plugged_into and output_node.plugged_into:
+			if output_node.other_plug.plugged_into.item_resource.power:
+				$ConeLight.active = true
+			else:
+				$ConeLight.active = false
+	$lightMesh.visible = $ConeLight.active
 	$ConeLight.update_item()
 
 func eject_object(object) -> void:
@@ -46,4 +45,5 @@ func _on_plug_detect_body_entered(body: Node3D) -> void:
 		body.freeze = true
 		body.plugged_into = self
 		body.global_position = $PlugPos.global_position
+		body.update_connections()
 		update_item()

@@ -9,14 +9,30 @@ var connected_to_power: bool
 func _ready() -> void:
 	item_resource = load("res://Items/PlugHead.tres").duplicate()
 
+func update_connections():
+	if plugged_into and "update_item" in plugged_into:
+		plugged_into.update_item()
+	if other_plug.plugged_into and "update_item" in other_plug.plugged_into:
+		other_plug.plugged_into.update_item()
+		
+
 func pass_power(amt: int):
-	connected_to_power = true
-	other_plug.connected_to_power = true
-	if plugged_into and plugged_into.is_output:
-		if other_plug.plugged_into:
-			other_plug.plugged_into.receive_power(amt)
-	elif other_plug.plugged_into.is_output:
-		plugged_into.receive_power(amt)
+	if other_plug.plugged_into and plugged_into:
+		if other_plug.plugged_into.is_output:
+			print("current", other_plug.plugged_into)
+			if plugged_into and "recevie_power" in plugged_into:
+				other_plug.plugged_into.item_resource.power -= amt
+				plugged_into.receive_power(amt)
+				print("A) sending power to ", plugged_into)
+		elif plugged_into.is_output:
+			print("current ", plugged_into)
+			if other_plug.plugged_into and "receive_power" in other_plug.plugged_into:
+				plugged_into.item_resource.power -= amt
+				other_plug.plugged_into.receive_power(amt)
+				print("B) sending power to ", other_plug.plugged_into)
+		
+	update_connections()
+		
 
 func get_current():
 	if connected_to_power and other_plug.plugged_into:
@@ -26,10 +42,10 @@ func get_current():
 		
 
 func disconnect_plug() -> void:
-	connected_to_power = false 
 	var recent_plug = plugged_into
 	plugged_into = null
 	if "update_item" in recent_plug:
 		recent_plug.update_item()
 	if other_plug.plugged_into and "update_item" in other_plug.plugged_into:
 		other_plug.plugged_into.update_item()
+	recent_plug.output_node = null

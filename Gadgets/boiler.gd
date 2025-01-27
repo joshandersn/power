@@ -1,7 +1,7 @@
 extends Area3D
 
+@onready var item_resource = load("res://Gadgets/boiler.tres")
 var output_node: Node3D
-var power := 100000.0
 var power_current := 5.0
 const is_output := true
 
@@ -20,19 +20,19 @@ func _on_body_entered(body: Node3D) -> void:
 		output_node.is_reciever = false
 		output_node = null
 	if body.item_resource.plug:
-		print("hey?")
 		output_node = body
 		output_node.freeze = true
 		output_node.plugged_into = self
 		output_node.is_reciever = true
 		output_node.pass_power(power_current)
 		output_node.global_position = $PlugPos.global_position
+		output_node.update_connections()
 		$ServeTimer.start()
 
 func _on_serve_timer_timeout() -> void:
-	if output_node.plugged_into:
-		if power >= power_current:
+	if output_node and output_node.plugged_into:
+		if item_resource.power >= power_current:
+			print("boiler is sending")
 			output_node.pass_power(power_current)
 	else:
-		output_node = null
 		$ServeTimer.stop()

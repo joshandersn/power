@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://4jkwxyffb1r"]
+
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="1_arbkc"]
+[ext_resource type="PackedScene" uid="uid://dpqd7qs18dur5" path="res://Gadgets/Socket.tscn" id="1_dkj7m"]
+
+[resource]
+script = ExtResource("1_arbkc")
+scene = ExtResource("1_dkj7m")
+title = "Socket"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = true
+plug = false
+battery = false

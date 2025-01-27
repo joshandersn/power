@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://df0evrfjkqb7w"]
+
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="1_3c0y3"]
+[ext_resource type="PackedScene" uid="uid://dqax8s62i3xmi" path="res://Gadgets/boiler.tscn" id="1_b67er"]
+
+[resource]
+script = ExtResource("1_3c0y3")
+scene = ExtResource("1_b67er")
+title = "Boiler"
+power = 1000.0
+knocked_over = false
+broken = false
+heavy = true
+plug = false
+battery = false

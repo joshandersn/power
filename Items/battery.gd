@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func receive_power(amt: int) -> void:
 	item_resource.power += amt
+	update_item()
 
 func update_item() -> void:
 	var new_height = (item_resource.power / 100)
