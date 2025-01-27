@@ -53,7 +53,6 @@ func drop_item() -> void:
 		push_warning("no item is held!")
 		
 func unplug_cable():
-	print(detected_plug)
 	if picked_up_item == null:
 		if detected_plug:
 			detected_plug.disconnect_plug()

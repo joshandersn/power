@@ -32,7 +32,6 @@ func _on_body_entered(body: Node3D) -> void:
 func _on_serve_timer_timeout() -> void:
 	if output_node and output_node.plugged_into:
 		if item_resource.power >= power_current:
-			print("boiler is sending")
 			output_node.pass_power(power_current)
 	else:
 		$ServeTimer.stop()

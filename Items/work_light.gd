@@ -23,6 +23,11 @@ func update_item() -> void:
 				$ConeLight.active = true
 			else:
 				$ConeLight.active = false
+		else:
+			$ConeLight.active = false
+	else:
+		$ConeLight.active = false
+			
 	$lightMesh.visible = $ConeLight.active
 	$ConeLight.update_item()
 

@@ -17,25 +17,31 @@ func eject_object(object) -> void:
 	var dir = Game.player_last_direction.normalized()
 	object.rotation.y = atan2(-dir.x, -dir.z)
 
+func update_item():
+	update_outputs()
+
 func receive_power(amt):
 	if inserted_item:
 		inserted_item.receive_power(amt)
 		inserted_item.update_item()
+	
+func update_outputs():
+	if output_node and output_node.other_plug and output_node.other_plug.plugged_into and output_node.other_plug.plugged_into.is_output:
+		is_output = false
+	else:
+		is_output = true
 
 func insert_item(object: Node3D) -> void:
 	if object.item_resource.plug:
 		if output_node:
 			eject_object(output_node)
 			output_node.plugged_into = null
+			$InsertLimit.start()
 			output_node = null
 		output_node = object
-		print(output_node)
 		object.plugged_into = self
 		object.global_position = $PlugPos.global_position
-		if output_node.other_plug.plugged_into and output_node.other_plug.plugged_into.is_output:
-			is_output = false
-		else:
-			is_output = true
+		update_outputs()
 		object.update_connections()
 		object.freeze = true
 		can_insert = false
@@ -45,15 +51,15 @@ func insert_item(object: Node3D) -> void:
 		if inserted_item:
 			eject_object(inserted_item)
 			inserted_item = null
+			$InsertLimit.start()
 			can_insert = true
 		else:
 			inserted_item = object
 			item_resource = inserted_item.item_resource
 			can_insert = false
+			update_outputs()
 			$InsertLimit.start()
 			$ServeTimer.start()
-			if output_node and output_node.other_plug.plugged_into:
-				is_output = !output_node.other_plug.plugged_into.is_output # if other connection is a power source
 			object.reparent($InsertPos)
 			object.position = Vector3.ZERO
 			object.freeze = true
@@ -77,7 +83,6 @@ var power_current := 5
 func _on_serve_timer_timeout() -> void:
 	if output_node and output_node.plugged_into and inserted_item:
 		if inserted_item.item_resource.power >= power_current:
-			print("socket is sending")
 			output_node.pass_power(power_current)
 			inserted_item.update_item()
 	else:
