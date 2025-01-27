@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Gadgets/bounds.gd" id="1_igtdj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhels"]
-size = Vector3(20, 5, 20)
+size = Vector3(20, 2, 20)
 
 [node name="Bounds" type="Area3D"]
 collision_layer = 0
@@ -14,4 +14,4 @@ script = ExtResource("1_igtdj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_yhels")
 
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

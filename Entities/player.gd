@@ -53,11 +53,13 @@ func drop_item() -> void:
 		push_warning("no item is held!")
 		
 func unplug_cable():
+	print(detected_plug)
 	if picked_up_item == null:
 		if detected_plug:
 			detected_plug.disconnect_plug()
 			picked_up_item = detected_plug
 			detected_plug = null
+			Game.dismiss_all_prompts.emit()
 	
 
 func _input(_event: InputEvent) -> void:
@@ -122,7 +124,6 @@ func _on_pickup_field_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Socket") and area.output_node:
 		Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
 		detected_plug = area.output_node
-		print(detected_plug)
 
 func _on_pickup_field_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Socket"):

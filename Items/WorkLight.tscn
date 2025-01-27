@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Resources/res_item.gd" id="2_6vmfs"]
 [ext_resource type="Script" path="res://Items/plug_detect.gd" id="4_s8lqt"]
 
-[sub_resource type="Resource" id="Resource_xlfvl"]
+[sub_resource type="Resource" id="Resource_85o1h"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -17,6 +17,7 @@ plug = false
 battery = false
 
 [sub_resource type="BoxMesh" id="BoxMesh_jxper"]
+size = Vector3(1, 0.4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
 
@@ -27,9 +28,10 @@ radius = 0.756222
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_xlfvl")
+item_resource = SubResource("Resource_85o1h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.989083, -0.147361, 0, 0.147361, 0.989083, 0, 0, 0)
 mesh = SubResource("BoxMesh_jxper")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -47,6 +49,6 @@ script = ExtResource("4_s8lqt")
 shape = SubResource("SphereShape3D_83ln2")
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.190033, 0.565708)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0985252, 0.565708)
 
 [connection signal="body_entered" from="PlugDetect" to="." method="_on_plug_detect_body_entered"]

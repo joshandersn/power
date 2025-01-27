@@ -15,7 +15,7 @@ func pass_power(amt: int):
 	if plugged_into and plugged_into.is_output:
 		if other_plug.plugged_into:
 			other_plug.plugged_into.receive_power(amt)
-	elif other_plug.plugged_into.dis_output:
+	elif other_plug.plugged_into.is_output:
 		plugged_into.receive_power(amt)
 
 func get_current():
@@ -31,5 +31,5 @@ func disconnect_plug() -> void:
 	plugged_into = null
 	if "update_item" in recent_plug:
 		recent_plug.update_item()
-	if "update_item" in other_plug.plugged_into:
+	if other_plug.plugged_into and "update_item" in other_plug.plugged_into:
 		other_plug.plugged_into.update_item()

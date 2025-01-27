@@ -2,7 +2,11 @@
 extends RigidBody3D
 
 @export var item_resource: res_item
-@export var output_node: Node3D
+@export var output_node: Node3D:
+	set(value):
+		$PlugDetect.output_node = value
+		output_node = value
+
 const is_output := false
 
 
@@ -13,9 +17,13 @@ func receive_power(_amt: int):
 	update_item()
 
 func update_item() -> void:
-	if output_node and output_node.get_current():
-		$ConeLight.active = true
+	if output_node and output_node.plugged_into:
+		if output_node.get_current():
+			$ConeLight.active = true
+		else:
+			$ConeLight.active = false
 	else:
+		output_node = null
 		$ConeLight.active = false
 	$ConeLight.update_item()
 

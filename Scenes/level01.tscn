@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b6r1g0axogd5i" path="res://Entities/enemy.tscn" id="13_yme2v"]
 [ext_resource type="PackedScene" uid="uid://c27gfin0lxrxy" path="res://Gadgets/bounds.tscn" id="14_7ul4e"]
 
-[sub_resource type="Resource" id="Resource_62gmo"]
+[sub_resource type="Resource" id="Resource_pwjcs"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -26,7 +26,7 @@ heavy = false
 plug = false
 battery = false
 
-[sub_resource type="Resource" id="Resource_x2bwa"]
+[sub_resource type="Resource" id="Resource_n2imp"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -69,11 +69,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40562, 1.02854, -0.110928)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.544052, 0, -0.839077, 0, 1, 0, 0.839077, 0, 0.544052, 2.77677, 0.831653, 2.93278)
-item_resource = SubResource("Resource_62gmo")
+item_resource = SubResource("Resource_pwjcs")
 
 [node name="WorkLight2" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(0.16216, 0, -0.986786, 0, 1, 0, 0.986786, 0, 0.16216, -3.62437, 0.831653, -2.48611)
-item_resource = SubResource("Resource_x2bwa")
+item_resource = SubResource("Resource_n2imp")
 
 [node name="Block" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(1.91333, 0, -1.64596, 0, 2.52389, 0, 1.64596, 0, 1.91333, 1.57699, 0.774811, -2.75338)
@@ -106,8 +106,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98085, 0.25, 3.97736)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27573, 1.01116, 0.427783)
 
 [node name="Bounds" parent="." node_paths=PackedStringArray("respawn") instance=ExtResource("14_7ul4e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4016, 0)
+transform = Transform3D(1.9899, 0, 0, 0, 1, 0, 0, 0, 1.81182, 0, -1.62597, 0)
 respawn = NodePath("../Respawn")
 
 [node name="Respawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59324, 1.37234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71961, 1.37234)
