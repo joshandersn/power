@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvnhgiueqxt8r"]
+
+[ext_resource type="Script" path="res://Gadgets/cone_light.gd" id="1_4te3e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w2mxh"]
+radius = 1.00866
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4xhmi"]
+radius = 2.42199
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2xgcb"]
+radius = 0.516075
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_41yks"]
+radius = 1.97178
+
+[node name="ConeLight" type="Area3D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_4te3e")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+light_energy = 10.0
+spot_range = 10.1049
+spot_angle = 67.345
+spot_angle_attenuation = 1.7411
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.18199, 0, 0, 0, 2.18199, 0, 0, 0, 2.18199, 0, 0, -1.54344)
+shape = SubResource("SphereShape3D_w2mxh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.18199, 0, 0, 0, 2.18199, 0, 0, 0, 2.18199, 0, 0, -5.84992)
+shape = SubResource("SphereShape3D_4xhmi")
+
+[node name="DeathZone" type="Area3D" parent="."]
+transform = Transform3D(2.18199, 0, 0, 0, 2.18199, 0, 0, 0, 2.18199, 0, 0, -0.305878)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.567171)
+shape = SubResource("SphereShape3D_2xgcb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DeathZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.54082)
+shape = SubResource("SphereShape3D_41yks")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

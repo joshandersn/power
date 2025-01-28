@@ -34,6 +34,7 @@ Item="things we pick up"
 Socket="things that items fit into"
 Player="you"
 Enemy="goblin"
+Defence="items that are suseptible to goblins"
 
 [input]
 

@@ -1,5 +1,7 @@
 extends Node
 
+const DEBUG = true
+
 signal load_scene
 signal update_ui
 signal push_prompt
@@ -15,3 +17,4 @@ var current_level: PackedScene
 
 # Session
 var enemy_count: int
+var defences: Array[Node3D]

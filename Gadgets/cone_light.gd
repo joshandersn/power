@@ -10,7 +10,7 @@ var near_array: Array[Node3D]
 var incenerate_array: Array[Node3D]
 
 func update_item() -> void:
-	$SpotLight3D.light_energy = 3 if active else 0
+	$SpotLight3D.light_energy = 10 if active else 0
 	if active:
 		for i in near_array:
 			if is_instance_valid(i):

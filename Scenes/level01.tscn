@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b02cujpkxg8ny"]
+[gd_scene load_steps=20 format=3 uid="uid://b02cujpkxg8ny"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_vvgl1"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -16,8 +16,21 @@
 [ext_resource type="PackedScene" uid="uid://c27gfin0lxrxy" path="res://Gadgets/bounds.tscn" id="14_7ul4e"]
 [ext_resource type="PackedScene" uid="uid://bikefj2032jwl" path="res://Items/cinderblock.tscn" id="15_kmp4o"]
 [ext_resource type="PackedScene" uid="uid://cn2y8amb3kwd4" path="res://Gadgets/trigger.tscn" id="16_whnag"]
+[ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="17_vp5uv"]
 
-[sub_resource type="Resource" id="Resource_4tuyn"]
+[sub_resource type="Resource" id="Resource_x7vxe"]
+script = ExtResource("6_lfve5")
+scene = ExtResource("4_410tk")
+title = "Work Light"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = false
+plug = false
+battery = false
+fuel = 0.0
+
+[sub_resource type="Resource" id="Resource_dk0y3"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -61,7 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88481, 1.02854, 1.88391)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.2503, 0.831654, -3.80756)
-item_resource = SubResource("Resource_4tuyn")
+item_resource = SubResource("Resource_x7vxe")
 
 [node name="Block2" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
@@ -110,3 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43231, 2.82128, -3.72873)
 transform = Transform3D(2.80581, 0, 0, 0, 2.40477, 0, 0, 0, 2.66701, 2.27996, 1.26963, -3.25575)
 push_dialog = "Hey honey how are things outside. Are you cold? di you bring your jacket?"
 one_time = true
+
+[node name="WorkLightTall" parent="." instance=ExtResource("17_vp5uv")]
+transform = Transform3D(-0.995585, 0, -0.093865, 0, 1, 0, 0.093865, 0, -0.995585, -2.82431, 0.858117, 0.472432)
+item_resource = SubResource("Resource_dk0y3")
