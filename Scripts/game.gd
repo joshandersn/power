@@ -10,6 +10,7 @@ signal push_dialog
 signal lose
 signal restart_level
 signal scan_level
+signal look_at
 
 var input_method := "keyboard"
 var player_last_direction: Vector3

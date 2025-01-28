@@ -3,7 +3,13 @@
 [ext_resource type="Script" path="res://Gadgets/camera.gd" id="1_uxyda"]
 
 [node name="Camera" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_uxyda")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.767769, 0.640726, 0, -0.640726, 0.767769, 0, 7.295, 7.40919)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -9,5 +9,9 @@ func goblin_action() -> void:
 		health -= 1
 	elif !destroyed:
 		destroyed = true
-		Game.lose.emit()
-		Game.push_dialog.emit(lose_message)
+		Game.look_at.emit(self, 4)
+		$Timer.start()
+
+func _on_timer_timeout() -> void:
+	Game.lose.emit()
+	Game.push_dialog.emit(lose_message)
