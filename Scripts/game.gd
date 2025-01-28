@@ -12,3 +12,6 @@ signal restart_level
 var input_method := "keyboard"
 var player_last_direction: Vector3
 var current_level: PackedScene
+
+# Session
+var enemy_count: int
