@@ -3,6 +3,7 @@ extends RigidBody3D
 var item_resource: res_item
 const is_output := true
 var inserted_into: Node3D
+var is_locked: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

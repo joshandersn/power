@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhmi7bckyg0k2"]
+
+[ext_resource type="Script" path="res://Gadgets/super_light.gd" id="1_04jbq"]
+[ext_resource type="Material" uid="uid://voywv6xdfc2a" path="res://Materials/gray.tres" id="2_f4ly8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rye02"]
+bottom_radius = 2.0
+height = 0.3
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_28xg3"]
+material = ExtResource("2_f4ly8")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 10.0
+radial_segments = 6
+
+[node name="SuperLight" type="Node3D"]
+script = ExtResource("1_04jbq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0101, 0)
+mesh = SubResource("CylinderMesh_rye02")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.01535, 0)
+mesh = SubResource("CylinderMesh_28xg3")
+
+[node name="light" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0743327, 0)
+light_color = Color(1, 1, 0.756863, 1)
+light_energy = 10.0
+spot_range = 23.1564
+spot_angle = 80.1562

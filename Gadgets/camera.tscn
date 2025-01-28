@@ -7,7 +7,7 @@ process_mode = 3
 script = ExtResource("1_uxyda")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.767769, 0.640726, 0, -0.640726, 0.767769, 0, 7.295, 7.40919)
+transform = Transform3D(1, 0, 0, 0, 0.865519, 0.500876, 0, -0.500876, 0.865519, 0, 4.54488, 7.40919)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

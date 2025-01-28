@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="6_uaa6l"]
 
-[sub_resource type="Resource" id="Resource_l8ogh"]
+[sub_resource type="Resource" id="Resource_tiam4"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -21,8 +21,19 @@ fuel = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
 
-[sub_resource type="Animation" id="Animation_6vkh1"]
-resource_name = "knockOver"
+[sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
+radius = 0.756222
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41lkj"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxper"]
+material = SubResource("StandardMaterial3D_41lkj")
+size = Vector3(1, 0.4, 1)
+
+[sub_resource type="Animation" id="Animation_qquhl"]
+resource_name = "PropUp"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,10 +41,10 @@ tracks/0/path = NodePath("Node3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.266667, 0.333333),
-"transitions": PackedFloat32Array(1, 0.267943, 2.63902, 1),
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.933333),
+"transitions": PackedFloat32Array(0.217638, 1, 0.307786, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.53589, 0, 0), Vector3(1.5708, 0, 0)]
+"values": [Vector3(1.5708, 0, 0), Vector3(1.13747, 0, 0), Vector3(1.22173, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xnnic"]
@@ -51,8 +62,8 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qquhl"]
-resource_name = "PropUp"
+[sub_resource type="Animation" id="Animation_6vkh1"]
+resource_name = "knockOver"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,10 +71,10 @@ tracks/0/path = NodePath("Node3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.933333),
-"transitions": PackedFloat32Array(0.217638, 1, 0.307786, 1),
+"times": PackedFloat32Array(0, 0.166667, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 0.267943, 2.63902, 1),
 "update": 0,
-"values": [Vector3(1.5708, 0, 0), Vector3(1.13747, 0, 0), Vector3(1.22173, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.53589, 0, 0), Vector3(1.5708, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y1w5i"]
@@ -73,30 +84,14 @@ _data = {
 "knockOver": SubResource("Animation_6vkh1")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
-radius = 0.756222
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41lkj"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jxper"]
-material = SubResource("StandardMaterial3D_41lkj")
-size = Vector3(1, 0.4, 1)
-
 [node name="WorkLight" type="RigidBody3D" groups=["Defence", "Item", "Socket"]]
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_l8ogh")
+item_resource = SubResource("Resource_tiam4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kxpk0")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape3D"]
-libraries = {
-"": SubResource("AnimationLibrary_y1w5i")
-}
 
 [node name="ConeLight" parent="." instance=ExtResource("1_283g0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544944, -0.255902)

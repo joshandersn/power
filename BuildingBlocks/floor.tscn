@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci612bgc6r3x1"]
+[gd_scene load_steps=4 format=3 uid="uid://ci612bgc6r3x1"]
+
+[ext_resource type="Material" uid="uid://cq6382qqjdv1h" path="res://Materials/grass.tres" id="1_4y2rm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ynpri"]
+material = ExtResource("1_4y2rm")
 size = Vector3(10, 0.5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vy8tu"]

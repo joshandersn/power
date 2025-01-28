@@ -4,9 +4,6 @@ extends Area3D
 @export var max_light := 10.0
 @export var light_color := Color(1, 1, 1)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	update_item()
 	
 var near_array: Array[Node3D]
 var incenerate_array: Array[Node3D]
@@ -22,7 +19,6 @@ func update_item() -> void:
 		for i in incenerate_array:
 			if is_instance_valid(i):
 				i.incenerate()
-
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Enemy") and "near_light_source" in body:

@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var speed := 3
+@onready var init_speed = speed
 @export var throw_power := 5
 
 var health = 3
@@ -34,18 +35,21 @@ func replace_plug_node(object, new_object) -> void:
 			object.get_parent().cable_b = new_object
 
 func pickup(object: Node3D) -> void:
-	if "knocked_over" in object and object.knocked_over:
-		object.prop_back_up()
+	if "is_locked" in object and object.is_locked:
+		pass
 	else:
-		picked_up_item = object
-		object.freeze = true
-		detected_plug = null
-		can_pickup = false
-		if "inserted_into" in object:
-			if object.inserted_into:
-				object.inserted_into.have_item_removed()
-		pickup_field.resize(0)
-		$PickupTimer.start()
+		if "knocked_over" in object and object.knocked_over:
+			object.prop_back_up()
+		else:
+			picked_up_item = object
+			object.freeze = true
+			detected_plug = null
+			can_pickup = false
+			if "inserted_into" in object:
+				if object.inserted_into:
+					object.inserted_into.have_item_removed()
+			pickup_field.resize(0)
+			$PickupTimer.start()
 
 func throw_item() -> void:
 	if picked_up_item:
@@ -89,6 +93,11 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_cable"):
 		unplug_cable()
 		
+	if Input.is_action_just_pressed("run"):
+		speed = speed*2
+	elif Input.is_action_just_released("run"):
+		speed = init_speed
+		
 
 func _physics_process(delta: float) -> void:
 	if picked_up_item:
@@ -99,6 +108,8 @@ func _physics_process(delta: float) -> void:
 		
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+
 
 	if direction and health > 0:
 		velocity.x = direction.x * speed

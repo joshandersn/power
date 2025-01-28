@@ -2,6 +2,7 @@ extends Area3D
 
 @export var push_dialog: String
 @export var one_time: bool
+@export var load_level: PackedScene
 
 
 func _on_body_entered(body: Node3D) -> void:
@@ -11,3 +12,6 @@ func _on_body_entered(body: Node3D) -> void:
 			
 		if one_time:
 			set_deferred("monitoring", false)
+			
+		if load_level:
+			Game.load_scene.emit(load_level)
