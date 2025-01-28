@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="17_vp5uv"]
 [ext_resource type="PackedScene" uid="uid://hsyxg1ydgpg0" path="res://Gadgets/Car.tscn" id="18_n5bnj"]
 
-[sub_resource type="Resource" id="Resource_nbdk1"]
+[sub_resource type="Resource" id="Resource_y3ent"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -74,8 +74,8 @@ target = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.39538, 3.03527, 3.5222)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
-transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.2503, 0.831654, -3.80756)
-item_resource = SubResource("Resource_nbdk1")
+transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -5.0741, 0.831654, -0.41735)
+item_resource = SubResource("Resource_y3ent")
 
 [node name="Block2" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
@@ -87,13 +87,13 @@ transform = Transform3D(6.67547, 0, -0.00489528, 0, 2.52389, 0, 0.0299507, 0, 1.
 transform = Transform3D(6.67547, 0, -0.00489528, 0, 2.52389, 0, 0.0299507, 0, 1.09106, -11.8387, 0.774811, -5.59845)
 
 [node name="Battery2" parent="." instance=ExtResource("8_xfpns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1758, 0.924251, -3.84069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.97452, 0.924251, -0.454692)
 
 [node name="Socket" parent="." instance=ExtResource("9_akx66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32655, 0.249998, -2.80967)
 
 [node name="Cable" parent="." instance=ExtResource("10_5yowi")]
-transform = Transform3D(0.706543, 0.0282295, -0.707107, -0.0399225, 0.999203, 0, 0.706543, 0.0282295, 0.707107, -8.98321, 1.53823, 3.27271)
+transform = Transform3D(0.706543, 0.0282295, -0.707107, -0.0399225, 0.999203, 0, 0.706543, 0.0282295, 0.707107, -5.01355, 1.53823, -1.83457)
 
 [node name="Boiler" parent="." instance=ExtResource("12_wiy3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55495, 0.250001, -3.63691)

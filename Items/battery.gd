@@ -18,3 +18,6 @@ func update_item() -> void:
 	var scaled_value = new_height * 0.65
 	$juice.mesh.height = scaled_value
 	$juice.position.y = $juice.mesh.height/2 - 0.25
+	
+	$OmniLight.active = !!(item_resource.power > 50)
+	$OmniLight.update_item()

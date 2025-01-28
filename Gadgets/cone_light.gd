@@ -1,6 +1,8 @@
 extends Area3D
 
 @export var active: bool
+@export var max_light := 10.0
+@export var light_color := Color(1, 1, 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +12,8 @@ var near_array: Array[Node3D]
 var incenerate_array: Array[Node3D]
 
 func update_item() -> void:
-	$SpotLight3D.light_energy = 10 if active else 0
+	$SpotLight3D.light_energy = max_light if active else 0.0
+	$SpotLight3D.light_color = light_color
 	if active:
 		for i in near_array:
 			if is_instance_valid(i):

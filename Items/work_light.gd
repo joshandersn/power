@@ -48,7 +48,7 @@ func update_item() -> void:
 	else:
 		$ConeLight.active = false
 			
-	$lightMesh.visible = $ConeLight.active
+	$Node3D/lightMesh.visible = $ConeLight.active
 	$ConeLight.update_item()
 
 func eject_object(object) -> void:

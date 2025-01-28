@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvnhgiueqxt8r" path="res://Gadgets/ConeLightLarge.tscn" id="4_sc7ew"]
 [ext_resource type="PackedScene" uid="uid://buuplwt7twho" path="res://Assets/Worklight.glb" id="6_vm068"]
 
-[sub_resource type="Resource" id="Resource_pbuko"]
+[sub_resource type="Resource" id="Resource_5egel"]
 script = ExtResource("2_burmu")
 scene = ExtResource("2_2wtrb")
 title = "Work Light"
@@ -19,6 +19,11 @@ plug = false
 battery = false
 fuel = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
+radius = 0.756222
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41lkj"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -26,11 +31,6 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_jxper"]
 material = SubResource("StandardMaterial3D_41lkj")
 size = Vector3(1, 0.4, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
-radius = 0.756222
 
 [sub_resource type="Animation" id="Animation_6vkh1"]
 resource_name = "knockOver"
@@ -88,17 +88,7 @@ _data = {
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_3ojxu")
-item_resource = SubResource("Resource_pbuko")
-
-[node name="lightMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.596574, -0.209053, -0.034385, -0.000460287, 0.138279, -0.321507, 0.26112, 0.477862, 0.0779917, 1.05127, 3.22892, -0.182806)
-visible = false
-mesh = SubResource("BoxMesh_jxper")
-
-[node name="lightMesh2" type="MeshInstance3D" parent="lightMesh"]
-transform = Transform3D(-0.830482, -0.442238, 0.082769, 0.709109, -0.661902, 0.268175, 0.259444, -0.664998, -0.913532, -2.69053, 1.37423, -0.130762)
-mesh = SubResource("BoxMesh_jxper")
-skeleton = NodePath("../..")
+item_resource = SubResource("Resource_5egel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kxpk0")
@@ -118,9 +108,21 @@ shape = SubResource("SphereShape3D_83ln2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187387, -0.381702, 0.44253)
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.497159, 0.352442)
+
+[node name="lightMesh" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.56891, -0.255017, -0.0385885, -0.010551, 0.113332, -0.32515, 0.316726, 0.461842, 0.0584817, 0.995582, 3.65676, -0.879701)
+visible = false
+mesh = SubResource("BoxMesh_jxper")
+skeleton = NodePath("../..")
+
+[node name="lightMesh2" type="MeshInstance3D" parent="Node3D/lightMesh"]
+transform = Transform3D(-0.830482, -0.442238, 0.082769, 0.709109, -0.661902, 0.268175, 0.259444, -0.664998, -0.913532, -2.69053, 1.37423, -0.130762)
+mesh = SubResource("BoxMesh_jxper")
+skeleton = NodePath("../../..")
 
 [node name="Worklight" parent="Node3D" instance=ExtResource("6_vm068")]
-transform = Transform3D(-0.199913, 0, 1.7477e-08, 0, 0.199913, 0, -1.7477e-08, 0, -0.199913, 0.658748, 3.67728, -0.0104432)
+transform = Transform3D(-0.199021, -0.0042368, 0.0183795, -0.00436923, 0.199862, -0.00124038, -0.0183485, -0.00163654, -0.199063, 0.569021, 4.10499, -0.743499)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

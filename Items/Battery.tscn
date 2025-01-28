@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq2xb3uuaqivf"]
+[gd_scene load_steps=9 format=3 uid="uid://bq2xb3uuaqivf"]
 
 [ext_resource type="Script" path="res://Items/battery.gd" id="1_gvkom"]
 [ext_resource type="PackedScene" uid="uid://ckr5g8fdruq0h" path="res://Assets/Clasic_Battery.glb" id="2_1llr6"]
 [ext_resource type="Material" uid="uid://bqi10rh5anjm1" path="res://Materials/green.tres" id="2_aiod7"]
+[ext_resource type="PackedScene" uid="uid://drrjexq6547ow" path="res://Gadgets/OmniLight.tscn" id="2_snj8k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h648p"]
 
@@ -34,6 +35,10 @@ cap_bottom = false
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_gvkom")
+
+[node name="OmniLight" parent="." instance=ExtResource("2_snj8k")]
+max_light = 0.5
+light_color = Color(0, 1, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_h648p")

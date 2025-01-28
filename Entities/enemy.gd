@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	var input_dir: Vector3
-	if target:
+	if target and is_instance_valid(target):
 		if !is_stunned:
 			if (position - target.position).length() > 1:
 				if !is_hesitant:
