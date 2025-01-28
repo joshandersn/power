@@ -23,12 +23,11 @@ func pickup(object: Node3D) -> void:
 	object.freeze = true
 	detected_plug = null
 	can_pickup = false
+	if "inserted_into" in object:
+		if object.inserted_into:
+			object.inserted_into.have_item_removed()
+	pickup_field.resize(0)
 	$PickupTimer.start()
-
-func clear_pickups() -> void:
-	picked_up_item = null
-	for i in $PickupPos.get_children():
-		i.queue_free()
 
 func throw_item() -> void:
 	if picked_up_item:
@@ -102,9 +101,6 @@ func _on_pickup_field_body_entered(body: Node3D) -> void:
 	else:
 		push_warning(body, ' is not a valid item')
 		
-	#if body.is_in_group("Socket") and body.output_node:
-		#Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
-		#detected_plug = body.output_node
 
 func _on_pickup_field_body_exited(body: Node3D) -> void:
 	if "item_resource" in body:
@@ -120,11 +116,19 @@ func _on_pickup_timer_timeout() -> void:
 
 
 func _on_pickup_field_area_entered(area: Area3D) -> void:
+	print(area.output_node)
 	if area.is_in_group("Socket") and area.output_node:
 		Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
 		detected_plug = area.output_node
+		
+	if area.is_in_group("Socket") and "inserted_item" in area and area.inserted_item:
+		Game.push_prompt.emit(load("res://UI/Prompts/pickup.tres"), 0)
+		pickup_field.append(area.inserted_item)
+		area.update_item()
 
 func _on_pickup_field_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Socket"):
 		Game.dismiss_all_prompts.emit()
 		detected_plug = null
+	if area.is_in_group("Socket") and "inserted_item" in area and area.inserted_item:
+		pickup_field.erase(area.inserted_item)

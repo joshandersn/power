@@ -10,3 +10,4 @@ class_name res_item
 @export var heavy: bool
 @export var plug: bool
 @export var battery: bool
+@export var fuel: float

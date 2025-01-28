@@ -1,6 +1,7 @@
 extends Area3D
 
 @onready var item_resource := load("res://Gadgets/socket.tres")
+@onready var default_item_resource := load("res://Gadgets/socket.tres")
 @export var inserted_item: Node3D
 var can_insert := true
 var output_node: Node3D
@@ -16,6 +17,12 @@ func eject_object(object) -> void:
 	object.linear_velocity = Game.player_last_direction * 5
 	var dir = Game.player_last_direction.normalized()
 	object.rotation.y = atan2(-dir.x, -dir.z)
+
+func have_item_removed() -> void:
+	item_resource = default_item_resource
+	inserted_item = null
+	update_outputs()
+	output_node.update_connections()
 
 func update_item():
 	update_outputs()
@@ -54,6 +61,7 @@ func insert_item(object: Node3D) -> void:
 			$InsertLimit.start()
 			can_insert = true
 		else:
+			object.inserted_into = self
 			inserted_item = object
 			item_resource = inserted_item.item_resource
 			can_insert = false
@@ -68,12 +76,9 @@ func insert_item(object: Node3D) -> void:
 	else:
 		push_warning("item not compatible with socket. Batteries only!")
 
-
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Item") and can_insert:
 		insert_item(body)
-
-
 
 func _on_insert_limit_timeout() -> void:
 	can_insert = true
@@ -86,5 +91,4 @@ func _on_serve_timer_timeout() -> void:
 			output_node.pass_power(power_current)
 			inserted_item.update_item()
 	else:
-		output_node = null
 		$ServeTimer.stop()

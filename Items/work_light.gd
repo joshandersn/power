@@ -19,7 +19,8 @@ func receive_power(_amt: int):
 func update_item() -> void:
 	if output_node:
 		if output_node.other_plug.plugged_into and output_node.plugged_into:
-			if output_node.other_plug.plugged_into.item_resource.power:
+			if output_node.other_plug.plugged_into.item_resource.power > 0:
+				print("live")
 				$ConeLight.active = true
 			else:
 				$ConeLight.active = false

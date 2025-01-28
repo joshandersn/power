@@ -28,6 +28,9 @@ func _on_body_entered(body: Node3D) -> void:
 		output_node.global_position = $PlugPos.global_position
 		output_node.update_connections()
 		$ServeTimer.start()
+	if body.item_resource.fuel:
+		item_resource.power += body.item_resource.fuel
+		body.queue_free()
 
 func _on_serve_timer_timeout() -> void:
 	if output_node and output_node.plugged_into:
