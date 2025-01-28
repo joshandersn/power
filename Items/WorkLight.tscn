@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvu5rhbq64dqb"]
+[gd_scene load_steps=15 format=3 uid="uid://dvu5rhbq64dqb"]
 
 [ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Items/plug_detect.gd" id="4_s8lqt"]
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
 
-[sub_resource type="Resource" id="Resource_5p2t3"]
+[sub_resource type="Resource" id="Resource_uwtyb"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -31,11 +31,63 @@ size = Vector3(1, 0.4, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
 radius = 0.756222
 
+[sub_resource type="Animation" id="Animation_6vkh1"]
+resource_name = "knockOver"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 0.267943, 2.63902, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.53589, 0, 0), Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xnnic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qquhl"]
+resource_name = "PropUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.933333),
+"transitions": PackedFloat32Array(0.217638, 1, 0.307786, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(1.13747, 0, 0), Vector3(1.22173, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1w5i"]
+_data = {
+"PropUp": SubResource("Animation_qquhl"),
+"RESET": SubResource("Animation_xnnic"),
+"knockOver": SubResource("Animation_6vkh1")
+}
+
 [node name="WorkLight" type="RigidBody3D" groups=["Defence", "Item", "Socket"]]
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_5p2t3")
+item_resource = SubResource("Resource_uwtyb")
 
 [node name="lightMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.651328, 0, 0, 0, 0.0820489, -0.4266, 0, 0.501866, 0.0697438, 0.00538091, 0.491795, -0.430372)
@@ -59,7 +111,15 @@ shape = SubResource("SphereShape3D_83ln2")
 [node name="PlugPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187387, -0.381702, 0.44253)
 
-[node name="Small_Worklight" parent="." instance=ExtResource("5_py3cc")]
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Small_Worklight" parent="Node3D" instance=ExtResource("5_py3cc")]
 transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 0, -0.021632, 0.0922966)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y1w5i")
+}
+
 [connection signal="body_entered" from="PlugDetect" to="." method="_on_plug_detect_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

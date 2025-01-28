@@ -18,8 +18,17 @@ func _ready() -> void:
 		$ConeLight.update_item()
 	item_resource = load("res://Items/WorkLight.tres").duplicate()
 
+var knocked_over: bool
+
+func prop_back_up() -> void:
+	$AnimationPlayer.play("PropUp")
+
 func goblin_action() -> void:
-	print("goblin hit ", self)
+	if !knocked_over:
+		$AnimationPlayer.play("knockOver")
+		knocked_over = true
+		update_item()
+	
 
 func receive_power(_amt: int):
 	update_item()
@@ -28,8 +37,10 @@ func update_item() -> void:
 	if output_node:
 		if output_node.other_plug.plugged_into and output_node.plugged_into:
 			if output_node.other_plug.plugged_into.item_resource.power > 0:
-				print("live")
-				$ConeLight.active = true
+				if knocked_over:
+					$ConeLight.active = false
+				else:
+					$ConeLight.active = true
 			else:
 				$ConeLight.active = false
 		else:
@@ -60,4 +71,10 @@ func _on_plug_detect_body_entered(body: Node3D) -> void:
 		body.plugged_into = self
 		body.global_position = $PlugPos.global_position
 		body.update_connections()
+		update_item()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "PropUp":
+		knocked_over = false
 		update_item()

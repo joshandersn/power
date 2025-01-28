@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="17_vp5uv"]
 [ext_resource type="PackedScene" uid="uid://hsyxg1ydgpg0" path="res://Gadgets/Car.tscn" id="18_n5bnj"]
 
-[sub_resource type="Resource" id="Resource_fjxyx"]
+[sub_resource type="Resource" id="Resource_nbdk1"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -71,11 +71,11 @@ environment = ExtResource("2_n5dp5")
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_ehfn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88481, 1.02854, 1.88391)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.39538, 3.03527, 3.5222)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.2503, 0.831654, -3.80756)
-item_resource = SubResource("Resource_fjxyx")
+item_resource = SubResource("Resource_nbdk1")
 
 [node name="Block2" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
@@ -98,11 +98,13 @@ transform = Transform3D(0.706543, 0.0282295, -0.707107, -0.0399225, 0.999203, 0,
 [node name="Boiler" parent="." instance=ExtResource("12_wiy3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55495, 0.250001, -3.63691)
 
-[node name="Enemy" parent="." instance=ExtResource("13_yme2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.32625, 1.01116, 8.56929)
+[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_yme2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5304, 1.01116, 0.536423)
+target = NodePath("../WorkLightTall")
 
-[node name="Enemy2" parent="." instance=ExtResource("13_yme2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9067, 1.01116, 8.56929)
+[node name="Enemy2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_yme2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6749, 1.01116, -1.38067)
+target = NodePath("../WorkLight")
 
 [node name="Enemy3" parent="." instance=ExtResource("13_yme2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3962, 1.01116, 8.56929)

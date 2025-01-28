@@ -34,15 +34,18 @@ func replace_plug_node(object, new_object) -> void:
 			object.get_parent().cable_b = new_object
 
 func pickup(object: Node3D) -> void:
-	picked_up_item = object
-	object.freeze = true
-	detected_plug = null
-	can_pickup = false
-	if "inserted_into" in object:
-		if object.inserted_into:
-			object.inserted_into.have_item_removed()
-	pickup_field.resize(0)
-	$PickupTimer.start()
+	if "knocked_over" in object and object.knocked_over:
+		object.prop_back_up()
+	else:
+		picked_up_item = object
+		object.freeze = true
+		detected_plug = null
+		can_pickup = false
+		if "inserted_into" in object:
+			if object.inserted_into:
+				object.inserted_into.have_item_removed()
+		pickup_field.resize(0)
+		$PickupTimer.start()
 
 func throw_item() -> void:
 	if picked_up_item:
