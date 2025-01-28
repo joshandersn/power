@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bikefj2032jwl" path="res://Items/cinderblock.tscn" id="15_kmp4o"]
 [ext_resource type="PackedScene" uid="uid://cn2y8amb3kwd4" path="res://Gadgets/trigger.tscn" id="16_whnag"]
 
-[sub_resource type="Resource" id="Resource_1jo3q"]
+[sub_resource type="Resource" id="Resource_4tuyn"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -61,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88481, 1.02854, 1.88391)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.2503, 0.831654, -3.80756)
-item_resource = SubResource("Resource_1jo3q")
+item_resource = SubResource("Resource_4tuyn")
 
 [node name="Block2" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
@@ -96,6 +96,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35666, 1.71961, 2.34206)
 
 [node name="Cinderblock" parent="." instance=ExtResource("15_kmp4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84882, 1.02551, -3.72873)
+
+[node name="Cinderblock2" parent="." instance=ExtResource("15_kmp4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84882, 1.61386, -3.72873)
+
+[node name="Cinderblock3" parent="." instance=ExtResource("15_kmp4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84882, 2.25852, -3.72873)
+
+[node name="Cinderblock4" parent="." instance=ExtResource("15_kmp4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43231, 2.82128, -3.72873)
 
 [node name="Trigger" parent="." instance=ExtResource("16_whnag")]
 transform = Transform3D(2.80581, 0, 0, 0, 2.40477, 0, 0, 0, 2.66701, 2.27996, 1.26963, -3.25575)

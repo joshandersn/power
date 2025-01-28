@@ -13,4 +13,4 @@ broken = false
 heavy = true
 plug = false
 battery = false
-fuel = 0.0
+fuel = 20.0

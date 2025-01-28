@@ -8,6 +8,7 @@ size = Vector3(1, 0.496704, 0.486328)
 
 [node name="Cinderblock" type="RigidBody3D"]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_ktif2")
 
 [node name="CinderBlock" parent="." instance=ExtResource("1_hyema")]
