@@ -1,6 +1,8 @@
 @tool
 extends RigidBody3D
 
+@export var start_active: bool
+
 @export var item_resource: res_item
 @export var output_node: Node3D:
 	set(value):
@@ -11,6 +13,9 @@ const is_output := false
 
 
 func _ready() -> void:
+	if start_active:
+		$ConeLight.active = true
+		$ConeLight.update_item()
 	item_resource = load("res://Items/WorkLight.tres").duplicate()
 
 func receive_power(_amt: int):

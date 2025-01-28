@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+var random = RandomNumberGenerator.new()
 
 func _on_detection_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
@@ -45,9 +46,15 @@ func _on_fear_timer_timeout() -> void:
 	is_hesitant = true
 	$HesitateTimer.start()
 
-
 func _on_hesitate_timer_timeout() -> void:
 	is_hesitant = false
+	var r = random.randf_range(0, 1)
+	print(Game.enemy_count)
+	for i in Game.defences:
+		if r > 0.5:
+			target = i
+		else:
+			target = null
 
 var reached_player: Node3D
 

@@ -23,21 +23,22 @@ func _input(_event: InputEvent) -> void:
 		get_tree().paused = !get_tree().paused
 
 func scan_level() -> void:
-	var e_count: int
-	for i in get_children():
-		# gat enemy count
-		if i.is_in_group("Enemy"):
-			e_count += 1
-		if i.is_in_group("Defence"):
-			Game.defences.append(i)
-			
-	Game.enemy_count = e_count
-
+	var e_count := 0
+	if $Scene.get_child(0):
+		for i in $Scene.get_child(0).get_children():
+			if i.is_in_group("Enemy"):
+				e_count += 1
+			if i.is_in_group("Defence"):
+				Game.defences.append(i)
+		Game.enemy_count = e_count
+	else:
+		push_error("No level detected")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Game.load_scene.connect(load_scene)
 	Game.restart_level.connect(restart_level)
+	Game.scan_level.connect(scan_level)
 	if Game.DEBUG:
 		quick_load(load("res://Scenes/level01.tscn"))
 	else:

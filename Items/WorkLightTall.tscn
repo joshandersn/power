@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvnhgiueqxt8r" path="res://Gadgets/ConeLightLarge.tscn" id="4_sc7ew"]
 [ext_resource type="PackedScene" uid="uid://buuplwt7twho" path="res://Assets/Worklight.glb" id="6_vm068"]
 
-[sub_resource type="Resource" id="Resource_p2kyg"]
+[sub_resource type="Resource" id="Resource_14kww"]
 script = ExtResource("2_burmu")
 scene = ExtResource("2_2wtrb")
 title = "Work Light"
@@ -36,7 +36,8 @@ radius = 0.756222
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_3ojxu")
-item_resource = SubResource("Resource_p2kyg")
+start_active = null
+item_resource = SubResource("Resource_14kww")
 
 [node name="lightMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.596574, -0.209053, -0.034385, -0.000460287, 0.138279, -0.321507, 0.26112, 0.477862, 0.0779917, 1.05127, 3.22892, -0.182806)

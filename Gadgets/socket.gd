@@ -6,6 +6,8 @@ extends Area3D
 var can_insert := true
 var output_node: Node3D
 var is_output: bool
+var power_current := 1
+
 
 
 func eject_object(object) -> void:
@@ -83,8 +85,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_insert_limit_timeout() -> void:
 	can_insert = true
-
-var power_current := 5
 
 func _on_serve_timer_timeout() -> void:
 	if output_node and output_node.plugged_into and inserted_item:

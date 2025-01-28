@@ -35,6 +35,7 @@ radius = 0.756222
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
+start_active = null
 item_resource = SubResource("Resource_2hhci")
 
 [node name="lightMesh" type="MeshInstance3D" parent="."]

@@ -57,7 +57,6 @@ func throw_item() -> void:
 func drop_item() -> void:
 	if picked_up_item:
 		picked_up_item.freeze = false
-		picked_up_item.position.y -= 1.5
 		picked_up_item.position += Game.player_last_direction * 0.8
 		picked_up_item.linear_velocity = Game.player_last_direction * 1
 		var dir = Game.player_last_direction.normalized()
@@ -81,8 +80,9 @@ func _input(_event: InputEvent) -> void:
 			pickup(pickup_field[0])
 		elif picked_up_item:
 			drop_item()
-	if Input.is_action_just_pressed("throw") and picked_up_item:
+	elif Input.is_action_just_pressed("throw") and picked_up_item:
 		throw_item()
+
 	if Input.is_action_just_pressed("use_cable"):
 		unplug_cable()
 		
@@ -131,7 +131,6 @@ func _on_pickup_timer_timeout() -> void:
 
 
 func _on_pickup_field_area_entered(area: Area3D) -> void:
-	print(area.output_node)
 	if area.is_in_group("Socket") and area.output_node:
 		Game.push_prompt.emit(load("res://UI/Prompts/plug.tres"), 0)
 		detected_plug = area.output_node
