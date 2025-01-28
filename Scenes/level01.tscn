@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="17_vp5uv"]
 [ext_resource type="PackedScene" uid="uid://hsyxg1ydgpg0" path="res://Gadgets/Car.tscn" id="18_n5bnj"]
 
-[sub_resource type="Resource" id="Resource_83kk3"]
+[sub_resource type="Resource" id="Resource_oqhbv"]
 script = ExtResource("6_lfve5")
 scene = ExtResource("4_410tk")
 title = "Work Light"
@@ -75,7 +75,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88481, 1.02854, 1.88391)
 
 [node name="WorkLight" parent="." instance=ExtResource("4_410tk")]
 transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.2503, 0.831654, -3.80756)
-item_resource = SubResource("Resource_83kk3")
+start_active = false
+item_resource = SubResource("Resource_oqhbv")
 
 [node name="Block2" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
@@ -126,7 +127,7 @@ push_dialog = "Hey honey how are things outside. Are you cold? di you bring your
 one_time = true
 
 [node name="WorkLightTall" parent="." instance=ExtResource("17_vp5uv")]
-transform = Transform3D(-0.995585, 0, -0.093865, 0, 1, 0, 0.093865, 0, -0.995585, -2.82431, 0.858117, 0.472432)
+transform = Transform3D(0.0271889, 0, 0.99963, 0, 1, 0, -0.99963, 0, 0.0271889, -2.82431, 0.858117, 0.472432)
 start_active = true
 item_resource = SubResource("Resource_eayx0")
 

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Items/plug_detect.gd" id="4_s8lqt"]
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
 
-[sub_resource type="Resource" id="Resource_2hhci"]
+[sub_resource type="Resource" id="Resource_8c7sx"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -35,8 +35,7 @@ radius = 0.756222
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-start_active = null
-item_resource = SubResource("Resource_2hhci")
+item_resource = SubResource("Resource_8c7sx")
 
 [node name="lightMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.651328, 0, 0, 0, 0.0820489, -0.4266, 0, 0.501866, 0.0697438, 0.00538091, 0.491795, -0.430372)

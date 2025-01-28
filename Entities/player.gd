@@ -16,7 +16,7 @@ var detected_plug: Node3D
 func lose():
 	Game.lose.emit()
 
-func take_damage() -> void:
+func goblin_action() -> void:
 	if health > 0:
 		$Control/VigAnim.play("FadeIn")
 		health -= 1

@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir: Vector3
 	if target:
-		if abs(position - target.position) > Vector3(0.4, 0.4, 0.4):
+		if (position - target.position).length() > 1:
 			if !is_hesitant:
 				if near_light_source:
 					input_dir = (position - target.position)
@@ -33,8 +33,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
-
-var random = RandomNumberGenerator.new()
+	
+func get_new_target() -> void:
+	randomize()
+	var rindex = randi() % Game.defences.size()
+	target = Game.defences[rindex]
 
 func _on_detection_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
@@ -45,31 +48,29 @@ func _on_fear_timer_timeout() -> void:
 	near_light_source = false
 	is_hesitant = true
 	$HesitateTimer.start()
+	
 
 func _on_hesitate_timer_timeout() -> void:
 	is_hesitant = false
-	var r = random.randf_range(0, 1)
-	print(Game.enemy_count)
-	for i in Game.defences:
-		if r > 0.5:
-			target = i
-		else:
-			target = null
+	get_new_target()
 
-var reached_player: Node3D
+var reached_target: Node3D
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
-	if "is_player" in body:
-		reached_player = body
+	if "is_player" in body or body.is_in_group("Defence"):
+		reached_target = body
 		if !$HitTimer.time_left:
 			$HitTimer.start()
 
 func _on_hitbox_body_exited(body: Node3D) -> void:
-	if "is_player" in body:
-		reached_player = null
+	if "is_player" in body or body.is_in_group("Defence"):
+		reached_target = null
 		$HitTimer.stop()
 
 func _on_hit_timer_timeout() -> void:
-	if reached_player:
-		reached_player.take_damage()
+	if reached_target:
+		reached_target.goblin_action()
+		randomize()
+		if (randi() % 2):
+			get_new_target()
 		

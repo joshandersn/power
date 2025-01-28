@@ -18,6 +18,9 @@ func _ready() -> void:
 		$ConeLight.update_item()
 	item_resource = load("res://Items/WorkLight.tres").duplicate()
 
+func goblin_action() -> void:
+	print("goblin hit ", self)
+
 func receive_power(_amt: int):
 	update_item()
 
