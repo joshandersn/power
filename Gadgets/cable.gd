@@ -24,5 +24,23 @@ func _process(_delta: float) -> void:
 	$CSGPolygon3D.polygon = circle
 	
 	if cable_a and cable_b:
+
+		var midpoint = (cable_a.position + cable_b.position) / 2
+		midpoint.x += 1  # Example: curve upwards by 10 units at midpoint
+
+		if $Path3D.curve.get_point_count() < 3:
+			$Path3D.curve.add_point(midpoint)
+		else:
+			# If the point already exists, just update its position
+			$Path3D.curve.set_point_position(1, midpoint)
+
 		$Path3D.curve.set_point_position(0, cable_a.position)
-		$Path3D.curve.set_point_position(1, cable_b.position)
+		$Path3D.curve.set_point_position(1, midpoint)
+		$Path3D.curve.set_point_position(2, cable_b.position)
+		
+		# Adjust the handles of the curve points to control the curve's shape
+		$Path3D.curve.set_point_in(0, Vector3(-1, 0, 0))  # Adjust as needed
+		$Path3D.curve.set_point_out(0, Vector3(1, 0, 0))  # Adjust as needed
+		$Path3D.curve.set_point_in(2, Vector3(-1, 0, 0))  # Adjust as needed
+		$Path3D.curve.set_point_out(2, Vector3(1, 0, 0))  # Adjust as needed
+		

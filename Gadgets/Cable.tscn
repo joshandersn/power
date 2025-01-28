@@ -1,24 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8rubgifvu7ns"]
+[gd_scene load_steps=5 format=3 uid="uid://c8rubgifvu7ns"]
 
 [ext_resource type="Script" path="res://Gadgets/cable.gd" id="1_g6xrb"]
 [ext_resource type="PackedScene" uid="uid://cmi0lslwaq7nx" path="res://Items/PlugHead.tscn" id="2_7q6yv"]
+[ext_resource type="Material" uid="uid://kp277p7xaqno" path="res://black.tres" id="3_l4mos"]
+
+[sub_resource type="Curve3D" id="Curve3D_16dth"]
 
 [node name="Cable" type="Node3D" node_paths=PackedStringArray("cable_a", "cable_b")]
 script = ExtResource("1_g6xrb")
+line_radius = 0.05
 line_resolution = 6
 cable_a = NodePath("PlugHeadA")
 cable_b = NodePath("PlugHeadB")
 
 [node name="PlugHeadA" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.704087, 0.460642, -0.355837)
+transform = Transform3D(-0.425068, 0, -0.905161, 0, 1, 0, 0.905161, 0, -0.425068, 0.273887, 1.63182, -3.38933)
 other_plug = NodePath("../PlugHeadB")
 
 [node name="PlugHeadB" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533567, 0.886056, 0.770197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083235, 0.886056, 0.563264)
 other_plug = NodePath("../PlugHeadA")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
-polygon = PackedVector2Array(0, 0.1, 0.0866025, 0.05, 0.0866025, -0.05, 1.22465e-17, -0.1, -0.0866025, -0.05, -0.0866025, 0.05)
+material_override = ExtResource("3_l4mos")
+polygon = PackedVector2Array(0, 0.05, 0.0433013, 0.025, 0.0433013, -0.025, 6.12323e-18, -0.05, -0.0433013, -0.025, -0.0433013, 0.025)
 mode = 2
 path_node = NodePath("../Path3D")
 path_interval_type = 0
@@ -32,3 +37,4 @@ path_joined = false
 smooth_faces = true
 
 [node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_16dth")

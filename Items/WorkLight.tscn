@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvu5rhbq64dqb"]
+[gd_scene load_steps=16 format=3 uid="uid://dvu5rhbq64dqb"]
 
 [ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
 [ext_resource type="Script" path="res://Resources/res_item.gd" id="2_6vmfs"]
 [ext_resource type="Script" path="res://Items/plug_detect.gd" id="4_s8lqt"]
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
+[ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="6_uaa6l"]
 
 [sub_resource type="Resource" id="Resource_l8ogh"]
 script = ExtResource("2_6vmfs")
@@ -19,17 +20,6 @@ battery = false
 fuel = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxpk0"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
-radius = 0.756222
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41lkj"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jxper"]
-material = SubResource("StandardMaterial3D_41lkj")
-size = Vector3(1, 0.4, 1)
 
 [sub_resource type="Animation" id="Animation_6vkh1"]
 resource_name = "knockOver"
@@ -83,6 +73,17 @@ _data = {
 "knockOver": SubResource("Animation_6vkh1")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_83ln2"]
+radius = 0.756222
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41lkj"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxper"]
+material = SubResource("StandardMaterial3D_41lkj")
+size = Vector3(1, 0.4, 1)
+
 [node name="WorkLight" type="RigidBody3D" groups=["Defence", "Item", "Socket"]]
 collision_layer = 2
 lock_rotation = true
@@ -91,6 +92,11 @@ item_resource = SubResource("Resource_l8ogh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kxpk0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape3D"]
+libraries = {
+"": SubResource("AnimationLibrary_y1w5i")
+}
 
 [node name="ConeLight" parent="." instance=ExtResource("1_283g0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544944, -0.255902)
@@ -104,7 +110,7 @@ script = ExtResource("4_s8lqt")
 shape = SubResource("SphereShape3D_83ln2")
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187387, -0.381702, 0.44253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0241378, -0.381702, 1.17432)
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -121,6 +127,9 @@ transform = Transform3D(-0.2, 0, 1.74846e-08, 0, 0.2, 0, -1.74846e-08, 0, -0.2, 
 libraries = {
 "": SubResource("AnimationLibrary_y1w5i")
 }
+
+[node name="Socket" parent="." instance=ExtResource("6_uaa6l")]
+transform = Transform3D(-0.106158, 0, 9.28061e-09, 0, 0.106158, 0, -9.28061e-09, 0, -0.106158, -0.0224682, -0.361749, 0.63098)
 
 [connection signal="body_entered" from="PlugDetect" to="." method="_on_plug_detect_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

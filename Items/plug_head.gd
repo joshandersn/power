@@ -5,6 +5,7 @@ extends RigidBody3D
 @export var plugged_into: Node3D
 @export var is_reciever: bool
 var connected_to_power: bool
+@onready var plug_pos = $PlugPos
 
 func _ready() -> void:
 	item_resource = load("res://Items/PlugHead.tres").duplicate()

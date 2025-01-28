@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpqd7qs18dur5"]
+[gd_scene load_steps=8 format=3 uid="uid://dpqd7qs18dur5"]
 
 [ext_resource type="Script" path="res://Gadgets/socket.gd" id="1_y2hsj"]
 [ext_resource type="PackedScene" uid="uid://3emifvye52al" path="res://Assets/Battery_Hub.glb" id="2_vmy85"]
+[ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="3_jp1bg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6b7at"]
 size = Vector3(1.75366, 1.11023, 1)
@@ -50,12 +51,15 @@ wait_time = 0.2
 one_shot = true
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1902, 0.193053, -0.11166)
+transform = Transform3D(-0.98439, 0, 0.176002, 0, 1, 0, -0.176002, 0, -0.98439, 1.98878, 0.377588, -0.118122)
 
 [node name="ServeTimer" type="Timer" parent="."]
 
 [node name="Battery_Hub" parent="." instance=ExtResource("2_vmy85")]
 transform = Transform3D(0.23098, 0, 0, 0, 0.23098, 0, 0, 0, 0.23098, 0.0190148, 0.537255, 1.57489)
+
+[node name="Socket" parent="." instance=ExtResource("3_jp1bg")]
+transform = Transform3D(-6.22557e-09, 0, -0.142424, 0, 0.142424, 0, 0.142424, 0, -6.22557e-09, 1.42299, 0.397124, -0.110605)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

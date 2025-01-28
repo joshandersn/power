@@ -1,0 +1,183 @@
+[gd_scene load_steps=21 format=3 uid="uid://b02cujpkxg8ny"]
+
+[ext_resource type="Script" path="res://Scenes/dev01.gd" id="1_xm0pw"]
+[ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="2_vfyji"]
+[ext_resource type="Environment" uid="uid://cwttqnj0psej4" path="res://Materials/night.tres" id="3_7srsg"]
+[ext_resource type="PackedScene" uid="uid://gb6v11hpxp6g" path="res://Gadgets/camera.tscn" id="4_gk7j1"]
+[ext_resource type="PackedScene" uid="uid://dqjf7xe6278u7" path="res://Entities/player.tscn" id="5_bb6xx"]
+[ext_resource type="PackedScene" uid="uid://dvu5rhbq64dqb" path="res://Items/WorkLight.tscn" id="6_p0wli"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="7_qi6rb"]
+[ext_resource type="PackedScene" uid="uid://d2mloe1w5y5wg" path="res://BuildingBlocks/block.tscn" id="8_752q5"]
+[ext_resource type="PackedScene" uid="uid://bq2xb3uuaqivf" path="res://Items/Battery.tscn" id="9_cmk6o"]
+[ext_resource type="PackedScene" uid="uid://dpqd7qs18dur5" path="res://Gadgets/Socket.tscn" id="10_s2d4a"]
+[ext_resource type="PackedScene" uid="uid://c8rubgifvu7ns" path="res://Gadgets/Cable.tscn" id="11_ckaf5"]
+[ext_resource type="PackedScene" uid="uid://dqax8s62i3xmi" path="res://Gadgets/boiler.tscn" id="12_rd64m"]
+[ext_resource type="PackedScene" uid="uid://b6r1g0axogd5i" path="res://Entities/enemy.tscn" id="13_bfb2o"]
+[ext_resource type="PackedScene" uid="uid://c27gfin0lxrxy" path="res://Gadgets/bounds.tscn" id="14_jle21"]
+[ext_resource type="PackedScene" uid="uid://bikefj2032jwl" path="res://Items/cinderblock.tscn" id="15_jp2jo"]
+[ext_resource type="PackedScene" uid="uid://cn2y8amb3kwd4" path="res://Gadgets/trigger.tscn" id="16_pnuvf"]
+[ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="17_a5qrn"]
+[ext_resource type="PackedScene" uid="uid://hsyxg1ydgpg0" path="res://Gadgets/Car.tscn" id="18_pa22a"]
+
+[sub_resource type="Resource" id="Resource_1wu4k"]
+script = ExtResource("7_qi6rb")
+scene = ExtResource("6_p0wli")
+title = "Work Light"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = false
+plug = false
+battery = false
+fuel = 0.0
+
+[sub_resource type="Resource" id="Resource_eayx0"]
+script = ExtResource("7_qi6rb")
+scene = ExtResource("6_p0wli")
+title = "Work Light"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = false
+plug = false
+battery = false
+fuel = 0.0
+
+[node name="Level01" type="Node3D"]
+script = ExtResource("1_xm0pw")
+
+[node name="Floor" parent="." instance=ExtResource("2_vfyji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525678, 0, -0.16431)
+
+[node name="Floor3" parent="." instance=ExtResource("2_vfyji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4624, 0, -0.16431)
+
+[node name="Floor2" parent="." instance=ExtResource("2_vfyji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525678, 0, 9.8132)
+
+[node name="Floor4" parent="." instance=ExtResource("2_vfyji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4624, 0, 9.8132)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.251411, 0.96788, 0, -0.96788, -0.251411, 0, 1.33442, 0)
+light_color = Color(0.782491, 0.890318, 1, 1)
+light_energy = 0.775
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_7srsg")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_gk7j1")]
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("5_bb6xx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5952, 3.03527, 11.4965)
+
+[node name="WorkLight" parent="." instance=ExtResource("6_p0wli")]
+transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.6935, 0.831654, -0.41735)
+item_resource = SubResource("Resource_1wu4k")
+
+[node name="Block2" parent="." instance=ExtResource("8_752q5")]
+transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
+
+[node name="Block3" parent="." instance=ExtResource("8_752q5")]
+transform = Transform3D(6.67547, 0, -0.00489528, 0, 2.52389, 0, 0.0299507, 0, 1.09106, -5.19538, 0.774811, -5.59845)
+
+[node name="Block4" parent="." instance=ExtResource("8_752q5")]
+transform = Transform3D(6.67547, 0, -0.00489528, 0, 2.52389, 0, 0.0299507, 0, 1.09106, -11.8387, 0.774811, -5.59845)
+
+[node name="Battery2" parent="." instance=ExtResource("9_cmk6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.97452, 0.924251, -0.454692)
+
+[node name="Socket" parent="." instance=ExtResource("10_s2d4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32655, 0.249998, -2.80967)
+
+[node name="Cable" parent="." instance=ExtResource("11_ckaf5")]
+transform = Transform3D(0.193772, 0.00774202, -0.981016, -0.0399225, 0.999203, 0, 0.980234, 0.0391647, 0.193926, -5.09393, 1.69742, 11.0194)
+
+[node name="Boiler" parent="." instance=ExtResource("12_rd64m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55495, 0.250001, -3.63691)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01642, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy5" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81556, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy6" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95066, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy7" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1246, 1.02029, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy8" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21128, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy9" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36564, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy10" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56092, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy11" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.383071, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy12" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3495, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy13" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3495, 1.01116, 7.4619)
+target = NodePath("../Car")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5766, 1.01116, 9.21699)
+target = NodePath("../Car")
+
+[node name="Enemy3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.11981, 1.01116, 12.5586)
+target = NodePath("../Car")
+
+[node name="Enemy4" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_bfb2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.60236, 1.01116, 10.8557)
+target = NodePath("../Car")
+
+[node name="Bounds" parent="." node_paths=PackedStringArray("respawn") instance=ExtResource("14_jle21")]
+transform = Transform3D(5.56509, 0, 0, 0, 1, 0, 0, 0, 3.07218, 0, -15.0634, 0)
+respawn = NodePath("../Respawn")
+
+[node name="Respawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35666, 1.71961, 2.34206)
+
+[node name="Cinderblock" parent="." instance=ExtResource("15_jp2jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84882, 1.02551, -3.72873)
+
+[node name="Cinderblock2" parent="." instance=ExtResource("15_jp2jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84882, 1.61386, -3.72873)
+
+[node name="Cinderblock3" parent="." instance=ExtResource("15_jp2jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84882, 2.25852, -3.72873)
+
+[node name="Cinderblock4" parent="." instance=ExtResource("15_jp2jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43231, 2.82128, -3.72873)
+
+[node name="Trigger" parent="." instance=ExtResource("16_pnuvf")]
+transform = Transform3D(2.80581, 0, 0, 0, 2.40477, 0, 0, 0, 2.66701, 2.27996, 1.26963, -3.25575)
+push_dialog = "Hey honey how are things outside. Are you cold? di you bring your jacket?"
+one_time = true
+
+[node name="WorkLightTall" parent="." instance=ExtResource("17_a5qrn")]
+transform = Transform3D(0.999961, 0, 0.00874364, 0, 1, 0, -0.00874364, 0, 0.999961, -13.4828, 0.858117, 3.36722)
+start_active = true
+item_resource = SubResource("Resource_eayx0")
+
+[node name="Car" parent="." instance=ExtResource("18_pa22a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.86922, 1.04228, 10.8275)

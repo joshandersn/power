@@ -61,6 +61,7 @@ func eject_object(object) -> void:
 func _process(_delta: float) -> void:
 	if output_node:
 		output_node.global_position = $PlugPos.global_position
+		output_node.global_rotation = $PlugPos.global_rotation
 
 func _on_plug_detect_body_entered(body: Node3D) -> void:
 	if output_node:

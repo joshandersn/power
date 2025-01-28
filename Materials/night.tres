@@ -2,6 +2,7 @@
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yobhy"]
 rayleigh_coefficient = 0.14
+energy_multiplier = 7.35
 
 [sub_resource type="Sky" id="Sky_ftsve"]
 sky_material = SubResource("PhysicalSkyMaterial_yobhy")
