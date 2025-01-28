@@ -302,21 +302,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_0cirh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fade:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_q2541"]
 resource_name = "FadeOut"
 tracks/0/type = "value"
@@ -330,6 +315,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1.6245, 0.378929),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0cirh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vg7dn"]
@@ -376,54 +376,6 @@ alignment = 2
 
 [node name="Prompt" parent="Canvas/UI/Prompts" instance=ExtResource("4_x0dum")]
 layout_mode = 2
-
-[node name="dialog" type="ColorRect" parent="Canvas/UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -295.0
-offset_top = -198.0
-offset_right = 295.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 1)
-
-[node name="WifeProfile" type="TextureRect" parent="Canvas/UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -385.0
-offset_top = -190.0
-offset_right = 187.0
-offset_bottom = 382.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.223339, 0.223339)
-texture = ExtResource("5_mmobc")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Canvas/UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -241.0
-offset_top = -188.0
-offset_right = 278.0
-offset_bottom = -65.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 30
-text = "Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife."
-scroll_active = false
 
 [node name="DialogTimer" type="Timer" parent="Canvas/UI"]
 wait_time = 5.0
@@ -497,6 +449,54 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 35
 disabled = true
 text = "Try Again"
+
+[node name="dialog" type="ColorRect" parent="Canvas/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -295.0
+offset_top = -198.0
+offset_right = 295.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="WifeProfile" type="TextureRect" parent="Canvas/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -190.0
+offset_right = 187.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.223339, 0.223339)
+texture = ExtResource("5_mmobc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Canvas/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -188.0
+offset_right = 278.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+text = "Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife."
+scroll_active = false
 
 [node name="LoseAnim" type="AnimationPlayer" parent="Canvas/UI"]
 libraries = {
