@@ -11,6 +11,7 @@ func _ready() -> void:
 func lose() -> void:
 	$LoseAnim.play("lose_in")
 	$LoseBG/Button.grab_focus()
+	$LoseBG/Button.disabled = false
 
 func update_ui() -> void:
 	pass
@@ -51,4 +52,5 @@ func _on_dialog_anim_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_button_pressed() -> void:
-	print("restarting")
+	Game.restart_level.emit()
+	$LoseBG/Button.disabled = true
