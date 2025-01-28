@@ -22,7 +22,8 @@ func have_item_removed() -> void:
 	item_resource = default_item_resource
 	inserted_item = null
 	update_outputs()
-	output_node.update_connections()
+	if output_node:
+		output_node.update_connections()
 
 func update_item():
 	update_outputs()

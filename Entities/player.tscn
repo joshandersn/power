@@ -11,6 +11,7 @@ material = ExtResource("2_86vdo")
 size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
+size = Vector3(0.5, 1, 0.5)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 4

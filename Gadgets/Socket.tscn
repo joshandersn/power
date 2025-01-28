@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpqd7qs18dur5"]
+[gd_scene load_steps=7 format=3 uid="uid://dpqd7qs18dur5"]
 
 [ext_resource type="Script" path="res://Gadgets/socket.gd" id="1_y2hsj"]
+[ext_resource type="PackedScene" uid="uid://3emifvye52al" path="res://Assets/Battery_Hub.glb" id="2_vmy85"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6b7at"]
+size = Vector3(1.75366, 1.11023, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ii5sp"]
+size = Vector3(1.22772, 1.24213, 1.21741)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
+radius = 0.875894
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_cpdev"]
 top_radius = 0.7
@@ -14,15 +22,27 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_y2hsj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, -2.91897e-07, 0.000112323, 4.83172e-07, 0.999999, -0.00169419, -0.000112323, 0.00169419, 0.999999, 0.294556, -0.0425414, -7.00855e-05)
+shape = SubResource("BoxShape3D_6b7at")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, -2.91897e-07, 0.000112323, 4.83172e-07, 0.999999, -0.00169419, -0.000112323, 0.00169419, 0.999999, -0.475382, 0.0234535, -1.42079)
+shape = SubResource("BoxShape3D_ii5sp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317963, 0.674291, 0.266692)
 shape = SubResource("SphereShape3D_oblf1")
 
 [node name="InsertPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00957781, 0.444708, 0.0671561)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0556887, 0)
+visible = false
 mesh = SubResource("CylinderMesh_cpdev")
 
 [node name="InsertLimit" type="Timer" parent="."]
@@ -30,9 +50,12 @@ wait_time = 0.2
 one_shot = true
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363748, 0.851561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1902, 0.193053, -0.11166)
 
 [node name="ServeTimer" type="Timer" parent="."]
+
+[node name="Battery_Hub" parent="." instance=ExtResource("2_vmy85")]
+transform = Transform3D(0.23098, 0, 0, 0, 0.23098, 0, 0, 0, 0.23098, 0.0190148, 0.537255, 1.57489)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]
