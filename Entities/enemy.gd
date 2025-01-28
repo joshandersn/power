@@ -15,13 +15,14 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir: Vector3
 	if target:
-		if !is_hesitant:
-			if near_light_source:
-				input_dir = (position - target.position)
-				if !$FearTimer.time_left:
-					$FearTimer.start()
-			else:
-				input_dir = -(position - target.position)
+		if abs(position - target.position) > Vector3(0.4, 0.4, 0.4):
+			if !is_hesitant:
+				if near_light_source:
+					input_dir = (position - target.position)
+					if !$FearTimer.time_left:
+						$FearTimer.start()
+				else:
+					input_dir = -(position - target.position)
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
 	if direction:
