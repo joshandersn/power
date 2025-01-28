@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://nf6rb8ma3t81"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://nf6rb8ma3t81"]
+
+[ext_resource type="FontFile" uid="uid://ge2nrgtu8i6b" path="res://Assets/Teachers-VariableFont_wght.ttf" id="1_ls2s4"]
 
 [resource]
+default_font = ExtResource("1_ls2s4")

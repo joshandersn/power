@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6r1g0axogd5i"]
+[gd_scene load_steps=7 format=3 uid="uid://b6r1g0axogd5i"]
 
 [ext_resource type="Script" path="res://Entities/enemy.gd" id="1_tdvmb"]
 
@@ -13,6 +13,9 @@ material = SubResource("StandardMaterial3D_mkjes")
 size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2lt1e"]
+radius = 0.895491
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 collision_layer = 4
@@ -38,6 +41,20 @@ one_shot = true
 [node name="HesitateTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("SphereShape3D_2lt1e")
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
 [connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

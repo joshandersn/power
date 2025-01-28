@@ -47,3 +47,21 @@ func _on_fear_timer_timeout() -> void:
 
 func _on_hesitate_timer_timeout() -> void:
 	is_hesitant = false
+
+var reached_player: Node3D
+
+func _on_hitbox_body_entered(body: Node3D) -> void:
+	if "is_player" in body:
+		reached_player = body
+		if !$HitTimer.time_left:
+			$HitTimer.start()
+
+func _on_hitbox_body_exited(body: Node3D) -> void:
+	if "is_player" in body:
+		reached_player = null
+		$HitTimer.stop()
+
+func _on_hit_timer_timeout() -> void:
+	if reached_player:
+		reached_player.take_damage()
+		

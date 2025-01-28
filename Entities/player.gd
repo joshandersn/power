@@ -3,12 +3,27 @@ extends CharacterBody3D
 @export var speed := 3
 @export var throw_power := 5
 
+var health = 3
+var max_health = 3
+const is_player = true
 
 var pickup_field: Array[Node3D]
 var picked_up_item: Node3D
 var held_plug: Node3D
 var can_pickup := true
 var detected_plug: Node3D
+
+func lose():
+	Game.lose.emit()
+
+func take_damage() -> void:
+	if health > 0:
+		$Control/VigAnim.play("FadeIn")
+		health -= 1
+		$RegenTimer.start()
+		$Control/Label.text = str(health)
+		if health <= 0:
+			lose()
 
 func replace_plug_node(object, new_object) -> void:
 	if "cable_a" in object.get_parent():
@@ -82,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	if direction:
+	if direction and health > 0:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		Game.player_last_direction = direction
@@ -132,3 +147,14 @@ func _on_pickup_field_area_exited(area: Area3D) -> void:
 		detected_plug = null
 	if area.is_in_group("Socket") and "inserted_item" in area and area.inserted_item:
 		pickup_field.erase(area.inserted_item)
+
+
+func _on_regen_timer_timeout() -> void:
+	if health > 0:
+		health += 1
+		if !$Control/VigAnim.assigned_animation == "FadeOut":
+			$Control/VigAnim.play("FadeOut")
+		if health >= max_health:
+			$RegenTimer.stop()
+		$Control/Label.text = str(health)
+	

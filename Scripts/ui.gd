@@ -5,7 +5,12 @@ func _ready() -> void:
 	Game.push_prompt.connect(push_prompt)
 	Game.dismiss_all_prompts.connect(dismiss_all_prompts)
 	Game.push_dialog.connect(push_dialog)
+	Game.lose.connect(lose)
 	initalize_ui()
+
+func lose() -> void:
+	$LoseAnim.play("lose_in")
+	$LoseBG/Button.grab_focus()
 
 func update_ui() -> void:
 	pass
@@ -43,3 +48,7 @@ func _on_dialog_anim_animation_finished(anim_name: StringName) -> void:
 		$dialog.visible = false
 		$WifeProfile.visible = false
 		$RichTextLabel.visible = false
+
+
+func _on_button_pressed() -> void:
+	print("restarting")

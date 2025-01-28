@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqjf7xe6278u7"]
+[gd_scene load_steps=11 format=3 uid="uid://dqjf7xe6278u7"]
 
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_66pwa"]
 [ext_resource type="Material" uid="uid://demvvkrlb5k7r" path="res://Materials/blue.tres" id="2_86vdo"]
+[ext_resource type="Texture2D" uid="uid://kuemtwolk26n" path="res://Assets/vignette.svg" id="3_ykelu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u54bi"]
 radius = 0.83754
@@ -12,6 +13,58 @@ size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
 size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="Animation" id="Animation_fruxx"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 1),
+"transitions": PackedFloat32Array(0.217638, 3.24901, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.737255), Color(1, 1, 1, 0.737255)]
+}
+
+[sub_resource type="Animation" id="Animation_oyfnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m3tbw"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(0.287175, 0.217638),
+"update": 0,
+"values": [Color(1, 1, 1, 0.737255), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xuw3q"]
+_data = {
+"FadeIn": SubResource("Animation_fruxx"),
+"FadeOut": SubResource("Animation_m3tbw"),
+"RESET": SubResource("Animation_oyfnk")
+}
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 4
@@ -38,8 +91,41 @@ shape = SubResource("BoxShape3D_qutdp")
 wait_time = 0.1
 one_shot = true
 
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="TextureRect" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ykelu")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health"
+
+[node name="VigAnim" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_xuw3q")
+}
+
 [connection signal="area_entered" from="PickupField" to="." method="_on_pickup_field_area_entered"]
 [connection signal="area_exited" from="PickupField" to="." method="_on_pickup_field_area_exited"]
 [connection signal="body_entered" from="PickupField" to="." method="_on_pickup_field_body_entered"]
 [connection signal="body_exited" from="PickupField" to="." method="_on_pickup_field_body_exited"]
 [connection signal="timeout" from="PickupTimer" to="." method="_on_pickup_timer_timeout"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

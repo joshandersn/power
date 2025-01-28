@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcyxbaf7xr1tm"]
+[gd_scene load_steps=13 format=3 uid="uid://dcyxbaf7xr1tm"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_i72wx"]
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="2_yn8vt"]
@@ -130,6 +130,163 @@ _data = {
 "dialog_out": SubResource("Animation_vcoau")
 }
 
+[sub_resource type="Animation" id="Animation_j5qqo"]
+resource_name = "lose_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoseBG/LabelShadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.766667, 1.76667, 3),
+"transitions": PackedFloat32Array(3.73213, 0.378929, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.28, 1), Vector2(2, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoseBG/LabelShadow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667, 1.76667, 3),
+"transitions": PackedFloat32Array(3.73213, 0.378929, 1),
+"update": 0,
+"values": [Vector2(662, 461.5), Vector2(577.33, 461.5), Vector2(361.02, 461.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LoseBG/LabelShadow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.121569), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LoseBG/Label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.535886, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LoseBG:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.633333, 3),
+"transitions": PackedFloat32Array(0.267943, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.796078), Color(1, 1, 1, 0.796078)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LoseBG/Button:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.73333, 4.93333),
+"transitions": PackedFloat32Array(1, 0.287175, 0.812252),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ttihn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoseBG/LabelShadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoseBG/LabelShadow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(662, 461.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LoseBG/LabelShadow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LoseBG/Label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LoseBG:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LoseBG/Button:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8rl2"]
+_data = {
+"RESET": SubResource("Animation_ttihn"),
+"lose_in": SubResource("Animation_j5qqo")
+}
+
 [node name="Game" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_i72wx")
@@ -225,5 +382,74 @@ libraries = {
 "": SubResource("AnimationLibrary_yf3fg")
 }
 
+[node name="LoseBG" type="ColorRect" parent="Canvas/UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.177495, 0.177495, 0.177495, 1)
+
+[node name="LabelShadow" type="Label" parent="Canvas/UI/LoseBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -78.5
+offset_right = 298.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 130
+text = "You Lose"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="Canvas/UI/LoseBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 130
+text = "You Lose"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="Canvas/UI/LoseBG"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -437.0
+offset_right = 186.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "Try Again"
+
+[node name="LoseAnim" type="AnimationPlayer" parent="Canvas/UI"]
+libraries = {
+"": SubResource("AnimationLibrary_g8rl2")
+}
+
 [connection signal="timeout" from="Canvas/UI/DialogTimer" to="Canvas/UI" method="_on_dialog_timer_timeout"]
 [connection signal="animation_finished" from="Canvas/UI/DialogAnim" to="Canvas/UI" method="_on_dialog_anim_animation_finished"]
+[connection signal="pressed" from="Canvas/UI/LoseBG/Button" to="Canvas/UI" method="_on_button_pressed"]
