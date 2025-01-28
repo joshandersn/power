@@ -5,9 +5,18 @@ extends CharacterBody3D
 
 var near_light_source: bool
 var is_hesitant: bool
+var is_stunned: bool
+
 
 func incenerate() -> void:
 	queue_free()
+
+func take_damage() -> void:
+	if !is_stunned:
+		is_stunned = true
+		$StunTime.start()
+	else:
+		incenerate()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -15,14 +24,16 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir: Vector3
 	if target:
-		if (position - target.position).length() > 1:
-			if !is_hesitant:
-				if near_light_source:
-					input_dir = (position - target.position)
-					if !$FearTimer.time_left:
-						$FearTimer.start()
-				else:
-					input_dir = -(position - target.position)
+		if !is_stunned:
+			if (position - target.position).length() > 1:
+				if !is_hesitant:
+					if near_light_source:
+						input_dir = (position - target.position)
+						if !$FearTimer.time_left:
+							$FearTimer.start()
+					else:
+						input_dir = -(position - target.position)
+
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
 	if direction:
@@ -74,3 +85,7 @@ func _on_hit_timer_timeout() -> void:
 		if (randi() % 2):
 			get_new_target()
 		
+
+
+func _on_stun_time_timeout() -> void:
+	is_stunned = false

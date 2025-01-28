@@ -53,9 +53,14 @@ shape = SubResource("SphereShape3D_2lt1e")
 [node name="HitTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="StunTime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
 [connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="timeout" from="StunTime" to="." method="_on_stun_time_timeout"]

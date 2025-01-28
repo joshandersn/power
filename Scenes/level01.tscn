@@ -93,7 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1758, 0.924251, -3.84069)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32655, 0.249998, -2.80967)
 
 [node name="Cable" parent="." instance=ExtResource("10_5yowi")]
-transform = Transform3D(0.706543, 0.0282295, -0.707107, -0.0399225, 0.999203, 0, 0.706543, 0.0282295, 0.707107, -10.2554, 1.09409, -3.6496)
+transform = Transform3D(0.706543, 0.0282295, -0.707107, -0.0399225, 0.999203, 0, 0.706543, 0.0282295, 0.707107, -8.98321, 1.53823, 3.27271)
 
 [node name="Boiler" parent="." instance=ExtResource("12_wiy3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.55495, 0.250001, -3.63691)

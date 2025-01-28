@@ -59,8 +59,8 @@ func throw_item() -> void:
 
 func drop_item() -> void:
 	if picked_up_item:
+		picked_up_item.global_position = global_position
 		picked_up_item.freeze = false
-		picked_up_item.position += Game.player_last_direction * 0.8
 		picked_up_item.linear_velocity = Game.player_last_direction * 1
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
