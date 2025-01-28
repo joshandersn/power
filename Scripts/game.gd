@@ -5,6 +5,7 @@ signal update_ui
 signal push_prompt
 signal dismiss_all_prompts
 signal reparent_to_world
+signal push_dialog
 
 var input_method := "keyboard"
 var player_last_direction: Vector3

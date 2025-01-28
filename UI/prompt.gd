@@ -15,12 +15,13 @@ func _ready() -> void:
 		$Timer.start(time)
 
 func update_ui() -> void:
-	$Label.text = prompt_resource.message
-	
-	if Game.input_method == "gamepad":
-		$TextureRect.texture = prompt_resource.gamepad_glyph
-	else:
-		$TextureRect.texture = prompt_resource.keyboard_glyph
+	if prompt_resource:
+		$Label.text = prompt_resource.message
+		
+		if Game.input_method == "gamepad":
+			$TextureRect.texture = prompt_resource.gamepad_glyph
+		else:
+			$TextureRect.texture = prompt_resource.keyboard_glyph
 		
 func dismiss() -> void:
 	$Fade.start(fade_time)

@@ -4,9 +4,24 @@ func _ready() -> void:
 	Game.update_ui.connect(update_ui)
 	Game.push_prompt.connect(push_prompt)
 	Game.dismiss_all_prompts.connect(dismiss_all_prompts)
+	Game.push_dialog.connect(push_dialog)
+	initalize_ui()
 
 func update_ui() -> void:
 	pass
+
+func initalize_ui() -> void:
+	$dialog.visible = false
+	$WifeProfile.visible = false
+	$RichTextLabel.visible = false
+	
+func push_dialog(message) -> void:
+	$dialog.visible = true
+	$WifeProfile.visible = true
+	$RichTextLabel.visible = true
+	$DialogAnim.play("dialog_in")
+	$RichTextLabel.text = message
+	$DialogTimer.start()
 
 func push_prompt(prompt: res_prompt, time := 1) -> void:
 	var new_prompt = load("res://UI/prompt.tscn").instantiate()
@@ -17,3 +32,14 @@ func push_prompt(prompt: res_prompt, time := 1) -> void:
 func dismiss_all_prompts() -> void:
 	for i in $Prompts.get_children():
 		i.dismiss()
+
+
+func _on_dialog_timer_timeout() -> void:
+	$DialogAnim.play("dialog_out")
+
+
+func _on_dialog_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "dialog_out":
+		$dialog.visible = false
+		$WifeProfile.visible = false
+		$RichTextLabel.visible = false

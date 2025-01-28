@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://cgloltgqmrra2"]
+
+[ext_resource type="PackedScene" uid="uid://bikefj2032jwl" path="res://Items/cinderblock.tscn" id="1_85464"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="1_s3pee"]
+
+[resource]
+script = ExtResource("1_s3pee")
+scene = ExtResource("1_85464")
+title = "Cinder Block"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = true
+plug = false
+battery = false
+fuel = 0.0
