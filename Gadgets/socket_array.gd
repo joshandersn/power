@@ -5,6 +5,8 @@ extends Area3D
 @onready var socket_c = $SocketC
 
 @export var objective: Node3D
+@export var objective_clear_message: String
+
 
 var charged: bool
 
@@ -31,7 +33,8 @@ func update_sockets() -> void:
 	$StatusLight.active = charged
 	$StatusLight.update_item()
 	if charged and objective:
-		Game.look_at.emit(objective, 2)
+		Game.look_at.emit(objective, 3)
+		Game.push_special_dialog.emit(objective_clear_message, 1)
 		objective.active = charged
 		objective.update_item()
 

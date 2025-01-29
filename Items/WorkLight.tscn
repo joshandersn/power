@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="6_uaa6l"]
 
-[sub_resource type="Resource" id="Resource_tiam4"]
+[sub_resource type="Resource" id="Resource_dqrti"]
 script = ExtResource("2_6vmfs")
 scene = null
 title = "Work Light"
@@ -88,7 +88,7 @@ _data = {
 collision_layer = 2
 lock_rotation = true
 script = ExtResource("1_stoc6")
-item_resource = SubResource("Resource_tiam4")
+item_resource = SubResource("Resource_dqrti")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kxpk0")

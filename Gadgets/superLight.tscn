@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhmi7bckyg0k2"]
+[gd_scene load_steps=6 format=3 uid="uid://dhmi7bckyg0k2"]
 
 [ext_resource type="Script" path="res://Gadgets/super_light.gd" id="1_04jbq"]
 [ext_resource type="Material" uid="uid://voywv6xdfc2a" path="res://Materials/gray.tres" id="2_f4ly8"]
@@ -14,6 +14,9 @@ top_radius = 0.2
 bottom_radius = 0.2
 height = 10.0
 radial_segments = 6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u1j1u"]
+size = Vector3(40, 20, 40)
 
 [node name="SuperLight" type="Node3D"]
 script = ExtResource("1_04jbq")
@@ -33,3 +36,13 @@ light_color = Color(1, 1, 0.756863, 1)
 light_energy = 10.0
 spot_range = 23.1564
 spot_angle = 80.1562
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.22075, 0)
+shape = SubResource("BoxShape3D_u1j1u")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -6,6 +6,7 @@ func _ready() -> void:
 	Game.dismiss_all_prompts.connect(dismiss_all_prompts)
 	Game.push_dialog.connect(push_dialog)
 	Game.lose.connect(lose)
+	Game.push_special_dialog.connect(special_dialog)
 	initalize_ui()
 
 func lose() -> void:
@@ -20,7 +21,12 @@ func initalize_ui() -> void:
 	$dialog.visible = false
 	$WifeProfile.visible = false
 	$RichTextLabel.visible = false
-	
+	$SpecialText.visible = false
+
+func special_dialog(message, delay):
+	$SpecialText.text = message
+	$SpecialTimer.start(delay)
+
 func push_dialog(message) -> void:
 	$dialog.visible = true
 	$WifeProfile.visible = true
@@ -54,3 +60,12 @@ func _on_dialog_anim_animation_finished(anim_name: StringName) -> void:
 func _on_button_pressed() -> void:
 	Game.restart_level.emit()
 	$LoseBG/Button.disabled = true
+
+
+func _on_special_timer_timeout() -> void:
+	$SpecialText.visible = true
+	$SpecialTimerEnd.start()
+
+
+func _on_special_timer_end_timeout() -> void:
+	$SpecialText.visible = false

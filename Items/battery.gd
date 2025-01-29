@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+@export var starting_power := 0
+
 var item_resource: res_item
 const is_output := true
 var inserted_into: Node3D
@@ -8,6 +10,7 @@ var is_locked: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	item_resource = load("res://Items/Battery.tres").duplicate()
+	item_resource.power = starting_power
 	update_item()
 
 func receive_power(amt: int) -> void:
@@ -19,6 +22,5 @@ func update_item() -> void:
 	var scaled_value = new_height * 0.65
 	$juice.mesh.height = scaled_value
 	$juice.position.y = $juice.mesh.height/2 - 0.25
-	
 	$OmniLight.active = !!(item_resource.power > 50)
 	$OmniLight.update_item()

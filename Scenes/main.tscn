@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcyxbaf7xr1tm"]
+[gd_scene load_steps=16 format=3 uid="uid://dcyxbaf7xr1tm"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_i72wx"]
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="2_yn8vt"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="3_uo7td"]
-[ext_resource type="PackedScene" uid="uid://d0lqdjgfwko45" path="res://UI/prompt.tscn" id="4_x0dum"]
 [ext_resource type="Texture2D" uid="uid://8pw7vb0fyw5w" path="res://Assets/wife_profile.jpeg" id="5_mmobc"]
 
 [sub_resource type="Animation" id="Animation_g5nge"]
@@ -374,9 +373,6 @@ grow_vertical = 0
 theme_override_constants/separation = 60
 alignment = 2
 
-[node name="Prompt" parent="Canvas/UI/Prompts" instance=ExtResource("4_x0dum")]
-layout_mode = 2
-
 [node name="DialogTimer" type="Timer" parent="Canvas/UI"]
 wait_time = 5.0
 one_shot = true
@@ -517,7 +513,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="SpecialText" type="Label" parent="Canvas/UI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -450.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "CONTROL"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SpecialTimer" type="Timer" parent="Canvas/UI"]
+one_shot = true
+
+[node name="SpecialTimerEnd" type="Timer" parent="Canvas/UI"]
+one_shot = true
+
 [connection signal="timeout" from="Canvas/UI/DialogTimer" to="Canvas/UI" method="_on_dialog_timer_timeout"]
 [connection signal="animation_finished" from="Canvas/UI/DialogAnim" to="Canvas/UI" method="_on_dialog_anim_animation_finished"]
 [connection signal="pressed" from="Canvas/UI/LoseBG/Button" to="Canvas/UI" method="_on_button_pressed"]
 [connection signal="animation_finished" from="Canvas/UI/FadeAnim" to="." method="_on_fade_anim_animation_finished"]
+[connection signal="timeout" from="Canvas/UI/SpecialTimer" to="Canvas/UI" method="_on_special_timer_timeout"]
+[connection signal="timeout" from="Canvas/UI/SpecialTimerEnd" to="Canvas/UI" method="_on_special_timer_end_timeout"]

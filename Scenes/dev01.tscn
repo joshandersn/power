@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b02cujpkxg8ny"]
+[gd_scene load_steps=25 format=3 uid="uid://b02cujpkxg8ny"]
 
 [ext_resource type="Script" path="res://Scenes/dev01.gd" id="1_xm0pw"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="2_vfyji"]
@@ -21,8 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://bu3patb680jal" path="res://Scenes/level01.tscn" id="19_01p1g"]
 [ext_resource type="PackedScene" uid="uid://dp3uvhvmc42f1" path="res://Gadgets/SocketArray.tscn" id="20_wv4it"]
 [ext_resource type="PackedScene" uid="uid://dhmi7bckyg0k2" path="res://Gadgets/superLight.tscn" id="21_gl536"]
+[ext_resource type="PackedScene" uid="uid://ydqtpgy5ffku" path="res://Gadgets/Spawner.tscn" id="22_nivhu"]
 
-[sub_resource type="Resource" id="Resource_v7mvn"]
+[sub_resource type="Resource" id="Resource_stqa2"]
 script = ExtResource("7_qi6rb")
 scene = ExtResource("6_p0wli")
 title = "Work Light"
@@ -78,7 +79,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5952, 3.03527, 11.4965)
 
 [node name="WorkLight" parent="." instance=ExtResource("6_p0wli")]
 transform = Transform3D(-0.999279, 0, -0.0385304, 0, 1, 0, 0.0385304, 0, -0.999279, -12.6935, 0.831654, -0.41735)
-item_resource = SubResource("Resource_v7mvn")
+item_resource = SubResource("Resource_stqa2")
 
 [node name="Block2" parent="." instance=ExtResource("8_752q5")]
 transform = Transform3D(6.67257, 0, -0.0325407, 0, 2.52389, 0, 0.199094, 0, 1.09059, 1.45579, 0.774811, -5.59845)
@@ -156,3 +157,6 @@ objective = NodePath("../SuperLight")
 
 [node name="SuperLight" parent="." instance=ExtResource("21_gl536")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0597, 8.0304, 8.08486)
+
+[node name="Spawner" parent="." instance=ExtResource("22_nivhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24675, 0.25, 14.1008)
