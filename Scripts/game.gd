@@ -13,7 +13,7 @@ signal scan_level
 signal look_at
 signal push_special_dialog
 
-var input_method := "keyboard"
+var input_method := "gamepad"
 var player_last_direction: Vector3
 var current_level: PackedScene
 

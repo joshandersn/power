@@ -13,9 +13,8 @@ const is_output := false
 
 
 func _ready() -> void:
-	if start_active:
-		$ConeLight.active = true
-		$ConeLight.update_item()
+	$ConeLight.active = start_active
+	$ConeLight.update_item()
 	item_resource = load("res://Items/WorkLight.tres").duplicate()
 
 var knocked_over: bool

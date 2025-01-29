@@ -22,7 +22,7 @@ func initalize_ui() -> void:
 	$WifeProfile.visible = false
 	$RichTextLabel.visible = false
 	$SpecialText.visible = false
-
+	$Pause.visible = false
 func special_dialog(message, delay):
 	$SpecialText.text = message
 	$SpecialTimer.start(delay)
@@ -60,6 +60,8 @@ func _on_dialog_anim_animation_finished(anim_name: StringName) -> void:
 func _on_button_pressed() -> void:
 	Game.restart_level.emit()
 	$LoseBG/Button.disabled = true
+	get_tree().paused = false
+	$Pause.visible = get_tree().paused
 
 
 func _on_special_timer_timeout() -> void:
@@ -69,3 +71,12 @@ func _on_special_timer_timeout() -> void:
 
 func _on_special_timer_end_timeout() -> void:
 	$SpecialText.visible = false
+
+
+func _on_resume_pressed() -> void:
+	get_tree().paused = false
+	$Pause.visible = get_tree().paused
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

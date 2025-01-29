@@ -21,6 +21,8 @@ func finish_load() -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = !get_tree().paused
+		$Canvas/UI/Pause.visible = get_tree().paused
+		$Canvas/UI/Pause/Resume.grab_focus()
 
 func scan_level() -> void:
 	var e_count := 0

@@ -14,10 +14,7 @@ size = Vector3(1.22772, 1.24213, 1.21741)
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
 radius = 1.256
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_cpdev"]
-top_radius = 0.7
-bottom_radius = 1.0
-height = 0.1
+[sub_resource type="QuadMesh" id="QuadMesh_rofu7"]
 
 [node name="Socket" type="Area3D" groups=["Socket"]]
 collision_layer = 2
@@ -43,9 +40,8 @@ shape = SubResource("SphereShape3D_oblf1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00957781, 0.444708, 0.0671561)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0556887, 0)
-visible = false
-mesh = SubResource("CylinderMesh_cpdev")
+transform = Transform3D(0.384319, 0, 0, 0, 0.641568, 0.312613, 0, -0.329325, 0.60901, 0.768722, 0.580766, 0.227338)
+mesh = SubResource("QuadMesh_rofu7")
 
 [node name="InsertLimit" type="Timer" parent="."]
 wait_time = 0.2

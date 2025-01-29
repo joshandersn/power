@@ -26,6 +26,7 @@ func _on_body_entered(body: Node3D) -> void:
 		output_node.is_reciever = true
 		output_node.pass_power(power_current)
 		output_node.global_position = $PlugPos.global_position
+		output_node.global_rotation = $PlugPos.global_rotation
 		output_node.update_connections()
 		$ServeTimer.start()
 	if body.item_resource.fuel:

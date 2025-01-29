@@ -524,7 +524,7 @@ offset_bottom = -210.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 200
-text = "CONTROL"
+text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -535,9 +535,60 @@ one_shot = true
 [node name="SpecialTimerEnd" type="Timer" parent="Canvas/UI"]
 one_shot = true
 
+[node name="Pause" type="ColorRect" parent="Canvas/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.866667)
+
+[node name="paused" type="Label" parent="Canvas/UI/Pause"]
+layout_mode = 1
+offset_left = 120.0
+offset_top = 90.0
+offset_right = 815.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 200
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Resume" type="Button" parent="Canvas/UI/Pause"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 314.0
+offset_right = 603.0
+offset_bottom = 412.0
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Canvas/UI/Pause"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 437.0
+offset_right = 603.0
+offset_bottom = 535.0
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Canvas/UI/Pause"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 561.0
+offset_right = 603.0
+offset_bottom = 659.0
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
 [connection signal="timeout" from="Canvas/UI/DialogTimer" to="Canvas/UI" method="_on_dialog_timer_timeout"]
 [connection signal="animation_finished" from="Canvas/UI/DialogAnim" to="Canvas/UI" method="_on_dialog_anim_animation_finished"]
 [connection signal="pressed" from="Canvas/UI/LoseBG/Button" to="Canvas/UI" method="_on_button_pressed"]
 [connection signal="animation_finished" from="Canvas/UI/FadeAnim" to="." method="_on_fade_anim_animation_finished"]
 [connection signal="timeout" from="Canvas/UI/SpecialTimer" to="Canvas/UI" method="_on_special_timer_timeout"]
 [connection signal="timeout" from="Canvas/UI/SpecialTimerEnd" to="Canvas/UI" method="_on_special_timer_end_timeout"]
+[connection signal="pressed" from="Canvas/UI/Pause/Resume" to="Canvas/UI" method="_on_resume_pressed"]
+[connection signal="pressed" from="Canvas/UI/Pause/Restart" to="Canvas/UI" method="_on_button_pressed"]
+[connection signal="pressed" from="Canvas/UI/Pause/Quit" to="Canvas/UI" method="_on_quit_pressed"]
