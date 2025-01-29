@@ -286,6 +286,7 @@ transform = Transform3D(0.172256, 0, -0.985052, 0, 1, 0, 0.985052, 0, 0.172256, 
 
 [node name="Car" parent="." instance=ExtResource("12_nk0a3")]
 transform = Transform3D(0.946148, 0, 0.323736, 0, 1, 0, -0.323736, 0, 0.946148, 3.93754, 0.345575, -8.96384)
+show_health = true
 
 [node name="Cable" parent="." instance=ExtResource("13_c7lxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50188, 0.452565, 2.72211)

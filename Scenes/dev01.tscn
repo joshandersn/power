@@ -150,6 +150,7 @@ item_resource = SubResource("Resource_eayx0")
 
 [node name="Car" parent="." instance=ExtResource("18_pa22a")]
 transform = Transform3D(0.606766, 0, -0.794881, 0, 1, 0, 0.794881, 0, 0.606766, 0.960359, 0.711257, 11.8808)
+show_health = true
 
 [node name="Trigger2" parent="." instance=ExtResource("16_pnuvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4318, 0.0345261, 13.8589)

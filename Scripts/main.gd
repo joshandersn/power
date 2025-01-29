@@ -42,7 +42,7 @@ func _ready() -> void:
 	Game.restart_level.connect(restart_level)
 	Game.scan_level.connect(scan_level)
 	if Game.DEBUG:
-		quick_load(load("res://Scenes/level01.tscn"))
+		quick_load(load("res://Scenes/dev01.tscn"))
 	else:
 		load_scene(load("res://Scenes/titleScreen.tscn"))
 

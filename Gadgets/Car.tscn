@@ -1,11 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://hsyxg1ydgpg0"]
+[gd_scene load_steps=10 format=3 uid="uid://hsyxg1ydgpg0"]
 
 [ext_resource type="Script" path="res://Gadgets/car.gd" id="1_hqwy1"]
 [ext_resource type="PackedScene" uid="uid://wdnaiylei4nk" path="res://Assets/Car.glb" id="2_m37o7"]
+[ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="3_0v6jv"]
+[ext_resource type="Texture2D" uid="uid://e27jsu85l8o6" path="res://Assets/blur.png" id="4_7nmuo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6eehn"]
 radius = 1.08375
 height = 4.51662
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t50qo"]
+bg_color = Color(1, 0.0823529, 0.164706, 1)
+
+[sub_resource type="Animation" id="Animation_rmjd6"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.833333),
+"transitions": PackedFloat32Array(0.0490365, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n0eit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y18rp"]
+_data = {
+"RESET": SubResource("Animation_n0eit"),
+"damage": SubResource("Animation_rmjd6")
+}
 
 [node name="Car" type="RigidBody3D" groups=["Defence"]]
 collision_layer = 7
@@ -25,5 +66,64 @@ one_shot = true
 
 [node name="Car2" parent="." instance=ExtResource("2_m37o7")]
 transform = Transform3D(0.570705, 0, 0, 0, 0.570705, 0, 0, 0, 0.570705, 0.00307283, 0.48199, 1.48966)
+
+[node name="CarUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_0v6jv")
+
+[node name="TextureRect" type="TextureRect" parent="CarUI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -699.0
+offset_top = -56.0
+offset_right = 679.0
+offset_bottom = 265.0
+grow_horizontal = 2
+texture = ExtResource("4_7nmuo")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CarUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_top = 21.0
+offset_right = 62.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Car"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ProgressBar" type="ProgressBar" parent="CarUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -410.0
+offset_top = 74.0
+offset_right = 410.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_t50qo")
+value = 27.86
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CarUI"]
+libraries = {
+"": SubResource("AnimationLibrary_y18rp")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
