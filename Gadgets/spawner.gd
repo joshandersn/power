@@ -13,4 +13,5 @@ func spawn_enemy() -> void:
 	add_sibling(new_enemy)
 
 func _on_timer_timeout() -> void:
+	Game.scan_level.emit()
 	spawn_enemy()

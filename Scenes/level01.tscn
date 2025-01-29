@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://bu3patb680jal"]
+[gd_scene load_steps=25 format=3 uid="uid://bu3patb680jal"]
 
+[ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_cm4m6"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
 [ext_resource type="PackedScene" uid="uid://dqjf7xe6278u7" path="res://Entities/player.tscn" id="3_ehfn2"]
 [ext_resource type="PackedScene" uid="uid://gb6v11hpxp6g" path="res://Gadgets/camera.tscn" id="3_gsc6c"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dpqd7qs18dur5" path="res://Gadgets/Socket.tscn" id="17_6n11j"]
 [ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="18_4g5n7"]
 [ext_resource type="PackedScene" uid="uid://lr4eosfujbif" path="res://BuildingBlocks/Crate.tscn" id="19_p6let"]
+[ext_resource type="PackedScene" uid="uid://ydqtpgy5ffku" path="res://Gadgets/Spawner.tscn" id="20_x85iw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_krdv6"]
 sky_top_color = Color(0.183667, 0.234185, 0.297457, 1)
@@ -48,6 +50,7 @@ adjustment_brightness = 1.29
 adjustment_contrast = 1.31
 
 [node name="Level01" type="Node3D"]
+script = ExtResource("1_cm4m6")
 
 [node name="Floor" parent="." instance=ExtResource("1_vx0we")]
 transform = Transform3D(8.90199, 0, 0, 0, 1, 0, 0, 0, 8.99693, -0.120748, -0.463436, -0.244771)
@@ -135,7 +138,7 @@ transform = Transform3D(-0.960477, 0, 0.947729, 0, 1, 0, -2.85285, 0, -0.319075,
 transform = Transform3D(2.0867, 0, 0.720733, 0, 1, 0, -2.16954, 0, 0.693213, -32.5961, 4.42454, 6.55292)
 
 [node name="Block27" parent="." instance=ExtResource("3_t5aii")]
-transform = Transform3D(2.69636, 0, 0.444573, 0, 1, 0, -1.33825, 0, 0.895743, -13.9716, 4.42454, -13.0535)
+transform = Transform3D(2.69636, 0, 0.444573, 0, 1, 0, -1.33825, 0, 0.895743, -16.9403, 4.42454, -17.1174)
 
 [node name="Block32" parent="." instance=ExtResource("3_t5aii")]
 transform = Transform3D(2.98261, 0, 0.135058, 0, 1, 0, -0.406552, 0, 0.990838, -1.04332, 4.42454, 19.1186)
@@ -409,3 +412,9 @@ transform = Transform3D(-0.119876, 0, 1.4729, 0, 1.68126, 0, -0.994966, 0, -0.17
 
 [node name="Crate12" parent="." instance=ExtResource("19_p6let")]
 transform = Transform3D(-1.65445, 0, 0.85925, 0, 1.91603, 0, -0.821167, 0, -1.73118, 14.1817, -0.213436, -19.1473)
+
+[node name="Spawner" parent="." instance=ExtResource("20_x85iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0527, 0.229584, 8.58701)
+
+[node name="Spawner2" parent="." instance=ExtResource("20_x85iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3552, 0.229584, -14.5978)
