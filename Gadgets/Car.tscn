@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hsyxg1ydgpg0"]
+[gd_scene load_steps=11 format=3 uid="uid://hsyxg1ydgpg0"]
 
 [ext_resource type="Script" path="res://Gadgets/car.gd" id="1_hqwy1"]
 [ext_resource type="PackedScene" uid="uid://wdnaiylei4nk" path="res://Assets/Car.glb" id="2_m37o7"]
@@ -26,6 +26,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Car2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
+"transitions": PackedFloat32Array(0.307786, 0.233258, 2.2974, 0.307786),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0523599), Vector3(0, 0, -0.0835315), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Car2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333, 0.333333, 0.433333, 0.7),
+"transitions": PackedFloat32Array(0.307786, 0.233258, 2.2974, 0.307786, 1, 1, 0.307786),
+"update": 0,
+"values": [Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.0763322, 0.530332, 1.49), Vector3(0.0956651, 0.568998, 1.49), Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.00307283, 0.433092, 1.48966), Vector3(0.00307283, 0.506114, 1.48966), Vector3(0.00307283, 0.48199, 1.48966)]
+}
 
 [sub_resource type="Animation" id="Animation_n0eit"]
 length = 0.001
@@ -41,14 +65,67 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Car2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Car2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00307283, 0.48199, 1.48966)]
+}
+
+[sub_resource type="Animation" id="Animation_dt0i5"]
+resource_name = "destroy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Car2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.7, 0.8),
+"transitions": PackedFloat32Array(0.392293, 3.4822, 3.4822, 1, 1, 1, 0.392293),
+"update": 0,
+"values": [Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.00307283, 1.1981, 1.48966), Vector3(0.00307283, 1.09796, 1.48966), Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.00307283, 0.412072, 1.48966), Vector3(0.00307283, 0.526932, 1.48966), Vector3(0.00307283, 0.48199, 1.48966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Car2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.633333, 0.766667, 0.9),
+"transitions": PackedFloat32Array(0.392293, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.57064), Vector3(0, 0, -1.717), Vector3(0, 0, -1.65447), Vector3(0, 0, -1.71)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y18rp"]
 _data = {
 "RESET": SubResource("Animation_n0eit"),
-"damage": SubResource("Animation_rmjd6")
+"damage": SubResource("Animation_rmjd6"),
+"destroy": SubResource("Animation_dt0i5")
 }
 
 [node name="Car" type="RigidBody3D" groups=["Defence"]]
+process_mode = 3
 collision_layer = 7
 collision_mask = 7
 freeze = true

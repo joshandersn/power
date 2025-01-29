@@ -14,6 +14,7 @@ func goblin_action() -> void:
 		$CarUI/AnimationPlayer.play("damage")
 	elif !destroyed:
 		destroyed = true
+		$CarUI/AnimationPlayer.play("destroy")
 		Game.look_at.emit(self, 4)
 		$Timer.start()
 	update_item()
