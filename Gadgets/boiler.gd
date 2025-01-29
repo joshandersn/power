@@ -30,11 +30,17 @@ func _on_body_entered(body: Node3D) -> void:
 		$ServeTimer.start()
 	if body.item_resource.fuel:
 		item_resource.power += body.item_resource.fuel
+		$ServeTimer.start()
 		body.queue_free()
 
 func _on_serve_timer_timeout() -> void:
 	if output_node and output_node.plugged_into:
 		if item_resource.power >= power_current:
 			output_node.pass_power(power_current)
+			$Smoke.emitting = true
+		else:
+			$ServeTimer.stop()
+			$Smoke.emitting = false
 	else:
 		$ServeTimer.stop()
+		$Smoke.emitting = false

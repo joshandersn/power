@@ -14,11 +14,11 @@ cable_a = NodePath("PlugHeadA")
 cable_b = NodePath("PlugHeadB")
 
 [node name="PlugHeadA" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
-transform = Transform3D(-0.425068, 0, -0.905161, 0, 1, 0, 0.905161, 0, -0.425068, 0.273887, 1.63182, -3.38933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463579, 0, 0.054888)
 other_plug = NodePath("../PlugHeadB")
 
 [node name="PlugHeadB" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083235, 0.886056, 0.563264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.527554, 0, 0.0587208)
 other_plug = NodePath("../PlugHeadA")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]

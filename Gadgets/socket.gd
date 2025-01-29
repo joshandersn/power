@@ -34,6 +34,11 @@ func receive_power(amt):
 	if inserted_item:
 		inserted_item.receive_power(amt)
 		inserted_item.update_item()
+		if inserted_item.item_resource.power >= 100:
+			$StatusLight.active = true
+		else:
+			$StatusLight.active = false
+		$StatusLight.update_item()
 	
 func update_outputs():
 	if output_node and output_node.other_plug and output_node.other_plug.plugged_into and output_node.other_plug.plugged_into.is_output:
@@ -51,7 +56,7 @@ func insert_item(object: Node3D) -> void:
 		output_node = object
 		object.plugged_into = self
 		object.global_position = $PlugPos.global_position
-		object.rotation = $PlugPos.global_rotation
+		object.global_rotation = $PlugPos.global_rotation
 		update_outputs()
 		object.update_connections()
 		object.freeze = true

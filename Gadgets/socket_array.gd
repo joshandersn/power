@@ -26,7 +26,7 @@ func socket_filled(socket):
 func update_sockets() -> void:
 	var count := 0
 	for i in inserts.size():
-		inserts[count].position = sockets[count].global_position
+		inserts[count].global_position = sockets[count].global_position
 		count += 1
 	if inserts.size() == 3:
 		charged = true

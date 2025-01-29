@@ -14,13 +14,14 @@ func _ready() -> void:
 	update_item()
 
 func receive_power(amt: int) -> void:
-	item_resource.power += amt
-	update_item()
+	if item_resource.power <= 100:
+		item_resource.power += amt
+		update_item()
 
 func update_item() -> void:
 	var new_height = (item_resource.power / 100)
 	var scaled_value = new_height * 0.65
 	$juice.mesh.height = scaled_value
-	$juice.position.y = $juice.mesh.height/2 - 0.25
+	$juice.position.y = $juice.mesh.height/2 - 0.25 
 	$OmniLight.active = !!(item_resource.power > 50)
 	$OmniLight.update_item()

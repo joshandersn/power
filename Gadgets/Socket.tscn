@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpqd7qs18dur5"]
+[gd_scene load_steps=9 format=3 uid="uid://dpqd7qs18dur5"]
 
 [ext_resource type="Script" path="res://Gadgets/socket.gd" id="1_y2hsj"]
 [ext_resource type="PackedScene" uid="uid://3emifvye52al" path="res://Assets/Battery_Hub.glb" id="2_vmy85"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="3_jp1bg"]
+[ext_resource type="PackedScene" uid="uid://biu2aq3ps1eq1" path="res://Gadgets/statusLight.tscn" id="4_hpqxn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6b7at"]
 size = Vector3(1.75366, 1.11023, 1)
@@ -11,7 +12,7 @@ size = Vector3(1.75366, 1.11023, 1)
 size = Vector3(1.22772, 1.24213, 1.21741)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
-radius = 0.875894
+radius = 1.256
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_cpdev"]
 top_radius = 0.7
@@ -35,7 +36,7 @@ transform = Transform3D(1, -2.91897e-07, 0.000112323, 4.83172e-07, 0.999999, -0.
 shape = SubResource("BoxShape3D_ii5sp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317963, 0.674291, 0.266692)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668343, 0.674291, 0.305115)
 shape = SubResource("SphereShape3D_oblf1")
 
 [node name="InsertPos" type="Node3D" parent="."]
@@ -51,7 +52,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(-0.98439, 0, 0.176002, 0, 1, 0, -0.176002, 0, -0.98439, 1.98878, 0.377588, -0.118122)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.98878, 0.377588, -0.118122)
 
 [node name="ServeTimer" type="Timer" parent="."]
 
@@ -60,6 +61,9 @@ transform = Transform3D(0.23098, 0, 0, 0, 0.23098, 0, 0, 0, 0.23098, 0.0190148, 
 
 [node name="Socket" parent="." instance=ExtResource("3_jp1bg")]
 transform = Transform3D(-6.22557e-09, 0, -0.142424, 0, 0.142424, 0, 0.142424, 0, -6.22557e-09, 1.42299, 0.397124, -0.110605)
+
+[node name="StatusLight" parent="." instance=ExtResource("4_hpqxn")]
+transform = Transform3D(0.246128, 0, 0, 0, 0.246128, 0, 0, 0, 0.246128, 0.788449, 1.00567, -0.226096)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

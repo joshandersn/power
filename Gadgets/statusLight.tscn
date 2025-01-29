@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://bqi10rh5anjm1" path="res://Materials/green.tres" id="2_whg7s"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gieow"]
+resource_local_to_scene = true
 material = ExtResource("2_whg7s")
 radial_segments = 6
 rings = 6

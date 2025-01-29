@@ -1,12 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqax8s62i3xmi"]
+[gd_scene load_steps=13 format=3 uid="uid://dqax8s62i3xmi"]
 
 [ext_resource type="Script" path="res://Gadgets/boiler.gd" id="1_mnqfa"]
 [ext_resource type="Material" uid="uid://bvt6jte321obm" path="res://Materials/red.tres" id="2_vmb2p"]
+[ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="3_spa88"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
+radius = 1.02421
 
 [sub_resource type="BoxMesh" id="BoxMesh_i45vt"]
 material = ExtResource("2_vmb2p")
+
+[sub_resource type="Gradient" id="Gradient_hgplr"]
+offsets = PackedFloat32Array(0, 0.477506)
+colors = PackedColorArray(1, 1, 1, 1, 0.282285, 0.282285, 0.282285, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6kbs0"]
+gradient = SubResource("Gradient_hgplr")
+
+[sub_resource type="Curve" id="Curve_m1lx4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.487136, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_103cu"]
+curve = SubResource("Curve_m1lx4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6d7ho"]
+initial_velocity_max = 1.2
+gravity = Vector3(0, 6.03, -5.17)
+damping_min = 1.934
+damping_max = 12.563
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_103cu")
+color_ramp = SubResource("GradientTexture1D_6kbs0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efmud"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_w0vou"]
+material = SubResource("StandardMaterial3D_efmud")
+size = Vector2(0.82, 0.67)
 
 [node name="Boiler" type="Area3D" groups=["Socket"]]
 collision_layer = 8
@@ -26,9 +60,21 @@ wait_time = 0.2
 one_shot = true
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363748, 0.851561)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.28401, 0.375405, 0.00578529)
 
 [node name="ServeTimer" type="Timer" parent="."]
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29745, -0.327326)
+cast_shadow = 0
+emitting = false
+amount = 20
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_6d7ho")
+draw_pass_1 = SubResource("QuadMesh_w0vou")
+
+[node name="Socket" parent="." instance=ExtResource("3_spa88")]
+transform = Transform3D(-6.22557e-09, 0, -0.142424, 0, 0.142424, 0, 0.142424, 0, -6.22557e-09, 0.722818, 0.397124, 0.0135441)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

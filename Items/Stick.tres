@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="res_item" load_steps=3 format=3 uid="uid://rn5dibc8xnqj"]
+
+[ext_resource type="PackedScene" uid="uid://1so85f1c5jgt" path="res://Items/Stick.tscn" id="1_n2ld4"]
+[ext_resource type="Script" path="res://Resources/res_item.gd" id="1_pt4t4"]
+
+[resource]
+script = ExtResource("1_pt4t4")
+scene = ExtResource("1_n2ld4")
+title = "Stick"
+power = 0.0
+knocked_over = false
+broken = false
+heavy = false
+plug = false
+battery = false
+fuel = 50.0

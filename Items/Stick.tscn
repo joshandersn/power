@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://1so85f1c5jgt"]
+
+[ext_resource type="Script" path="res://Items/Stick.gd" id="1_gxk2x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vq06"]
+size = Vector3(1, 0.154297, 0.353516)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjrwf"]
+radius = 0.301137
+height = 1.42346
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwlym"]
+albedo_color = Color(0.588102, 0.402869, 0.224073, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_thp75"]
+material = SubResource("StandardMaterial3D_bwlym")
+size = Vector3(0.94, 0.09, 0.09)
+
+[node name="Stick" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_gxk2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7vq06")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_bjrwf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_thp75")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.939424, -0.342758, 0, 0.342758, 0.939424, 0, 0, 0, 1, 0.238816, 0.168127, 0.00833917)
+mesh = SubResource("BoxMesh_thp75")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
