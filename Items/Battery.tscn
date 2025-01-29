@@ -45,10 +45,12 @@ shape = SubResource("BoxShape3D_h648p")
 
 [node name="juice" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786671, 0)
+gi_mode = 0
 mesh = SubResource("CylinderMesh_exp85")
 
 [node name="juice2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0786671, 0)
+gi_mode = 0
 mesh = SubResource("CylinderMesh_a6e50")
 
 [node name="Clasic_Battery" parent="." instance=ExtResource("2_1llr6")]

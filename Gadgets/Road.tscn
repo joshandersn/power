@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://buileofclqu2x"]
+
+[ext_resource type="Script" path="res://Gadgets/Road.gd" id="1_lgcpv"]
+[ext_resource type="Material" uid="uid://csr1x1pdcai3j" path="res://Materials/road.tres" id="2_8iplf"]
+
+[sub_resource type="Curve3D" id="Curve3D_16dth"]
+
+[node name="Road" type="Node3D"]
+script = ExtResource("1_lgcpv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+material_override = ExtResource("2_8iplf")
+polygon = PackedVector2Array(0, 0.05, 0.0433013, 0.025, 0.0433013, -0.025, 6.12323e-18, -0.05, -0.0433013, -0.025, -0.0433013, 0.025)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_16dth")

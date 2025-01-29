@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0uoo8khpywsm"
-path="res://.godot/imported/Plug.glb-fe33d93063a08f66f6dec3959ff6aac5.scn"
+uid="uid://wdnaiylei4nk"
+path="res://.godot/imported/Car.glb-01ed21ce2f5ec17ea54cfbe0323a6bad.scn"
 
 [deps]
 
-source_file="res://Assets/Plug.glb"
-dest_files=["res://.godot/imported/Plug.glb-fe33d93063a08f66f6dec3959ff6aac5.scn"]
+source_file="res://Assets/Car.glb"
+dest_files=["res://.godot/imported/Car.glb-01ed21ce2f5ec17ea54cfbe0323a6bad.scn"]
 
 [params]
 
@@ -21,7 +21,7 @@ nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=0
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true

@@ -43,6 +43,8 @@ func pickup(object: Node3D) -> void:
 		else:
 			picked_up_item = object
 			object.freeze = true
+			if "is_held" in picked_up_item:
+				picked_up_item.is_held = true
 			detected_plug = null
 			can_pickup = false
 			if "inserted_into" in object:
@@ -54,6 +56,8 @@ func pickup(object: Node3D) -> void:
 func throw_item() -> void:
 	if picked_up_item:
 		picked_up_item.freeze = false
+		if "is_held" in picked_up_item:
+			picked_up_item.is_held = false
 		picked_up_item.linear_velocity = Game.player_last_direction * throw_power
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
@@ -66,6 +70,8 @@ func drop_item() -> void:
 		picked_up_item.global_position = global_position
 		picked_up_item.freeze = false
 		picked_up_item.linear_velocity = Game.player_last_direction * 1
+		if "is_held" in picked_up_item:
+			picked_up_item.is_held = false
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
 		picked_up_item = null
@@ -78,6 +84,8 @@ func unplug_cable():
 			detected_plug.disconnect_plug()
 			picked_up_item = detected_plug
 			detected_plug = null
+			if "is_held" in picked_up_item:
+				picked_up_item.is_held = true
 			Game.dismiss_all_prompts.emit()
 	
 

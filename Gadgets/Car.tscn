@@ -1,12 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://hsyxg1ydgpg0"]
 
 [ext_resource type="Script" path="res://Gadgets/car.gd" id="1_hqwy1"]
+[ext_resource type="PackedScene" uid="uid://wdnaiylei4nk" path="res://Assets/Car.glb" id="2_m37o7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wa0xw"]
-size = Vector3(2, 1, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0xhf8"]
-size = Vector3(2, 1, 3)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6eehn"]
+radius = 1.08375
+height = 4.51662
 
 [node name="Car" type="RigidBody3D" groups=["Defence"]]
 collision_layer = 7
@@ -16,14 +15,15 @@ script = ExtResource("1_hqwy1")
 lose_message = "Oh no honey They destroyed the car!"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_wa0xw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_0xhf8")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.573129, -0.00732422)
+shape = SubResource("CapsuleShape3D_6eehn")
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 3
 wait_time = 3.0
 one_shot = true
+
+[node name="Car2" parent="." instance=ExtResource("2_m37o7")]
+transform = Transform3D(0.570705, 0, 0, 0, 0.570705, 0, 0, 0, 0.570705, 0.00307283, 0.48199, 1.48966)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

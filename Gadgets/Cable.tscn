@@ -18,7 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463579, 0, 0.054888)
 other_plug = NodePath("../PlugHeadB")
 
 [node name="PlugHeadB" parent="." node_paths=PackedStringArray("other_plug") instance=ExtResource("2_7q6yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.527554, 0, 0.0587208)
+transform = Transform3D(-0.215366, 0, -0.976533, 0, 1, 0, 0.976533, 0, -0.215366, 0.527554, 0, 1.15909)
 other_plug = NodePath("../PlugHeadA")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]

@@ -11,8 +11,9 @@ radius = 0.83754
 material = ExtResource("2_86vdo")
 size = Vector3(0.5, 1, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
-size = Vector3(0.5, 1, 0.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g46gr"]
+radius = 0.3
+height = 1.0
 
 [sub_resource type="Animation" id="Animation_fruxx"]
 resource_name = "FadeIn"
@@ -82,10 +83,11 @@ shape = SubResource("SphereShape3D_u54bi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("BoxMesh_ki6ae")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_qutdp")
+shape = SubResource("CapsuleShape3D_g46gr")
 
 [node name="PickupTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -101,6 +103,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Vignette" type="TextureRect" parent="Control"]
 modulate = Color(1, 1, 1, 0)
@@ -110,6 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_ykelu")
 
 [node name="Label" type="Label" parent="Control"]
@@ -122,6 +126,12 @@ text = "Health"
 libraries = {
 "": SubResource("AnimationLibrary_xuw3q")
 }
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00344831, 0.158228, -0.0186116)
+light_energy = 0.1
+light_specular = 0.0
+light_cull_mask = 4294967293
 
 [connection signal="area_entered" from="PickupField" to="." method="_on_pickup_field_area_entered"]
 [connection signal="area_exited" from="PickupField" to="." method="_on_pickup_field_area_exited"]

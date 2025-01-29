@@ -69,6 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29745, -0.327326)
 cast_shadow = 0
 emitting = false
 amount = 20
+local_coords = true
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_6d7ho")
 draw_pass_1 = SubResource("QuadMesh_w0vou")

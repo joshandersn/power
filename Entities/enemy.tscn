@@ -12,8 +12,9 @@ albedo_color = Color(1, 0.027451, 0, 1)
 material = SubResource("StandardMaterial3D_mkjes")
 size = Vector3(0.5, 1, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qutdp"]
-size = Vector3(0.5, 1, 0.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uxp"]
+radius = 0.3
+height = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2lt1e"]
 radius = 1.0
@@ -35,7 +36,7 @@ shape = SubResource("SphereShape3D_u54bi")
 mesh = SubResource("BoxMesh_oplhu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_qutdp")
+shape = SubResource("CapsuleShape3D_e5uxp")
 
 [node name="FearTimer" type="Timer" parent="."]
 one_shot = true

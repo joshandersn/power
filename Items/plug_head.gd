@@ -4,6 +4,7 @@ extends RigidBody3D
 @export var other_plug: Node3D
 @export var plugged_into: Node3D
 @export var is_reciever: bool
+@export var is_held: bool
 var connected_to_power: bool
 @onready var plug_pos = $PlugPos
 

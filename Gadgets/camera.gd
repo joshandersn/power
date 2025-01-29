@@ -14,11 +14,15 @@ func pause_and_look(subject, time := 2) -> void:
 func _ready() -> void:
 	Game.look_at.connect(pause_and_look)
 	$Camera3D.fov = init_fov
+	update_distance()
 
 func _physics_process(delta: float) -> void:
 	if target and is_instance_valid(target):
 		global_position = lerp(global_position, target.global_position, delta * follow_speed)
 
+func update_distance():
+	$Camera3D.position.y = distance
+	$Camera3D.position.z = distance
 
 func _on_timer_timeout() -> void:
 	target = init_target

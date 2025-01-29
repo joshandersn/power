@@ -382,70 +382,6 @@ libraries = {
 "": SubResource("AnimationLibrary_yf3fg")
 }
 
-[node name="LoseBG" type="ColorRect" parent="Canvas/UI"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.177495, 0.177495, 0.177495, 1)
-
-[node name="LabelShadow" type="Label" parent="Canvas/UI/LoseBG"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -298.0
-offset_top = -78.5
-offset_right = 298.0
-offset_bottom = 78.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 130
-text = "You Lose"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Label" type="Label" parent="Canvas/UI/LoseBG"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 130
-text = "You Lose"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="Button" type="Button" parent="Canvas/UI/LoseBG"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -186.0
-offset_top = -437.0
-offset_right = 186.0
-offset_bottom = -363.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 35
-disabled = true
-text = "Try Again"
-
 [node name="dialog" type="ColorRect" parent="Canvas/UI"]
 layout_mode = 1
 anchors_preset = 7
@@ -583,12 +519,77 @@ offset_bottom = 659.0
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
+[node name="LoseBG" type="ColorRect" parent="Canvas/UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.177495, 0.177495, 0.177495, 1)
+
+[node name="LabelShadow" type="Label" parent="Canvas/UI/LoseBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -78.5
+offset_right = 298.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 130
+text = "You Lose"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="Canvas/UI/LoseBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 130
+text = "You Lose"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="Canvas/UI/LoseBG"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -437.0
+offset_right = 186.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+disabled = true
+text = "Try Again"
+
 [connection signal="timeout" from="Canvas/UI/DialogTimer" to="Canvas/UI" method="_on_dialog_timer_timeout"]
 [connection signal="animation_finished" from="Canvas/UI/DialogAnim" to="Canvas/UI" method="_on_dialog_anim_animation_finished"]
-[connection signal="pressed" from="Canvas/UI/LoseBG/Button" to="Canvas/UI" method="_on_button_pressed"]
 [connection signal="animation_finished" from="Canvas/UI/FadeAnim" to="." method="_on_fade_anim_animation_finished"]
 [connection signal="timeout" from="Canvas/UI/SpecialTimer" to="Canvas/UI" method="_on_special_timer_timeout"]
 [connection signal="timeout" from="Canvas/UI/SpecialTimerEnd" to="Canvas/UI" method="_on_special_timer_end_timeout"]
 [connection signal="pressed" from="Canvas/UI/Pause/Resume" to="Canvas/UI" method="_on_resume_pressed"]
 [connection signal="pressed" from="Canvas/UI/Pause/Restart" to="Canvas/UI" method="_on_button_pressed"]
 [connection signal="pressed" from="Canvas/UI/Pause/Quit" to="Canvas/UI" method="_on_quit_pressed"]
+[connection signal="pressed" from="Canvas/UI/LoseBG/Button" to="Canvas/UI" method="_on_button_pressed"]

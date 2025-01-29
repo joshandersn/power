@@ -15,6 +15,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
+	var distance = (cable_a.position - cable_b.position)
+	if cable_a.is_held and distance.length() > 2:
+		cable_b.linear_velocity = distance
+	elif cable_b.is_held and distance.length() > 2:
+		cable_a.linear_velocity = -distance
+	
 	var circle = PackedVector2Array()
 	for degree in line_resolution:
 		var x = line_radius * sin(PI * 2 * degree / line_resolution)

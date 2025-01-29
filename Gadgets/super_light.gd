@@ -1,6 +1,7 @@
 extends Node3D
 
-var active: bool
+@export var active: bool
+@export var light_power := 10
 
 func _ready() -> void:
 	update_item()
@@ -9,7 +10,7 @@ func _ready() -> void:
 func update_item() -> void:
 	if active:
 		$Area3D.monitoring = true
-		$light.light_energy = 10
+		$light.light_energy = light_power
 	else:
 		$light.light_energy = 0
 
