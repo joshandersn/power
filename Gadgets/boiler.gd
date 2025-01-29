@@ -39,9 +39,12 @@ func _on_serve_timer_timeout() -> void:
 		if item_resource.power >= power_current:
 			output_node.pass_power(power_current)
 			$Smoke.emitting = true
+			$MeshInstance3D.visible = true
 		else:
 			$ServeTimer.stop()
 			$Smoke.emitting = false
+			$MeshInstance3D.visible = false
 	else:
 		$ServeTimer.stop()
 		$Smoke.emitting = false
+		$MeshInstance3D.visible = false

@@ -1,14 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqax8s62i3xmi"]
+[gd_scene load_steps=14 format=3 uid="uid://dqax8s62i3xmi"]
 
 [ext_resource type="Script" path="res://Gadgets/boiler.gd" id="1_mnqfa"]
-[ext_resource type="Material" uid="uid://bvt6jte321obm" path="res://Materials/red.tres" id="2_vmb2p"]
+[ext_resource type="PackedScene" uid="uid://c7thefpvvwvog" path="res://Assets/Boiler.glb" id="3_olgu4"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="3_spa88"]
+[ext_resource type="Material" uid="uid://drc485g7n0s20" path="res://Materials/glow.tres" id="4_47kr8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
 radius = 1.02421
-
-[sub_resource type="BoxMesh" id="BoxMesh_i45vt"]
-material = ExtResource("2_vmb2p")
 
 [sub_resource type="Gradient" id="Gradient_hgplr"]
 offsets = PackedFloat32Array(0, 0.477506)
@@ -42,6 +40,9 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_efmud")
 size = Vector2(0.82, 0.67)
 
+[sub_resource type="QuadMesh" id="QuadMesh_g1v57"]
+material = ExtResource("4_47kr8")
+
 [node name="Boiler" type="Area3D" groups=["Socket"]]
 collision_layer = 8
 collision_mask = 10
@@ -51,21 +52,17 @@ script = ExtResource("1_mnqfa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("SphereShape3D_oblf1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_i45vt")
-
 [node name="InsertLimit" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 
 [node name="PlugPos" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.28401, 0.375405, 0.00578529)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.47268, 0.480529, 0.00578529)
 
 [node name="ServeTimer" type="Timer" parent="."]
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29745, -0.327326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54502, 0.0114461)
 cast_shadow = 0
 emitting = false
 amount = 20
@@ -75,7 +72,15 @@ process_material = SubResource("ParticleProcessMaterial_6d7ho")
 draw_pass_1 = SubResource("QuadMesh_w0vou")
 
 [node name="Socket" parent="." instance=ExtResource("3_spa88")]
-transform = Transform3D(-6.22557e-09, 0, -0.142424, 0, 0.142424, 0, 0.142424, 0, -6.22557e-09, 0.722818, 0.397124, 0.0135441)
+transform = Transform3D(-6.22557e-09, 0, -0.142424, 0, 0.142424, 0, 0.142424, 0, -6.22557e-09, 0.911491, 0.502248, 0.0135441)
+
+[node name="Boiler" parent="." instance=ExtResource("3_olgu4")]
+transform = Transform3D(-2.03162e-08, 0, -0.46478, 0, 0.46478, 0, 0.46478, 0, -2.03162e-08, -0.0423867, 0.566724, 0.0103164)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.62896e-08, 0.0690355, -0.601437, 3.01764e-09, 0.601437, 0.0690355, 0.605386, 0, -2.64623e-08, -0.847443, 0.597626, 0.015535)
+visible = false
+mesh = SubResource("QuadMesh_g1v57")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

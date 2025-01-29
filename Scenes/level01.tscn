@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bu3patb680jal"]
+[gd_scene load_steps=27 format=3 uid="uid://bu3patb680jal"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_cm4m6"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://cqdxr0x5p473b" path="res://Items/WorkLightTall.tscn" id="18_4g5n7"]
 [ext_resource type="PackedScene" uid="uid://lr4eosfujbif" path="res://BuildingBlocks/Crate.tscn" id="19_p6let"]
 [ext_resource type="PackedScene" uid="uid://ydqtpgy5ffku" path="res://Gadgets/Spawner.tscn" id="20_x85iw"]
+[ext_resource type="PackedScene" uid="uid://bkyp1882v2dpj" path="res://BuildingBlocks/Barrel.tscn" id="22_bug07"]
+[ext_resource type="PackedScene" uid="uid://b0srr10fjqtww" path="res://BuildingBlocks/Fence.tscn" id="23_73b21"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_krdv6"]
 sky_top_color = Color(0.183667, 0.234185, 0.297457, 1)
@@ -46,8 +48,8 @@ fog_enabled = true
 fog_light_color = Color(0.153672, 0.237979, 0.402362, 1)
 fog_sky_affect = 0.0
 adjustment_enabled = true
-adjustment_brightness = 1.29
-adjustment_contrast = 1.31
+adjustment_brightness = 1.27
+adjustment_contrast = 1.11
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_cm4m6")
@@ -82,15 +84,6 @@ transform = Transform3D(10.1213, 0, -0.0176066, 0, 0.550748, 0, 1.68228, 0, 0.10
 
 [node name="Block13" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(-1.97179, 0, 0.10538, 0, 0.550748, 0, -10.0689, 0, -0.0206365, -16.5114, 0.395876, 8.51916)
-
-[node name="Block22" parent="." instance=ExtResource("6_vu8qr")]
-transform = Transform3D(-5.49579, 0, -0.0404204, 0, 0.550748, 0, 4.28714, 0, -0.0518159, -24.8368, 0.395875, -1.97649)
-
-[node name="Block38" parent="." instance=ExtResource("6_vu8qr")]
-transform = Transform3D(2.5955, 0, -0.0609907, 0, 0.550748, 0, 6.4689, 0, 0.0244711, -13.0852, 0.395875, -12.8859)
-
-[node name="Block23" parent="." instance=ExtResource("6_vu8qr")]
-transform = Transform3D(-1.97179, 0, 0.10538, 0, 0.550748, 0, -10.0689, 0, -0.0206365, -22.7827, 0.395876, -8.94093)
 
 [node name="Block10" parent="." instance=ExtResource("6_vu8qr")]
 transform = Transform3D(15.43, 0, 0.0145274, 0, 0.550748, 0, -2.01167, 0, 0.111429, 19.7999, 0.395874, 10.9372)
@@ -419,3 +412,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0527, 0.229584, 8.58701)
 
 [node name="Spawner2" parent="." instance=ExtResource("20_x85iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3552, 0.229584, -14.5978)
+
+[node name="Crate13" parent="." instance=ExtResource("22_bug07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93035, -0.213436, 18.4243)
+
+[node name="Block7" parent="." instance=ExtResource("23_73b21")]
+transform = Transform3D(0.923391, 0, 0.38386, 0, 1, 0, -0.38386, 0, 0.923391, -11.9151, -0.213436, -10.2551)
+
+[node name="Block18" parent="." instance=ExtResource("23_73b21")]
+transform = Transform3D(0.923391, 0, 0.38386, 0, 1, 0, -0.38386, 0, 0.923391, -13.2713, -0.213436, -13.5272)
+
+[node name="Block20" parent="." instance=ExtResource("23_73b21")]
+transform = Transform3D(-0.983003, 0, -0.183591, 0, 1, 0, 0.183591, 0, -0.983003, -23.6915, -0.213436, -13.6605)
+
+[node name="Block24" parent="." instance=ExtResource("23_73b21")]
+transform = Transform3D(-0.983003, 0, -0.183591, 0, 1, 0, 0.183591, 0, -0.983003, -23.0449, -0.213437, -10.1781)
+
+[node name="Block23" parent="." instance=ExtResource("23_73b21")]
+transform = Transform3D(-0.983003, 0, -0.183591, 0, 1, 0, 0.183591, 0, -0.983003, -22.3063, -0.213436, -6.6022)
+
+[node name="Block25" parent="." instance=ExtResource("23_73b21")]
+transform = Transform3D(-0.589069, 0, 0.808083, 0, 1, 0, -0.808083, 0, -0.589069, -22.1062, -0.213437, -3.37479)
