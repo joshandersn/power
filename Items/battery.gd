@@ -25,3 +25,13 @@ func update_item() -> void:
 	$juice.position.y = $juice.mesh.height/2 - 0.25 
 	$OmniLight.active = !!(item_resource.power > 50)
 	$OmniLight.update_item()
+
+var sound_play = true
+
+func _on_body_entered(body: Node) -> void:
+	if sound_play:
+		$AudioStreamPlayer3D.play()
+		sound_play = true
+
+func _on_audio_stream_player_3d_finished() -> void:
+	sound_play = true

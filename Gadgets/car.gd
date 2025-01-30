@@ -12,6 +12,7 @@ func goblin_action() -> void:
 	if health >= 0:
 		health -= 1
 		$CarUI/AnimationPlayer.play("damage")
+		$hit.play()
 	elif !destroyed:
 		destroyed = true
 		$CarUI/AnimationPlayer.play("destroy")

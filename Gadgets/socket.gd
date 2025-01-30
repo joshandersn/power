@@ -70,6 +70,7 @@ func insert_item(object: Node3D) -> void:
 			$InsertLimit.start()
 			can_insert = true
 		else:
+			$plugin.play()
 			object.inserted_into = self
 			inserted_item = object
 			item_resource = inserted_item.item_resource

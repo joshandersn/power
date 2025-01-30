@@ -42,8 +42,18 @@ func disconnect_plug() -> void:
 	var recent_plug = plugged_into
 	plugged_into = null
 	recent_plug.output_node = null
+	$plugsound.play()
 	if other_plug.plugged_into and "update_item" in other_plug.plugged_into:
 		other_plug.plugged_into.update_item()
 	if "update_item" in recent_plug:
 		recent_plug.update_item()
+		
+var sound_play = true
+func _on_body_entered(body: Node) -> void:
+	if sound_play:
+		$AudioStreamPlayer3D.play()
+		sound_play = true
+
+func _on_audio_stream_player_3d_finished() -> void:
+	sound_play = true
 	

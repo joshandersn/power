@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvu5rhbq64dqb"]
+[gd_scene load_steps=17 format=3 uid="uid://dvu5rhbq64dqb"]
 
 [ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://Items/plug_detect.gd" id="4_s8lqt"]
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="6_uaa6l"]
+[ext_resource type="AudioStream" uid="uid://cg0lsqk8q41wy" path="res://Sound/hit03.wav" id="7_lqm7l"]
 
 [sub_resource type="Resource" id="Resource_dqrti"]
 script = ExtResource("2_6vmfs")
-scene = null
 title = "Work Light"
 power = 0.0
 knocked_over = false
@@ -87,6 +87,8 @@ _data = {
 [node name="WorkLight" type="RigidBody3D" groups=["Defence", "Item", "Socket"]]
 collision_layer = 2
 lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_stoc6")
 item_resource = SubResource("Resource_dqrti")
 
@@ -126,5 +128,10 @@ libraries = {
 [node name="Socket" parent="." instance=ExtResource("6_uaa6l")]
 transform = Transform3D(-0.106158, 0, 9.28061e-09, 0, 0.106158, 0, -9.28061e-09, 0, -0.106158, -0.0224682, -0.361749, 0.63098)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_lqm7l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="PlugDetect" to="." method="_on_plug_detect_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

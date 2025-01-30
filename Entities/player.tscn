@@ -133,6 +133,9 @@ light_energy = 0.1
 light_specular = 0.0
 light_cull_mask = 4294967293
 
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
 [connection signal="area_entered" from="PickupField" to="." method="_on_pickup_field_area_entered"]
 [connection signal="area_exited" from="PickupField" to="." method="_on_pickup_field_area_exited"]
 [connection signal="body_entered" from="PickupField" to="." method="_on_pickup_field_body_entered"]

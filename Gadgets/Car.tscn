@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://hsyxg1ydgpg0"]
+[gd_scene load_steps=12 format=3 uid="uid://hsyxg1ydgpg0"]
 
 [ext_resource type="Script" path="res://Gadgets/car.gd" id="1_hqwy1"]
 [ext_resource type="PackedScene" uid="uid://wdnaiylei4nk" path="res://Assets/Car.glb" id="2_m37o7"]
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="3_0v6jv"]
 [ext_resource type="Texture2D" uid="uid://e27jsu85l8o6" path="res://Assets/blur.png" id="4_7nmuo"]
+[ext_resource type="AudioStream" uid="uid://cqqbjdtpb1sep" path="res://Sound/car01.wav" id="5_pmgm1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6eehn"]
 radius = 1.08375
@@ -11,45 +12,6 @@ height = 4.51662
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t50qo"]
 bg_color = Color(1, 0.0823529, 0.164706, 1)
-
-[sub_resource type="Animation" id="Animation_rmjd6"]
-resource_name = "damage"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.833333),
-"transitions": PackedFloat32Array(0.0490365, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Car2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
-"transitions": PackedFloat32Array(0.307786, 0.233258, 2.2974, 0.307786),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0523599), Vector3(0, 0, -0.0835315), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Car2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333, 0.333333, 0.433333, 0.7),
-"transitions": PackedFloat32Array(0.307786, 0.233258, 2.2974, 0.307786, 1, 1, 0.307786),
-"update": 0,
-"values": [Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.0763322, 0.530332, 1.49), Vector3(0.0956651, 0.568998, 1.49), Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.00307283, 0.433092, 1.48966), Vector3(0.00307283, 0.506114, 1.48966), Vector3(0.00307283, 0.48199, 1.48966)]
-}
 
 [sub_resource type="Animation" id="Animation_n0eit"]
 length = 0.001
@@ -88,6 +50,45 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.00307283, 0.48199, 1.48966)]
+}
+
+[sub_resource type="Animation" id="Animation_rmjd6"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.833333),
+"transitions": PackedFloat32Array(0.0490365, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Car2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333),
+"transitions": PackedFloat32Array(0.307786, 0.233258, 2.2974, 0.307786),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0523599), Vector3(0, 0, -0.0835315), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Car2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.233333, 0.333333, 0.433333, 0.7),
+"transitions": PackedFloat32Array(0.307786, 0.233258, 2.2974, 0.307786, 1, 1, 0.307786),
+"update": 0,
+"values": [Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.0763322, 0.530332, 1.49), Vector3(0.0956651, 0.568998, 1.49), Vector3(0.00307283, 0.48199, 1.48966), Vector3(0.00307283, 0.433092, 1.48966), Vector3(0.00307283, 0.506114, 1.48966), Vector3(0.00307283, 0.48199, 1.48966)]
 }
 
 [sub_resource type="Animation" id="Animation_dt0i5"]
@@ -202,5 +203,8 @@ show_percentage = false
 libraries = {
 "": SubResource("AnimationLibrary_y18rp")
 }
+
+[node name="hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_pmgm1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
