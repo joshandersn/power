@@ -1,6 +1,110 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3mq7l6rxqhmv"]
+[gd_scene load_steps=9 format=3 uid="uid://c3mq7l6rxqhmv"]
 
+[ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="1_abd7n"]
 [ext_resource type="Script" path="res://Scenes/ending_cutscene.gd" id="1_tl6mm"]
+[ext_resource type="AudioStream" uid="uid://byxq4mf4atjuo" path="res://Sound/sunrise.mp3" id="2_kaxpt"]
+[ext_resource type="Texture2D" uid="uid://br41xg71w7vnc" path="res://Assets/Stills/IMG_8190.jpg" id="3_g62so"]
+[ext_resource type="Texture2D" uid="uid://cqtsrhq7xdgsp" path="res://Assets/Stills/IMG_8195.jpg" id="5_op5u1"]
+
+[sub_resource type="Animation" id="Animation_a2s5n"]
+resource_name = "Slideshow"
+length = 120.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(17.3667, 20.3667, 27.2333, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Music")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_kaxpt")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("01:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(17.3667, 29.7333),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-222, -287)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("03:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.06667, 14.4333),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-222, -287)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("03:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 5, 11.8667, 14.6333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dts0k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("01:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m72jv"]
+_data = {
+"RESET": SubResource("Animation_dts0k"),
+"Slideshow": SubResource("Animation_a2s5n")
+}
 
 [node name="Ending Cutscene" type="Control"]
 layout_mode = 3
@@ -9,24 +113,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_abd7n")
 script = ExtResource("1_tl6mm")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -113.0
+offset_right = 116.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Ending Cutscene"
+color = Color(0, 0, 0, 1)
+
+[node name="01" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 255.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g62so")
+expand_mode = 5
+
+[node name="03" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 255.0
+offset_bottom = 439.221
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_op5u1")
+expand_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m72jv")
+}
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -44,6 +176,8 @@ offset_bottom = -32.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

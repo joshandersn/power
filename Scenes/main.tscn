@@ -598,6 +598,9 @@ text = "Try Again"
 
 [node name="HintTimer" type="Timer" parent="Canvas/UI"]
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
 [connection signal="timeout" from="Canvas/UI/DialogTimer" to="Canvas/UI" method="_on_dialog_timer_timeout"]
 [connection signal="animation_finished" from="Canvas/UI/DialogAnim" to="Canvas/UI" method="_on_dialog_anim_animation_finished"]
 [connection signal="animation_finished" from="Canvas/UI/FadeAnim" to="." method="_on_fade_anim_animation_finished"]

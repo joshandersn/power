@@ -14,6 +14,8 @@ signal look_at
 signal push_special_dialog
 signal check_level_objective
 signal push_hint
+signal play_music
+signal stop_music
 
 var input_method := "keyboard"
 var player_last_direction: Vector3

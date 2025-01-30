@@ -23,6 +23,15 @@ func _input(_event: InputEvent) -> void:
 		get_tree().paused = !get_tree().paused
 		$Canvas/UI/Pause.visible = get_tree().paused
 		$Canvas/UI/Pause/Resume.grab_focus()
+	if Input.is_action_just_pressed("debug"):
+		load_scene(load("res://Scenes/EndingCutscene.tscn"))
+
+func stop_music() -> void:
+	$Music.stop()
+
+func play_music(music) -> void:
+	$Music.stream = music
+	$Music.play()
 
 func scan_level() -> void:
 	var e_count := 0
@@ -42,6 +51,8 @@ func _ready() -> void:
 	Game.load_scene.connect(load_scene)
 	Game.restart_level.connect(restart_level)
 	Game.scan_level.connect(scan_level)
+	Game.play_music.connect(play_music)
+	Game.stop_music.connect(stop_music)
 	if Game.DEBUG:
 		quick_load(load("res://Scenes/level01.tscn"))
 	else:
