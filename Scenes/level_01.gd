@@ -3,7 +3,6 @@ extends Node3D
 func _ready() -> void:
 	Game.scan_level.emit()
 	Game.check_level_objective.connect(proceed_level)
-	Game.push_hint.emit(load("res://Assets/feed.png"), "You can feed boilers fuel to charge batterys or power devices")
 
 func proceed_level():
 	if $SuperLight.active and $SuperLight2.active:

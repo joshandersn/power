@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bu3patb680jal"]
+[gd_scene load_steps=30 format=3 uid="uid://bu3patb680jal"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_cm4m6"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://ydqtpgy5ffku" path="res://Gadgets/Spawner.tscn" id="20_x85iw"]
 [ext_resource type="PackedScene" uid="uid://bkyp1882v2dpj" path="res://BuildingBlocks/Barrel.tscn" id="22_bug07"]
 [ext_resource type="PackedScene" uid="uid://b0srr10fjqtww" path="res://BuildingBlocks/Fence.tscn" id="23_73b21"]
+[ext_resource type="PackedScene" uid="uid://cn2y8amb3kwd4" path="res://Gadgets/trigger.tscn" id="24_g1x83"]
+[ext_resource type="Texture2D" uid="uid://cd6imihb0gj5d" path="res://Assets/charge.png" id="25_x53du"]
+[ext_resource type="Texture2D" uid="uid://bemwbqjk2f5tp" path="res://Assets/sockes.png" id="26_ahqfc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_krdv6"]
 sky_top_color = Color(0.183667, 0.234185, 0.297457, 1)
@@ -303,7 +306,10 @@ transform = Transform3D(0.825153, 0, 0.564909, 0, 1, 0, -0.564909, 0, 0.825153, 
 transform = Transform3D(0.798751, 0, 0.601662, 0, 1, 0, -0.601662, 0, 0.798751, -4.85723, -0.213436, 11.9185)
 
 [node name="Stick3" parent="." instance=ExtResource("16_vxi5e")]
-transform = Transform3D(0.669079, 0, -0.743192, 0, 1, 0, 0.743192, 0, 0.669079, -15.5054, -0.213436, 5.13244)
+transform = Transform3D(0.0141457, 0.402212, 0.915438, 0.919072, 0.355374, -0.170342, -0.393837, 0.843762, -0.364635, -21.1496, 0.252006, -4.17244)
+
+[node name="Stick10" parent="." instance=ExtResource("16_vxi5e")]
+transform = Transform3D(0.123324, 0.980719, 0.151598, 0.0976631, 0.140028, -0.98532, -0.987549, 0.136319, -0.0785112, -21.2448, 1.10189, -5.05711)
 
 [node name="Stick4" parent="." instance=ExtResource("16_vxi5e")]
 transform = Transform3D(0.936971, 0, 0.349406, 0, 1, 0, -0.349406, 0, 0.936971, -16.2842, -0.213436, 18.0551)
@@ -372,7 +378,7 @@ transform = Transform3D(-0.934074, 0, 0.35708, 0, 1, 0, -0.35708, 0, -0.934074, 
 transform = Transform3D(0.986867, 0, 0.161535, 0, 1, 0, -0.161535, 0, 0.986867, 0.0972395, -0.213436, -15.3096)
 
 [node name="Cable3" parent="." instance=ExtResource("13_c7lxq")]
-transform = Transform3D(0.924745, 0, -0.380586, 0, 1, 0, 0.380586, 0, 0.924745, 7.29191, 0.0550553, -9.29696)
+transform = Transform3D(-0.891489, 0, 0.453041, 0, 1, 0, -0.453041, 0, -0.891489, 9.9258, 2.05764, -7.61414)
 
 [node name="Crate" parent="." instance=ExtResource("19_p6let")]
 transform = Transform3D(1.57768, 0, 0, 0, 1.57768, 0, 0, 0, 1.57768, -26.8581, -0.243031, 0.526012)
@@ -436,3 +442,24 @@ transform = Transform3D(-0.983003, 0, -0.183591, 0, 1, 0, 0.183591, 0, -0.983003
 
 [node name="Block25" parent="." instance=ExtResource("23_73b21")]
 transform = Transform3D(-0.589069, 0, 0.808083, 0, 1, 0, -0.808083, 0, -0.589069, -22.1062, -0.213437, -3.37479)
+
+[node name="Trigger" parent="." instance=ExtResource("24_g1x83")]
+transform = Transform3D(1.45273, 0, 7.26833, 0, 4.53214, 0, -9.32164, 0, 1.13273, -21.9316, -0.213436, 0.223321)
+one_time = true
+hint_image = ExtResource("25_x53du")
+hint_message = "Boilers can also charge batteries."
+
+[node name="Cinderblock10" parent="." instance=ExtResource("15_kmp4o")]
+transform = Transform3D(-4.21106e-08, 0.963378, 0.268146, -1, -4.37114e-08, 0, 1.17211e-08, -0.268146, 0.963378, -21.1575, 0.384513, -4.80122)
+
+[node name="Cinderblock11" parent="." instance=ExtResource("15_kmp4o")]
+transform = Transform3D(-2.81188e-08, 0.643282, 0.765629, -1, -4.37114e-08, 0, 3.34667e-08, -0.765629, 0.643282, -21.206, 0.384513, -5.4464)
+
+[node name="Cable4" parent="." instance=ExtResource("13_c7lxq")]
+transform = Transform3D(0.267322, 0, -0.963607, 0, 1, 0, 0.963607, 0, 0.267322, -19.6894, 1.73114, 1.97238)
+
+[node name="Trigger2" parent="." instance=ExtResource("24_g1x83")]
+transform = Transform3D(6.59103, 0, 1.18568, 0, 6.69683, 0, -1.18568, 0, 6.59103, 3.97136, -0.213436, -9.52708)
+one_time = true
+hint_image = ExtResource("26_ahqfc")
+hint_message = "Use POWER SOURCES to light up areas to keep the goblins away."
