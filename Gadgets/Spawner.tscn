@@ -1,19 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://ydqtpgy5ffku"]
 
 [ext_resource type="Script" path="res://Gadgets/spawner.gd" id="1_gpopy"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_l84go"]
-top_radius = 0.6
-bottom_radius = 1.0
-height = 0.5
+[ext_resource type="PackedScene" uid="uid://cfxt00yufajf8" path="res://Assets/HoleInTheGround.glb" id="2_0td7t"]
 
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_gpopy")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.255308, 0)
-mesh = SubResource("CylinderMesh_l84go")
+[node name="HoleInTheGround" parent="." instance=ExtResource("2_0td7t")]
+transform = Transform3D(0.524095, 0, 0, 0, 0.524095, 0, 0, 0, 0.524095, -0.0221342, -0.233226, 0.0538514)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

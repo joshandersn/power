@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4tbbi7ewv630"]
+
+[resource]
+resource_name = "hardMetal"
+cull_mode = 2
+roughness = 0.5
+emission_enabled = true

@@ -1,18 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp3uvhvmc42f1"]
+[gd_scene load_steps=11 format=3 uid="uid://dp3uvhvmc42f1"]
 
 [ext_resource type="Script" path="res://Gadgets/socket_array.gd" id="1_ra2r5"]
 [ext_resource type="PackedScene" uid="uid://biu2aq3ps1eq1" path="res://Gadgets/statusLight.tscn" id="2_prd77"]
 [ext_resource type="AudioStream" uid="uid://tp1hl6d5jmhn" path="res://Sound/plug in.mp3" id="3_j1ho7"]
+[ext_resource type="PackedScene" uid="uid://dsttd380b571j" path="res://Assets/Bat_Array.glb" id="4_e4vm3"]
+[ext_resource type="PackedScene" uid="uid://dpqd7qs18dur5" path="res://Gadgets/Socket.tscn" id="5_51cdy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6xds"]
-radius = 0.894925
-height = 3.51126
-
-[sub_resource type="BoxMesh" id="BoxMesh_4roed"]
-size = Vector3(3, 1, 1)
+radius = 1.18467
+height = 5.21412
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ss72g"]
-size = Vector3(3, 1, 1)
+size = Vector3(4.69553, 1.1358, 0.971191)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6eiai"]
+height = 1.31299
+radius = 0.693976
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0icxg"]
+height = 1.31299
+radius = 0.882305
+
+[sub_resource type="QuadMesh" id="QuadMesh_ro8qt"]
 
 [node name="SocketArray" type="Area3D"]
 collision_layer = 0
@@ -20,31 +29,48 @@ collision_mask = 2
 script = ExtResource("1_ra2r5")
 
 [node name="SocketA" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.350196, 0.508676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88799, 0.269811, 0.723955)
 
 [node name="SocketB" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.350196, 0.508676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585612, 0.269811, 0.690038)
 
 [node name="SocketC" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.350196, 0.508676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70295, 0.269811, 0.647603)
 
 [node name="Area3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.282255, 0.523692, 0.137512)
 shape = SubResource("CapsuleShape3D_e6xds")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_4roed")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163315, 0.320892, 0.564733)
 shape = SubResource("BoxShape3D_ss72g")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39735, 0.440787, -0.82237)
+shape = SubResource("CylinderShape3D_6eiai")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999984, 0.0057072, 0, -0.0057072, 0.999984, -0.545708, 0.613977, -0.821782)
+shape = SubResource("CylinderShape3D_0icxg")
+
 [node name="StatusLight" parent="." instance=ExtResource("2_prd77")]
-transform = Transform3D(0.326935, 0, 0, 0, 0.326935, 0, 0, 0, 0.326935, 1.59971, 0.511128, 0.314692)
+transform = Transform3D(0.228961, 0, -0.00174235, 0, 0.228968, 0, 0.00174235, 0, 0.228961, 1.57893, 0.780262, 0.375655)
 
 [node name="insert" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j1ho7")
 volume_db = -15.0
+
+[node name="Bat_Array" parent="." instance=ExtResource("4_e4vm3")]
+transform = Transform3D(0.229265, 0, 0, 0, 0.229265, 0, 0, 0, 0.229265, -1.88716, 0.281212, 2.16445)
+
+[node name="Socket" parent="." instance=ExtResource("5_51cdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33167, -0.252219, 0.559172)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.456097, 0, 0, 0, 0.612058, 0.316597, 0, -0.326781, 0.592983, 1.58538, 0.330522, 0.820359)
+mesh = SubResource("QuadMesh_ro8qt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -155,7 +155,7 @@ target = NodePath("../Player")
 distance = 5.0
 
 [node name="Player" parent="." instance=ExtResource("3_ehfn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8343, 0.580852, 9.31112)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2918, 0.580852, -15.9867)
 speed = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -176,7 +176,7 @@ transform = Transform3D(-0.695325, -0.00514704, 0.718677, 0.000601255, 0.99997, 
 transform = Transform3D(-0.461269, 0, -0.887261, 0, 1, 0, 0.887261, 0, -0.461269, 7.39129, 0.692135, -11.0618)
 
 [node name="SuperLight" parent="." instance=ExtResource("7_legx3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8906, 7.58384, -10.3741)
+transform = Transform3D(-0.39718, 0, -0.917741, 0, 1, 0, 0.917741, 0, -0.39718, 20.1126, 6.51535, -8.7507)
 light_power = 30
 
 [node name="SuperLight2" parent="." instance=ExtResource("7_legx3")]
