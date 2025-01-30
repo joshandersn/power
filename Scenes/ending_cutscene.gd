@@ -7,4 +7,8 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	Game.load_scene.emit(load("res://Scenes/level01.tscn"))
+	pass
+
+
+func _on_button_pressed() -> void:
+	Game.load_scene.emit(load("res://Scenes/titleScreen.tscn"))

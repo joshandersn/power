@@ -100,11 +100,15 @@ func _input(_event: InputEvent) -> void:
 
 	if Input.is_action_just_pressed("use_cable"):
 		unplug_cable()
+
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor() and health > 0:
+			velocity.y += 4
 		
-	if Input.is_action_just_pressed("run"):
-		speed = speed*2
-	elif Input.is_action_just_released("run"):
-		speed = init_speed
+	#if Input.is_action_just_pressed("run"):
+		#speed = speed*2
+	#elif Input.is_action_just_released("run"):
+		#speed = init_speed
 		
 
 func _physics_process(delta: float) -> void:

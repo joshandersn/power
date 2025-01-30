@@ -12,6 +12,8 @@ signal restart_level
 signal scan_level
 signal look_at
 signal push_special_dialog
+signal check_level_objective
+signal push_hint
 
 var input_method := "keyboard"
 var player_last_direction: Vector3

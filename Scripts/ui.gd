@@ -7,15 +7,32 @@ func _ready() -> void:
 	Game.push_dialog.connect(push_dialog)
 	Game.lose.connect(lose)
 	Game.push_special_dialog.connect(special_dialog)
+	Game.push_hint.connect(push_hint)
 	initalize_ui()
 
 func lose() -> void:
 	$LoseAnim.play("lose_in")
+	await get_tree().create_timer(3).timeout
 	$LoseBG/Button.grab_focus()
 	$LoseBG/Button.disabled = false
 
 func update_ui() -> void:
 	pass
+	
+@onready var hint = load("res://UI/hint.tscn")
+
+func push_hint(image: Texture2D, message: String) -> void:
+	var new_hint = hint.instantiate()
+	new_hint.image = image
+	new_hint.message = message
+	clear_hints()
+	$Hints.add_child(new_hint)
+	$HintTimer.start(5)
+	
+	
+func clear_hints() -> void:
+	for i in $Hints.get_children():
+		i.dismiss()
 
 func initalize_ui() -> void:
 	$dialog.visible = false
@@ -80,3 +97,7 @@ func _on_resume_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_hint_timer_timeout() -> void:
+	clear_hints()

@@ -18,7 +18,7 @@ radial_segments = 6
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1j1u"]
 size = Vector3(40, 20, 40)
 
-[node name="SuperLight" type="Node3D"]
+[node name="SuperLight" type="Node3D" groups=["SuperLight"]]
 script = ExtResource("1_04jbq")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

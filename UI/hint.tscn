@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bapcio21l4irf"]
+
+[ext_resource type="Texture2D" uid="uid://1yofeuevv0px" path="res://Assets/boiler.png" id="1_6j1yc"]
+[ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="1_qgpa7"]
+[ext_resource type="Script" path="res://UI/hint.gd" id="2_3y7ht"]
+
+[node name="Hint" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 471.0
+offset_bottom = 307.0
+theme = ExtResource("1_qgpa7")
+script = ExtResource("2_3y7ht")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 405.0
+offset_bottom = 163.0
+texture = ExtResource("1_6j1yc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 168.0
+offset_right = 439.0
+offset_bottom = 245.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -6
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Boilers can power devices when they have fuel to burn"
+autowrap_mode = 3
+
+[node name="Fade" type="Timer" parent="."]
+
+[connection signal="timeout" from="Fade" to="." method="_on_fade_timeout"]

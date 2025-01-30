@@ -26,6 +26,7 @@ func _input(_event: InputEvent) -> void:
 
 func scan_level() -> void:
 	var e_count := 0
+	Game.defences.resize(0)
 	if $Scene.get_child(0):
 		for i in $Scene.get_child(0).get_children():
 			if i.is_in_group("Enemy"):
@@ -44,7 +45,7 @@ func _ready() -> void:
 	if Game.DEBUG:
 		quick_load(load("res://Scenes/dev01.tscn"))
 	else:
-		load_scene(load("res://Scenes/titleScreen.tscn"))
+		quick_load(load("res://Scenes/titleScreen.tscn"))
 
 func restart_level() -> void:
 	load_scene(Game.current_level)
