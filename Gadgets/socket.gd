@@ -57,6 +57,7 @@ func insert_item(object: Node3D) -> void:
 		object.plugged_into = self
 		object.global_position = $PlugPos.global_position
 		object.global_rotation = $PlugPos.global_rotation
+		$plugPlugin.play()
 		update_outputs()
 		object.update_connections()
 		object.freeze = true

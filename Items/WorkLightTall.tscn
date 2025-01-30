@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqdxr0x5p473b"]
+[gd_scene load_steps=21 format=3 uid="uid://cqdxr0x5p473b"]
 
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_3ojxu"]
 [ext_resource type="PackedScene" uid="uid://dvu5rhbq64dqb" path="res://Items/WorkLight.tscn" id="2_2wtrb"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bvnhgiueqxt8r" path="res://Gadgets/ConeLightLarge.tscn" id="4_sc7ew"]
 [ext_resource type="PackedScene" uid="uid://buuplwt7twho" path="res://Assets/Worklight.glb" id="6_vm068"]
 [ext_resource type="AudioStream" uid="uid://cg0lsqk8q41wy" path="res://Sound/hit03.wav" id="7_ficsj"]
+[ext_resource type="AudioStream" uid="uid://b4q3q68xh7pf1" path="res://Sound/tin01.wav" id="7_sfot4"]
+[ext_resource type="AudioStream" uid="uid://csdg2k2h3fgff" path="res://Sound/unplug.wav" id="8_53u8d"]
+[ext_resource type="AudioStream" uid="uid://bwljam7yk3rxw" path="res://Sound/tin02.wav" id="8_n2rxx"]
+[ext_resource type="AudioStream" uid="uid://cpv4bgxyb6ymd" path="res://Sound/buzz01.wav" id="9_afbm5"]
 
 [sub_resource type="Resource" id="Resource_5egel"]
 script = ExtResource("2_burmu")
@@ -47,6 +51,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(1.5708, 0, 0), Vector3(1.13747, 0, 0), Vector3(1.22173, 0, 0), Vector3(0, 0, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("prop")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_sfot4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_xnnic"]
 length = 0.001
@@ -77,6 +96,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.53589, 0, 0), Vector3(1.5708, 0, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("prop")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_n2rxx")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_n2rxx")
+}],
+"times": PackedFloat32Array(0, 0.0666667)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y1w5i"]
 _data = {
@@ -134,6 +172,14 @@ libraries = {
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_ficsj")
+
+[node name="plugSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_53u8d")
+
+[node name="Buzz" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_afbm5")
+
+[node name="prop" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="PlugDetect" to="." method="_on_plug_detect_body_entered"]

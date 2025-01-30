@@ -47,6 +47,7 @@ func insert_battery(battery):
 		update_sockets()
 		$insert.play()
 	else:
+		$reject.play()
 		var reverse_vel = -battery.linear_velocity
 		battery.linear_velocity = reverse_vel
 

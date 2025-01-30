@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp3uvhvmc42f1"]
+[gd_scene load_steps=12 format=3 uid="uid://dp3uvhvmc42f1"]
 
 [ext_resource type="Script" path="res://Gadgets/socket_array.gd" id="1_ra2r5"]
 [ext_resource type="PackedScene" uid="uid://biu2aq3ps1eq1" path="res://Gadgets/statusLight.tscn" id="2_prd77"]
 [ext_resource type="AudioStream" uid="uid://tp1hl6d5jmhn" path="res://Sound/plug in.mp3" id="3_j1ho7"]
 [ext_resource type="PackedScene" uid="uid://dsttd380b571j" path="res://Assets/Bat_Array.glb" id="4_e4vm3"]
+[ext_resource type="AudioStream" uid="uid://darqcf632ewj1" path="res://Sound/boing.wav" id="4_lg2y6"]
 [ext_resource type="PackedScene" uid="uid://dpqd7qs18dur5" path="res://Gadgets/Socket.tscn" id="5_51cdy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6xds"]
@@ -61,6 +62,10 @@ transform = Transform3D(0.228961, 0, -0.00174235, 0, 0.228968, 0, 0.00174235, 0,
 [node name="insert" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j1ho7")
 volume_db = -15.0
+
+[node name="reject" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lg2y6")
+volume_db = -10.0
 
 [node name="Bat_Array" parent="." instance=ExtResource("4_e4vm3")]
 transform = Transform3D(0.229265, 0, 0, 0, 0.229265, 0, 0, 0, 0.229265, -1.88716, 0.281212, 2.16445)

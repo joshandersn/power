@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqax8s62i3xmi"]
+[gd_scene load_steps=16 format=3 uid="uid://dqax8s62i3xmi"]
 
 [ext_resource type="Script" path="res://Gadgets/boiler.gd" id="1_mnqfa"]
 [ext_resource type="PackedScene" uid="uid://c7thefpvvwvog" path="res://Assets/Boiler.glb" id="3_olgu4"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="3_spa88"]
 [ext_resource type="Material" uid="uid://drc485g7n0s20" path="res://Materials/glow.tres" id="4_47kr8"]
 [ext_resource type="AudioStream" uid="uid://b86lxs1vxk0hd" path="res://Sound/fire01.wav" id="5_sptxf"]
+[ext_resource type="AudioStream" uid="uid://csdg2k2h3fgff" path="res://Sound/unplug.wav" id="6_iao6t"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
 radius = 1.02421
@@ -85,6 +86,9 @@ mesh = SubResource("QuadMesh_g1v57")
 
 [node name="sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_sptxf")
+
+[node name="plugSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_iao6t")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

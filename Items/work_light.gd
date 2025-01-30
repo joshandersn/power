@@ -38,13 +38,18 @@ func update_item() -> void:
 			if output_node.other_plug.plugged_into.item_resource.power > 0:
 				if knocked_over:
 					$ConeLight.active = false
+					$Buzz.playing = false
 				else:
 					$ConeLight.active = true
+					$Buzz.playing = true
 			else:
+				$Buzz.playing = false
 				$ConeLight.active = false
 		else:
 			$ConeLight.active = false
+			$Buzz.playing = false
 	else:
+		$Buzz.playing = false
 		$ConeLight.active = false
 			
 	$Node3D/lightMesh.visible = $ConeLight.active
@@ -67,6 +72,7 @@ func _on_plug_detect_body_entered(body: Node3D) -> void:
 		pass
 	if !output_node and body.item_resource.plug:
 		output_node = body
+		$plugSound.play()
 		body.freeze = true
 		body.plugged_into = self
 		body.global_position = $PlugPos.global_position

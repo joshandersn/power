@@ -21,6 +21,7 @@ func _on_body_entered(body: Node3D) -> void:
 		output_node = null
 	if body.item_resource.plug:
 		output_node = body
+		$plugSound.play()
 		output_node.freeze = true
 		output_node.plugged_into = self
 		output_node.is_reciever = true

@@ -8,7 +8,8 @@
 size = Vector3(1, 0.496704, 0.486328)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjrwf"]
-height = 1.42346
+radius = 0.723954
+height = 1.86603
 
 [node name="Cinderblock" type="RigidBody3D"]
 collision_layer = 2
