@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcyxbaf7xr1tm"]
+[gd_scene load_steps=19 format=3 uid="uid://dcyxbaf7xr1tm"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_i72wx"]
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="2_yn8vt"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://psq0j6aq0lj1" path="res://Sound/blip03.wav" id="5_efs3b"]
 [ext_resource type="Texture2D" uid="uid://8pw7vb0fyw5w" path="res://Assets/wife_profile.jpeg" id="5_mmobc"]
 [ext_resource type="AudioStream" uid="uid://r430t7ldpp6j" path="res://Sound/stinger01.wav" id="6_j3ui6"]
+[ext_resource type="AudioStream" uid="uid://0tna7uwmwsus" path="res://Sound/lose.mp3" id="7_auw2u"]
 
 [sub_resource type="Animation" id="Animation_g5nge"]
 length = 0.001
@@ -606,6 +607,10 @@ stream = ExtResource("5_efs3b")
 [node name="SpecialDialog" type="AudioStreamPlayer" parent="Canvas/UI"]
 stream = ExtResource("6_j3ui6")
 volume_db = -10.0
+
+[node name="Lose" type="AudioStreamPlayer" parent="Canvas/UI"]
+stream = ExtResource("7_auw2u")
+volume_db = -20.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -15.0

@@ -12,10 +12,12 @@ func _ready() -> void:
 
 func lose() -> void:
 	$LoseAnim.play("lose_in")
+	Game.stop_music.emit()
+	$Lose.play()
 	await get_tree().create_timer(3).timeout
 	$LoseBG/Button.grab_focus()
 	$LoseBG/Button.disabled = false
-
+	
 func update_ui() -> void:
 	pass
 	
