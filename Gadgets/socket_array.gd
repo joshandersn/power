@@ -45,6 +45,7 @@ func insert_battery(battery):
 		battery.is_locked = true
 		inserts.append(battery)
 		update_sockets()
+		$insert.play()
 	else:
 		var reverse_vel = -battery.linear_velocity
 		battery.linear_velocity = reverse_vel

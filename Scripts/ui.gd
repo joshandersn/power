@@ -28,7 +28,7 @@ func push_hint(image: Texture2D, message: String) -> void:
 	clear_hints()
 	$Hints.add_child(new_hint)
 	$HintTimer.start(5)
-	
+	$hint.play()
 	
 func clear_hints() -> void:
 	for i in $Hints.get_children():
@@ -40,10 +40,12 @@ func initalize_ui() -> void:
 	$RichTextLabel.visible = false
 	$SpecialText.visible = false
 	$Pause.visible = false
+
 func special_dialog(message, delay):
 	$SpecialText.text = message
 	$SpecialTimer.start(delay)
-
+	$SpecialDialog.play()
+	
 func push_dialog(message) -> void:
 	$dialog.visible = true
 	$WifeProfile.visible = true

@@ -62,9 +62,8 @@ transform = Transform3D(-6.22557e-09, 0, -0.142424, 0, 0.142424, 0, 0.142424, 0,
 [node name="StatusLight" parent="." instance=ExtResource("4_hpqxn")]
 transform = Transform3D(0.246128, 0, 0, 0, 0.246128, 0, 0, 0, 0.246128, 0.788449, 1.00567, -0.226096)
 
-[node name="plugin" type="AudioStreamPlayer3D" parent="."]
+[node name="plugin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_0p6wx")
-attenuation_model = 3
 volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

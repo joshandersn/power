@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp3uvhvmc42f1"]
+[gd_scene load_steps=7 format=3 uid="uid://dp3uvhvmc42f1"]
 
 [ext_resource type="Script" path="res://Gadgets/socket_array.gd" id="1_ra2r5"]
 [ext_resource type="PackedScene" uid="uid://biu2aq3ps1eq1" path="res://Gadgets/statusLight.tscn" id="2_prd77"]
+[ext_resource type="AudioStream" uid="uid://tp1hl6d5jmhn" path="res://Sound/plug in.mp3" id="3_j1ho7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6xds"]
 radius = 0.894925
@@ -41,5 +42,9 @@ shape = SubResource("BoxShape3D_ss72g")
 
 [node name="StatusLight" parent="." instance=ExtResource("2_prd77")]
 transform = Transform3D(0.326935, 0, 0, 0, 0.326935, 0, 0, 0, 0.326935, 1.59971, 0.511128, 0.314692)
+
+[node name="insert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j1ho7")
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

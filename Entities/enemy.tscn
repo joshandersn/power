@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6r1g0axogd5i"]
+[gd_scene load_steps=8 format=3 uid="uid://b6r1g0axogd5i"]
 
 [ext_resource type="Script" path="res://Entities/enemy.gd" id="1_tdvmb"]
+[ext_resource type="AudioStream" uid="uid://darqcf632ewj1" path="res://Sound/boing.wav" id="2_tt0yd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u54bi"]
 radius = 4.0
@@ -56,6 +57,12 @@ shape = SubResource("SphereShape3D_2lt1e")
 [node name="StunTime" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tt0yd")
+
+[node name="hit2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tt0yd")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]

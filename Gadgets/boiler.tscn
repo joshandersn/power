@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqax8s62i3xmi"]
+[gd_scene load_steps=15 format=3 uid="uid://dqax8s62i3xmi"]
 
 [ext_resource type="Script" path="res://Gadgets/boiler.gd" id="1_mnqfa"]
 [ext_resource type="PackedScene" uid="uid://c7thefpvvwvog" path="res://Assets/Boiler.glb" id="3_olgu4"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="3_spa88"]
 [ext_resource type="Material" uid="uid://drc485g7n0s20" path="res://Materials/glow.tres" id="4_47kr8"]
+[ext_resource type="AudioStream" uid="uid://b86lxs1vxk0hd" path="res://Sound/fire01.wav" id="5_sptxf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
 radius = 1.02421
@@ -81,6 +82,9 @@ transform = Transform3D(-2.03162e-08, 0, -0.46478, 0, 0.46478, 0, 0.46478, 0, -2
 transform = Transform3D(-2.62896e-08, 0.0690355, -0.601437, 3.01764e-09, 0.601437, 0.0690355, 0.605386, 0, -2.64623e-08, -0.847443, 0.597626, 0.015535)
 visible = false
 mesh = SubResource("QuadMesh_g1v57")
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_sptxf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

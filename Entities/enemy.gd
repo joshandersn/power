@@ -9,12 +9,14 @@ var is_stunned: bool
 
 
 func incenerate() -> void:
+	$hit2.play()
 	queue_free()
 
 func take_damage() -> void:
 	if !is_stunned:
 		is_stunned = true
 		$StunTime.start()
+		$hit.play()
 	else:
 		incenerate()
 

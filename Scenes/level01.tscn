@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bu3patb680jal"]
+[gd_scene load_steps=31 format=3 uid="uid://bu3patb680jal"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_cm4m6"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cn2y8amb3kwd4" path="res://Gadgets/trigger.tscn" id="24_g1x83"]
 [ext_resource type="Texture2D" uid="uid://cd6imihb0gj5d" path="res://Assets/charge.png" id="25_x53du"]
 [ext_resource type="Texture2D" uid="uid://bemwbqjk2f5tp" path="res://Assets/sockes.png" id="26_ahqfc"]
+[ext_resource type="PackedScene" uid="uid://2yfrwsgvruwt" path="res://Items/wateringCan.tscn" id="27_l5kta"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_krdv6"]
 sky_top_color = Color(0.183667, 0.234185, 0.297457, 1)
@@ -154,7 +155,8 @@ target = NodePath("../Player")
 distance = 5.0
 
 [node name="Player" parent="." instance=ExtResource("3_ehfn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91403, 0.600018, -4.42195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8343, 0.580852, 9.31112)
+speed = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0abdw")
@@ -204,6 +206,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4184, 0.275712, -13.9223)
 starting_power = 10
 
 [node name="Battery13" parent="." instance=ExtResource("9_sll6n")]
+transform = Transform3D(0.557803, 0, 0.829973, 0, 1, 0, -0.829973, 0, 0.557803, -24.3035, 1.53041, 8.73961)
+starting_power = 100
+
+[node name="Battery15" parent="." instance=ExtResource("9_sll6n")]
+transform = Transform3D(0.557803, 0, 0.829973, 0, 1, 0, -0.829973, 0, 0.557803, 25.1062, 1.53041, -13.5043)
+starting_power = 100
+
+[node name="Battery16" parent="." instance=ExtResource("9_sll6n")]
+transform = Transform3D(0.557803, 0, 0.829973, 0, 1, 0, -0.829973, 0, 0.557803, 23.502, 1.53041, -11.7017)
+starting_power = 100
+
+[node name="Battery18" parent="." instance=ExtResource("9_sll6n")]
+transform = Transform3D(0.557803, 0, 0.829973, 0, 1, 0, -0.829973, 0, 0.557803, 22.4509, 1.53041, -12.5472)
+starting_power = 100
+
+[node name="Battery17" parent="." instance=ExtResource("9_sll6n")]
+transform = Transform3D(0.557803, 0, 0.829973, 0, 1, 0, -0.829973, 0, 0.557803, -22.917, 1.53041, 7.50735)
+starting_power = 100
+
+[node name="Battery14" parent="." instance=ExtResource("9_sll6n")]
 transform = Transform3D(0.557803, 0, 0.829973, 0, 1, 0, -0.829973, 0, 0.557803, -25.2692, 1.53041, 0.702533)
 starting_power = 100
 
@@ -463,3 +485,6 @@ transform = Transform3D(6.59103, 0, 1.18568, 0, 6.69683, 0, -1.18568, 0, 6.59103
 one_time = true
 hint_image = ExtResource("26_ahqfc")
 hint_message = "Use POWER SOURCES to light up areas to keep the goblins away."
+
+[node name="WateringCan" parent="." instance=ExtResource("27_l5kta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0639, 0.0293523, 6.27238)

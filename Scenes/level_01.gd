@@ -3,7 +3,7 @@ extends Node3D
 func _ready() -> void:
 	Game.scan_level.emit()
 	Game.check_level_objective.connect(proceed_level)
-	#Game.play_music.emit(load("res://Sound/overworld.mp3"))
+	Game.play_music.emit(load("res://Sound/overworld.mp3"))
 
 func proceed_level():
 	if $SuperLight.active and $SuperLight2.active:
