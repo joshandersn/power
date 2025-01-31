@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd6imihb0gj5d"
 path.s3tc="res://.godot/imported/charge.png-7ee87de899fcafd0adf6311c434a2633.s3tc.ctex"
+path.etc2="res://.godot/imported/charge.png-7ee87de899fcafd0adf6311c434a2633.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/charge.png"
-dest_files=["res://.godot/imported/charge.png-7ee87de899fcafd0adf6311c434a2633.s3tc.ctex"]
+dest_files=["res://.godot/imported/charge.png-7ee87de899fcafd0adf6311c434a2633.s3tc.ctex", "res://.godot/imported/charge.png-7ee87de899fcafd0adf6311c434a2633.etc2.ctex"]
 
 [params]
 
