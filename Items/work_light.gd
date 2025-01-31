@@ -86,7 +86,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		update_item()
 		
 var sound_play = true
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	if sound_play:
 		$AudioStreamPlayer3D.play()
 		sound_play = true

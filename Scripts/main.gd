@@ -23,8 +23,10 @@ func _input(_event: InputEvent) -> void:
 		get_tree().paused = !get_tree().paused
 		$Canvas/UI/Pause.visible = get_tree().paused
 		$Canvas/UI/Pause/Resume.grab_focus()
+
 	if Input.is_action_just_pressed("debug"):
-		load_scene(load("res://Scenes/EndingCutscene.tscn"))
+		#load_scene(load("res://Scenes/EndingCutscene.tscn"))
+		play_music(load("res://Sound/overworld_beat.mp3"))
 
 func stop_music() -> void:
 	$Music.stop()

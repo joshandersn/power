@@ -33,6 +33,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.item_resource.fuel:
 		item_resource.power += body.item_resource.fuel
 		$ServeTimer.start()
+		$burnSound.play()
 		body.queue_free()
 
 func _on_serve_timer_timeout() -> void:
@@ -42,13 +43,16 @@ func _on_serve_timer_timeout() -> void:
 			$Smoke.emitting = true
 			$sound.playing = true
 			$MeshInstance3D.visible = true
+			$OmniLight3D.visible = true
 		else:
 			$ServeTimer.stop()
 			$Smoke.emitting = false
 			$sound.playing = false
 			$MeshInstance3D.visible = false
+			$OmniLight3D.visible = false
 	else:
 		$ServeTimer.stop()
 		$Smoke.emitting = false
 		$sound.playing = false
 		$MeshInstance3D.visible = false
+		$OmniLight3D.visible = false

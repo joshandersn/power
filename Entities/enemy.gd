@@ -7,45 +7,60 @@ var near_light_source: bool
 var is_hesitant: bool
 var is_stunned: bool
 
+var being_killed := false
 
 func incenerate() -> void:
-	$hit2.play()
-	queue_free()
+	if !being_killed:
+		being_killed = true
+		randomize()
+		if (randi() % 2):
+			$die.stream = load("res://Sound/goblinDie1.wav")
+		else:
+			$die.stream = load("res://Sound/goblinDie2.wav")
+		$die.play()
+		await get_tree().create_timer(2).timeout
+		queue_free()
 
 func take_damage() -> void:
 	if !is_stunned:
 		is_stunned = true
 		$StunTime.start()
+		if (randi() % 2):
+			$die.stream = load("res://Sound/goblinGrunt.wav")
+		else:
+			$die.stream = load("res://Sound/goblinGrunt2.wav")
+		$die.play()
 		$hit.play()
 	else:
 		incenerate()
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
-	var input_dir: Vector3
-	if target and is_instance_valid(target):
-		if !is_stunned:
-			if (position - target.position).length() > 1:
-				if !is_hesitant:
-					if near_light_source:
-						input_dir = (position - target.position)
-						if !$FearTimer.time_left:
-							$FearTimer.start()
-					else:
-						input_dir = -(position - target.position)
+	if !being_killed:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		
+		var input_dir: Vector3
+		if target and is_instance_valid(target):
+			if !is_stunned:
+				if (position - target.position).length() > 1:
+					if !is_hesitant:
+						if near_light_source:
+							input_dir = (position - target.position)
+							if !$FearTimer.time_left:
+								$FearTimer.start()
+						else:
+							input_dir = -(position - target.position)
 
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		if direction:
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.z = move_toward(velocity.z, 0, speed)
 
-	move_and_slide()
+		move_and_slide()
 	
 func get_new_target() -> void:
 	randomize()

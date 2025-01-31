@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://gb6v11hpxp6g" path="res://Gadgets/camera.tscn" id="3_gsc6c"]
 [ext_resource type="PackedScene" uid="uid://b4ke0butr6b3a" path="res://BuildingBlocks/invisibleWall.tscn" id="3_t5aii"]
 [ext_resource type="PackedScene" uid="uid://d2mloe1w5y5wg" path="res://BuildingBlocks/block.tscn" id="6_vu8qr"]
+[ext_resource type="Environment" uid="uid://eefxkh8sacbu" path="res://Assets/level01.tres" id="7_7sg6q"]
 [ext_resource type="PackedScene" uid="uid://dhmi7bckyg0k2" path="res://Gadgets/superLight.tscn" id="7_legx3"]
 [ext_resource type="PackedScene" uid="uid://dp3uvhvmc42f1" path="res://Gadgets/SocketArray.tscn" id="8_6maxr"]
 [ext_resource type="PackedScene" uid="uid://bq2xb3uuaqivf" path="res://Items/Battery.tscn" id="9_sll6n"]
@@ -27,34 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://cd6imihb0gj5d" path="res://Assets/charge.png" id="25_x53du"]
 [ext_resource type="Texture2D" uid="uid://bemwbqjk2f5tp" path="res://Assets/sockes.png" id="26_ahqfc"]
 [ext_resource type="PackedScene" uid="uid://2yfrwsgvruwt" path="res://Items/wateringCan.tscn" id="27_l5kta"]
+[ext_resource type="PackedScene" uid="uid://bubocg8cqx5l1" path="res://Assets/Tree.glb" id="28_6ivql"]
 [ext_resource type="Material" uid="uid://cq6382qqjdv1h" path="res://Materials/grass.tres" id="28_66jvq"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_krdv6"]
-sky_top_color = Color(0.183667, 0.234185, 0.297457, 1)
-sky_horizon_color = Color(0.0789774, 0.182212, 0.36486, 1)
-ground_bottom_color = Color(0.162537, 0.213109, 0.368358, 1)
-ground_horizon_color = Color(0.143633, 0.238096, 0.450691, 1)
-
-[sub_resource type="Sky" id="Sky_yssyq"]
-sky_material = SubResource("ProceduralSkyMaterial_krdv6")
-
-[sub_resource type="Environment" id="Environment_0abdw"]
-background_mode = 2
-background_energy_multiplier = 0.7
-sky = SubResource("Sky_yssyq")
-ambient_light_source = 3
-reflected_light_source = 2
-ssao_radius = 4.46
-ssao_intensity = 3.72
-ssao_power = 1.84672
-ssao_light_affect = 0.15
-ssao_ao_channel_affect = 0.14
-fog_enabled = true
-fog_light_color = Color(0.153672, 0.237979, 0.402362, 1)
-fog_sky_affect = 0.0
-adjustment_enabled = true
-adjustment_brightness = 1.27
-adjustment_contrast = 1.11
+[ext_resource type="PackedScene" uid="uid://br7ac8gtiijxg" path="res://Assets/SmallShrub.glb" id="30_7vaq6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6l45"]
 
@@ -191,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2918, 0.580852, -15.9867)
 speed = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0abdw")
+environment = ExtResource("7_7sg6q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.832197, 0.426126, 0.354774, 0.290786, -0.88019, 0.375113, 0.472114, -0.209005, -0.856403, 0, 3.53171, 0)
@@ -216,12 +192,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6015, 6.47737, 11.5436)
 light_power = 20
 
 [node name="SocketArray" parent="." node_paths=PackedStringArray("objective") instance=ExtResource("8_6maxr")]
-transform = Transform3D(0.592997, 0, 0.805204, 0, 1, 0, -0.805204, 0, 0.592997, -28.9775, 0.271702, 6.11178)
+transform = Transform3D(0.592997, 0, 0.805204, 0, 1, 0, -0.805204, 0, 0.592997, -28.9775, -0.0154236, 6.11178)
 objective = NodePath("../SuperLight2")
 objective_clear_message = "Crops are Safe"
 
 [node name="SocketArray2" parent="." node_paths=PackedStringArray("objective") instance=ExtResource("8_6maxr")]
-transform = Transform3D(0.999993, 0, 0.00364769, 0, 1, 0, -0.00364769, 0, 0.999993, 22.1643, 0.271702, -19.896)
+transform = Transform3D(0.999993, 0, 0.00364769, 0, 1, 0, -0.00364769, 0, 0.999993, 22.1643, -0.0169556, -19.896)
 objective = NodePath("../SuperLight")
 objective_clear_message = "Barn is safe"
 
@@ -632,6 +608,15 @@ hint_message = "Use POWER SOURCES to light up areas to keep the goblins away."
 [node name="WateringCan" parent="." instance=ExtResource("27_l5kta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0639, 0.0293523, 6.27238)
 
+[node name="Tree" parent="." instance=ExtResource("28_6ivql")]
+transform = Transform3D(-0.241105, 0, 0.415728, 0, 0.480585, 0, -0.415728, 0, -0.241105, -32.3119, -0.42417, 14.1749)
+
+[node name="Tree2" parent="." instance=ExtResource("28_6ivql")]
+transform = Transform3D(-0.241105, 0, 0.415728, 0, 0.480585, 0, -0.415728, 0, -0.241105, 6.4979, -0.42417, -20.9623)
+
+[node name="Tree3" parent="." instance=ExtResource("28_6ivql")]
+transform = Transform3D(-2.48346, -0.203085, -0.790778, -0.445817, 2.45856, 0.768703, 0.683975, 0.86511, -2.37022, 33.673, -2.11673, -34.2752)
+
 [node name="mountains" type="Node3D" parent="."]
 transform = Transform3D(4.50557, 0, -14.0139, 0, 14.7204, 0, 14.0139, 0, 4.50557, -27.0156, -0.315631, -70.1859)
 
@@ -648,3 +633,18 @@ material_override = ExtResource("28_66jvq")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_1dsqs")
 skeleton = NodePath("")
+
+[node name="SmallShrub" parent="." instance=ExtResource("30_7vaq6")]
+transform = Transform3D(0.491132, 0, -0.871085, 0, 1, 0, 0.871085, 0, 0.491132, -32.6424, -0.213436, 11.4212)
+
+[node name="SmallShrub3" parent="." instance=ExtResource("30_7vaq6")]
+transform = Transform3D(4.39263, 0, -3.26511, 0, 5.47322, 0, 3.26511, 0, 4.39263, -6.21125, 1.81937, -55.3176)
+
+[node name="SmallShrub5" parent="." instance=ExtResource("30_7vaq6")]
+transform = Transform3D(5.42604, 0, -0.85775, 0, 5.49342, 0, 0.85775, 0, 5.42604, 55.0637, 3.04334, -15.9759)
+
+[node name="SmallShrub4" parent="." instance=ExtResource("30_7vaq6")]
+transform = Transform3D(0.498812, 0, 5.45045, 0, 5.47322, 0, -5.45045, 0, 0.498812, -54.4209, 1.81937, -26.4245)
+
+[node name="SmallShrub2" parent="." instance=ExtResource("30_7vaq6")]
+transform = Transform3D(-0.183183, 0, -1.09631, 0, 1.1115, 0, 1.09631, 0, -0.183183, -30.2833, 1.03893, -0.575222)

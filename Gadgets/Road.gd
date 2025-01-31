@@ -19,7 +19,7 @@ func _ready() -> void:
 		
 		draw_road()
 
-func _tool_action(value: bool):
+func _tool_action(_value: bool):
 	redraw_road = false
 	draw_road()
 	

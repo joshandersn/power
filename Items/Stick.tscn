@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cg0lsqk8q41wy" path="res://Sound/hit03.wav" id="2_w6dqi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vq06"]
-size = Vector3(1, 0.154297, 0.353516)
+size = Vector3(1, 0.461975, 0.353516)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjrwf"]
 radius = 0.301137
@@ -25,6 +25,7 @@ max_contacts_reported = 1
 script = ExtResource("1_gxk2x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143158, 0)
 shape = SubResource("BoxShape3D_7vq06")
 
 [node name="Hitbox" type="Area3D" parent="."]

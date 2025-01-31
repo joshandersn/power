@@ -28,7 +28,7 @@ func update_item() -> void:
 
 var sound_play = true
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	if sound_play:
 		$AudioStreamPlayer3D.play()
 		sound_play = true

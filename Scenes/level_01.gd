@@ -6,6 +6,9 @@ func _ready() -> void:
 	Game.play_music.emit(load("res://Sound/overworld.mp3"))
 
 func proceed_level():
+	if $SuperLight.active or $SuperLight2.active:
+		Game.play_music.emit(load("res://Sound/overworld_beat.mp3"))
+	
 	if $SuperLight.active and $SuperLight2.active:
 		Game.push_dialog.emit("That's it! Those goblins should leave us alone now.")
 		await get_tree().create_timer(5).timeout
