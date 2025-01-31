@@ -386,6 +386,9 @@ transform = Transform3D(0.419088, 0, 0.907946, 0.00605337, 0.999978, -0.0027941,
 transform = Transform3D(0.837719, -0.0760027, -0.540787, 0, 0.990268, -0.139173, 0.546102, 0.116588, 0.829566, -3.34, 0.685, 11.354)
 fov = 44.0
 
+[node name="Crate6" parent="." instance=ExtResource("12_a5umk")]
+transform = Transform3D(0.923498, 0, 0.383602, 0, 1, 0, -0.383602, 0, 0.923498, 2.62149, -0.0426025, -2.84745)
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -393,6 +396,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("24_aw7d7")
 script = ExtResource("1_51pf0")
 
@@ -435,8 +439,5 @@ bbcode_enabled = true
 text = "Josh's Checklist
 - boiler feeding
 - house and car objectives"
-
-[node name="Crate6" parent="." instance=ExtResource("12_a5umk")]
-transform = Transform3D(0.923498, 0, 0.383602, 0, 1, 0, -0.383602, 0, 0.923498, 2.62149, -0.0426025, -2.84745)
 
 [connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]

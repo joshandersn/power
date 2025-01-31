@@ -106,3 +106,10 @@ func _on_quit_pressed() -> void:
 
 func _on_hint_timer_timeout() -> void:
 	clear_hints()
+
+
+func _on_return_pressed() -> void:
+	Game.stop_music.emit()
+	get_tree().paused = false
+	$Pause.visible = get_tree().paused
+	Game.load_scene.emit(load("res://Scenes/titleScreen.tscn"))

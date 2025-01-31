@@ -345,22 +345,18 @@ _data = {
 process_mode = 3
 script = ExtResource("1_i72wx")
 
-[node name="Scene" type="Node3D" parent="."]
-process_mode = 1
-
-[node name="Canvas" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="Canvas"]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_yn8vt")
 script = ExtResource("3_uo7td")
 
-[node name="Prompts" type="VBoxContainer" parent="Canvas/UI"]
+[node name="Prompts" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -376,7 +372,7 @@ grow_vertical = 0
 theme_override_constants/separation = 60
 alignment = 2
 
-[node name="Hints" type="VBoxContainer" parent="Canvas/UI"]
+[node name="Hints" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 offset_left = 32.0
 offset_top = 32.0
@@ -384,16 +380,16 @@ offset_right = 563.0
 offset_bottom = 563.0
 theme_override_constants/separation = 250
 
-[node name="DialogTimer" type="Timer" parent="Canvas/UI"]
+[node name="DialogTimer" type="Timer" parent="UI"]
 wait_time = 5.0
 one_shot = true
 
-[node name="DialogAnim" type="AnimationPlayer" parent="Canvas/UI"]
+[node name="DialogAnim" type="AnimationPlayer" parent="UI"]
 libraries = {
 "": SubResource("AnimationLibrary_yf3fg")
 }
 
-[node name="dialog" type="ColorRect" parent="Canvas/UI"]
+[node name="dialog" type="ColorRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -408,7 +404,7 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
-[node name="WifeProfile" type="TextureRect" parent="Canvas/UI"]
+[node name="WifeProfile" type="TextureRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -424,7 +420,7 @@ grow_vertical = 0
 scale = Vector2(0.223339, 0.223339)
 texture = ExtResource("5_mmobc")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Canvas/UI"]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -441,17 +437,17 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife."
 scroll_active = false
 
-[node name="LoseAnim" type="AnimationPlayer" parent="Canvas/UI"]
+[node name="LoseAnim" type="AnimationPlayer" parent="UI"]
 libraries = {
 "": SubResource("AnimationLibrary_g8rl2")
 }
 
-[node name="FadeAnim" type="AnimationPlayer" parent="Canvas/UI"]
+[node name="FadeAnim" type="AnimationPlayer" parent="UI"]
 libraries = {
 "": SubResource("AnimationLibrary_vg7dn")
 }
 
-[node name="Fade" type="ColorRect" parent="Canvas/UI"]
+[node name="Fade" type="ColorRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -461,7 +457,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 
-[node name="SpecialText" type="Label" parent="Canvas/UI"]
+[node name="SpecialText" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -478,14 +474,13 @@ vertical_alignment = 1
 uppercase = true
 metadata/_edit_lock_ = true
 
-[node name="SpecialTimer" type="Timer" parent="Canvas/UI"]
+[node name="SpecialTimer" type="Timer" parent="UI"]
 one_shot = true
 
-[node name="SpecialTimerEnd" type="Timer" parent="Canvas/UI"]
+[node name="SpecialTimerEnd" type="Timer" parent="UI"]
 one_shot = true
 
-[node name="Pause" type="ColorRect" parent="Canvas/UI"]
-visible = false
+[node name="Pause" type="ColorRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -494,7 +489,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.866667)
 
-[node name="paused" type="Label" parent="Canvas/UI/Pause"]
+[node name="paused" type="Label" parent="UI/Pause"]
 layout_mode = 1
 offset_left = 120.0
 offset_top = 90.0
@@ -506,7 +501,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Resume" type="Button" parent="Canvas/UI/Pause"]
+[node name="Resume" type="Button" parent="UI/Pause"]
 layout_mode = 0
 offset_left = 130.0
 offset_top = 314.0
@@ -515,7 +510,7 @@ offset_bottom = 412.0
 theme_override_font_sizes/font_size = 40
 text = "Resume"
 
-[node name="Restart" type="Button" parent="Canvas/UI/Pause"]
+[node name="Restart" type="Button" parent="UI/Pause"]
 layout_mode = 0
 offset_left = 130.0
 offset_top = 437.0
@@ -524,16 +519,25 @@ offset_bottom = 535.0
 theme_override_font_sizes/font_size = 40
 text = "Restart"
 
-[node name="Quit" type="Button" parent="Canvas/UI/Pause"]
+[node name="Quit" type="Button" parent="UI/Pause"]
 layout_mode = 0
 offset_left = 130.0
-offset_top = 561.0
+offset_top = 683.0
 offset_right = 603.0
-offset_bottom = 659.0
+offset_bottom = 781.0
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
-[node name="LoseBG" type="ColorRect" parent="Canvas/UI"]
+[node name="Return" type="Button" parent="UI/Pause"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 559.0
+offset_right = 603.0
+offset_bottom = 657.0
+theme_override_font_sizes/font_size = 40
+text = "Return to Title"
+
+[node name="LoseBG" type="ColorRect" parent="UI"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -545,7 +549,7 @@ mouse_filter = 2
 color = Color(0.177495, 0.177495, 0.177495, 1)
 metadata/_edit_lock_ = true
 
-[node name="LabelShadow" type="Label" parent="Canvas/UI/LoseBG"]
+[node name="LabelShadow" type="Label" parent="UI/LoseBG"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -564,7 +568,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Label" type="Label" parent="Canvas/UI/LoseBG"]
+[node name="Label" type="Label" parent="UI/LoseBG"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -582,7 +586,7 @@ text = "You Lose"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="Canvas/UI/LoseBG"]
+[node name="Button" type="Button" parent="UI/LoseBG"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -599,29 +603,33 @@ theme_override_font_sizes/font_size = 35
 disabled = true
 text = "Try Again"
 
-[node name="HintTimer" type="Timer" parent="Canvas/UI"]
+[node name="HintTimer" type="Timer" parent="UI"]
 
-[node name="hint" type="AudioStreamPlayer" parent="Canvas/UI"]
+[node name="hint" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("5_efs3b")
 
-[node name="SpecialDialog" type="AudioStreamPlayer" parent="Canvas/UI"]
+[node name="SpecialDialog" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("6_j3ui6")
 volume_db = -10.0
 
-[node name="Lose" type="AudioStreamPlayer" parent="Canvas/UI"]
+[node name="Lose" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("7_auw2u")
 volume_db = -20.0
+
+[node name="Scene" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -15.0
 
-[connection signal="timeout" from="Canvas/UI/DialogTimer" to="Canvas/UI" method="_on_dialog_timer_timeout"]
-[connection signal="animation_finished" from="Canvas/UI/DialogAnim" to="Canvas/UI" method="_on_dialog_anim_animation_finished"]
-[connection signal="animation_finished" from="Canvas/UI/FadeAnim" to="." method="_on_fade_anim_animation_finished"]
-[connection signal="timeout" from="Canvas/UI/SpecialTimer" to="Canvas/UI" method="_on_special_timer_timeout"]
-[connection signal="timeout" from="Canvas/UI/SpecialTimerEnd" to="Canvas/UI" method="_on_special_timer_end_timeout"]
-[connection signal="pressed" from="Canvas/UI/Pause/Resume" to="Canvas/UI" method="_on_resume_pressed"]
-[connection signal="pressed" from="Canvas/UI/Pause/Restart" to="Canvas/UI" method="_on_button_pressed"]
-[connection signal="pressed" from="Canvas/UI/Pause/Quit" to="Canvas/UI" method="_on_quit_pressed"]
-[connection signal="pressed" from="Canvas/UI/LoseBG/Button" to="Canvas/UI" method="_on_button_pressed"]
-[connection signal="timeout" from="Canvas/UI/HintTimer" to="Canvas/UI" method="_on_hint_timer_timeout"]
+[connection signal="timeout" from="UI/DialogTimer" to="UI" method="_on_dialog_timer_timeout"]
+[connection signal="animation_finished" from="UI/DialogAnim" to="UI" method="_on_dialog_anim_animation_finished"]
+[connection signal="animation_finished" from="UI/FadeAnim" to="." method="_on_fade_anim_animation_finished"]
+[connection signal="timeout" from="UI/SpecialTimer" to="UI" method="_on_special_timer_timeout"]
+[connection signal="timeout" from="UI/SpecialTimerEnd" to="UI" method="_on_special_timer_end_timeout"]
+[connection signal="pressed" from="UI/Pause/Resume" to="UI" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/Restart" to="UI" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Pause/Quit" to="UI" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Pause/Return" to="UI" method="_on_return_pressed"]
+[connection signal="pressed" from="UI/LoseBG/Button" to="UI" method="_on_button_pressed"]
+[connection signal="timeout" from="UI/HintTimer" to="UI" method="_on_hint_timer_timeout"]

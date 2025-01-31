@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3mq7l6rxqhmv"]
+[gd_scene load_steps=13 format=3 uid="uid://c3mq7l6rxqhmv"]
 
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="1_abd7n"]
 [ext_resource type="Script" path="res://Scenes/ending_cutscene.gd" id="1_tl6mm"]
 [ext_resource type="AudioStream" uid="uid://byxq4mf4atjuo" path="res://Sound/sunrise.mp3" id="2_kaxpt"]
 [ext_resource type="Texture2D" uid="uid://br41xg71w7vnc" path="res://Assets/Stills/IMG_8190.jpg" id="3_g62so"]
+[ext_resource type="Texture2D" uid="uid://b8pjicw47akp4" path="res://Assets/Stills/driving.png" id="4_j0erb"]
 [ext_resource type="Texture2D" uid="uid://cqtsrhq7xdgsp" path="res://Assets/Stills/IMG_8195.jpg" id="5_op5u1"]
+[ext_resource type="Texture2D" uid="uid://ot70pjp8y0h3" path="res://Assets/Stills/IMG_8194.jpg" id="6_xw2df"]
+[ext_resource type="VideoStream" path="res://Assets/hands.ogv" id="7_bgtt7"]
+[ext_resource type="Texture2D" uid="uid://cfs6vinjoysbn" path="res://Assets/Stills/car.png" id="7_wiy44"]
 
 [sub_resource type="Animation" id="Animation_dts0k"]
 length = 0.001
@@ -32,10 +36,35 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]Directed By
+[b]Josh Anderson[/b]"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VideoStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_bgtt7")]
+}
 
 [sub_resource type="Animation" id="Animation_a2s5n"]
 resource_name = "Slideshow"
-length = 120.0
+length = 215.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,7 +72,7 @@ tracks/0/path = NodePath("01:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(17.3667, 20.3667, 27.2333, 30),
+"times": PackedFloat32Array(16.9, 19.9, 31.9333, 34.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -70,7 +99,7 @@ tracks/2/path = NodePath("01:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(17.3667, 29.7333),
+"times": PackedFloat32Array(16.9, 34.4333),
 "transitions": PackedFloat32Array(0.406126, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-222, -287)]
@@ -99,6 +128,174 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("02:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(35.6, 38.6, 46, 48.7667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("02:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(35.6, 48.5),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-222, -287)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("04:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(70.2333, 73.2333, 82.4333, 85.1999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("04:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(70.2333, 84.9333),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-222, -287)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Credits:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(87.6666, 99.2667, 109.333, 119.067, 128.733, 138.9, 149.2, 158.967, 168.733, 178.533, 187.933, 201.433),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[center]Directed By
+[b]Josh Anderson[/b]", "[center]3D Models and Animation
+[b]Isaac Anderson[/b]", "[center]Artwork
+[b]Abby Anderson[/b]", "[center]Additional Animation
+[b]Chloe Anderson[/b]", "[center]Game Design and Programing
+[b]Josh Anderson[/b]", "[center]Testers
+[b]Jonas Anderson[/b]
+[b]Isaac Anderson[/b]", "[center]Music
+[b]Josh Anderson[/b]", "[center]Level Design
+[b]Isaac Anderson[/b]
+[b]Josh Anderson[/b]", "[center]Sound Design
+[b]Josh Anderson[/b]", "[center]UI
+[b]Josh Anderson[/b]", "[center]The Team
+[b]Josh Anderson[/b]
+[b]Isaac Anderson[/b]
+[b]Abby Anderson[/b]
+[b]Chloe Anderson[/b]
+[b]Jonas Anderson[/b]
+", "[center]Bigmode GameJam
+[b]2025[/b]
+"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Credits:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(88.1, 90, 92.5667, 94.5667, 99.6667, 101.567, 104.133, 106.133, 109.567, 111.467, 114.033, 116.033, 119.433, 121.333, 123.9, 125.9, 129.333, 131.233, 133.8, 135.8, 139.3, 141.2, 143.767, 145.767, 149.267, 151.167, 153.733, 155.733, 159.2, 161.1, 163.667, 165.667, 169.133, 171.033, 173.6, 175.6, 178.8, 180.7, 183.267, 185.267, 188.033, 192.333, 195.767, 198.933, 201.485, 204.3, 208.3, 211.185),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VideoStreamPlayer:stream")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("VideoStreamPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(65.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("05:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(50.7667, 53.7667, 61.1667, 63.9334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("05:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(50.6, 63.5),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-222, -287)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Button:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(211.552, 214.367),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Button")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(211.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m72jv"]
 _data = {
@@ -113,6 +310,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_abd7n")
 script = ExtResource("1_tl6mm")
 
@@ -127,6 +325,7 @@ offset_right = 116.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="01" type="TextureRect" parent="."]
@@ -142,18 +341,64 @@ grow_vertical = 2
 texture = ExtResource("3_g62so")
 expand_mode = 5
 
+[node name="02" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -287.0
+offset_right = 33.0
+offset_bottom = 263.454
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j0erb")
+expand_mode = 5
+
 [node name="03" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -6.10352e-05
-offset_right = 255.0
-offset_bottom = 439.221
+offset_left = -222.0
+offset_top = -287.0
+offset_right = 33.0
+offset_bottom = 152.221
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_op5u1")
+expand_mode = 5
+
+[node name="04" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -287.0
+offset_right = 33.0
+offset_bottom = 152.221
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_xw2df")
+expand_mode = 5
+
+[node name="05" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -287.0
+offset_right = 33.0
+offset_bottom = 263.454
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_wiy44")
 expand_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -163,6 +408,41 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("7_bgtt7")
+expand = true
+
+[node name="Credits" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -513.0
+offset_top = -48.0
+offset_right = 513.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center]Directed By
+[b]Josh Anderson[/b]"
+fit_content = true
+scroll_active = false
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -170,16 +450,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -175.0
-offset_top = -80.0
+offset_left = -343.0
+offset_top = -91.0
 offset_right = -30.0
 offset_bottom = -32.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Skip"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-volume_db = -10.0
+theme_override_font_sizes/font_size = 20
+text = "Return to Title"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
