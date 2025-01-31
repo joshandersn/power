@@ -413,6 +413,45 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
+[node name="CredText" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1026.0
+offset_top = -497.0
+offset_right = -121.0
+offset_bottom = -130.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "[right]
+Much gratitude to THE TEAM!
+---
+Josh Anderson [b]@Joshandern[/b]
+Isaac Anderson [b]@zoofries[/b]
+Abby Anderson [b]@abyyaeh[/b]
+Chloe Anderson
+Jonas Anderson"
+
+[node name="Credits" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 463.0
+offset_top = -190.0
+offset_right = 791.0
+offset_bottom = -123.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = 4
@@ -441,3 +480,4 @@ text = "Goblins & Batteries"
 uppercase = true
 
 [connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Credits" to="UI" method="_on_credits_pressed"]
