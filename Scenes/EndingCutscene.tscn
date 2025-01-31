@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/ending_cutscene.gd" id="1_tl6mm"]
 [ext_resource type="AudioStream" uid="uid://byxq4mf4atjuo" path="res://Sound/sunrise.mp3" id="2_kaxpt"]
 [ext_resource type="Texture2D" uid="uid://br41xg71w7vnc" path="res://Assets/Stills/IMG_8190.jpg" id="3_g62so"]
-[ext_resource type="Texture2D" uid="uid://b8pjicw47akp4" path="res://Assets/Stills/driving.png" id="4_j0erb"]
+[ext_resource type="Texture2D" uid="uid://cs2k44kplryri" path="res://Assets/Stills/IMG_8200.jpg" id="4_7m77w"]
 [ext_resource type="Texture2D" uid="uid://cqtsrhq7xdgsp" path="res://Assets/Stills/IMG_8195.jpg" id="5_op5u1"]
 [ext_resource type="Texture2D" uid="uid://ot70pjp8y0h3" path="res://Assets/Stills/IMG_8194.jpg" id="6_xw2df"]
 [ext_resource type="VideoStream" path="res://Assets/hands.ogv" id="7_bgtt7"]
@@ -334,10 +334,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -222.0
-offset_top = -287.0
-offset_right = 33.0
-offset_bottom = 7.0
+offset_right = 255.0
+offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_g62so")
@@ -355,7 +353,7 @@ offset_right = 33.0
 offset_bottom = 263.454
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_j0erb")
+texture = ExtResource("4_7m77w")
 expand_mode = 5
 
 [node name="03" type="TextureRect" parent="."]
