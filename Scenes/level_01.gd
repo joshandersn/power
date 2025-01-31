@@ -7,7 +7,7 @@ func _ready() -> void:
 	Game.check_level_objective.connect(proceed_level)
 	Game.play_music.emit(load("res://Sound/overworld.mp3"))
 	if look_at_object:
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(10).timeout
 		Game.push_dialog.emit("Look the've got all the batteries. Try and find a safe way to get them")
 		Game.look_at.emit(look_at_object, 4)
 

@@ -382,7 +382,7 @@ offset_left = 32.0
 offset_top = 32.0
 offset_right = 563.0
 offset_bottom = 563.0
-theme_override_constants/separation = 60
+theme_override_constants/separation = 250
 
 [node name="DialogTimer" type="Timer" parent="Canvas/UI"]
 wait_time = 5.0
