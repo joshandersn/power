@@ -8,9 +8,8 @@ func _ready() -> void:
 	Game.play_music.emit(load("res://Sound/overworld.mp3"))
 	if look_at_object:
 		await get_tree().create_timer(10).timeout
-		Game.push_dialog.emit("Look the've got all the batteries. Try and find a safe way to get them")
+		Game.push_dialog.emit("Look GOBLINS took all the batteries! Try and find a safe way to get them")
 		Game.look_at.emit(look_at_object, 4)
-
 
 func proceed_level():
 	if Game.goblin_kills >= 1 and $GoblinGate and is_instance_valid($GoblinGate):

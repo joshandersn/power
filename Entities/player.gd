@@ -109,7 +109,8 @@ func _input(_event: InputEvent) -> void:
 		#speed = speed*2
 	#elif Input.is_action_just_released("run"):
 		#speed = init_speed
-		
+
+var idle := false
 
 func _physics_process(delta: float) -> void:
 	if picked_up_item:
@@ -130,6 +131,41 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+
+	if direction.length() > 0.1:
+		idle = false
+		if picked_up_item:
+			if !is_on_floor():
+				$Anim.play("JumpCarry")
+			else:
+				$Anim.play("Carry")
+		else:
+			if !is_on_floor():
+				$Anim.play("Jump")
+			else:
+				$Anim.play("Run")
+	else:
+		if !$IdleTimer.time_left:
+			$IdleTimer.start()
+		if !picked_up_item:
+			if idle:
+				$Anim.play("IdleLook")
+			else:
+				if !is_on_floor():
+					$Anim.play("Jump")
+				else:
+					$Anim.play("Idle")
+		else:
+			if !is_on_floor():
+				$Anim.play("Jump")
+			else:
+				$Anim.play("Idle")
+		
+	if direction.x > 0.1:
+		$Anim.flip_h = false
+	elif direction.x < 0.1:
+		$Anim.flip_h = true
+		
 
 	move_and_slide()
 
@@ -183,3 +219,12 @@ func _on_regen_timer_timeout() -> void:
 			$RegenTimer.stop()
 		$Control/Label.text = str(health)
 	
+
+
+func _on_idle_timer_timeout() -> void:
+	idle = true
+
+
+func _on_anim_animation_looped() -> void:
+	if $Anim.animation == "IdleLook":
+		idle = false

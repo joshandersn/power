@@ -1,49 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://djiv7dx1ho2l8"]
+[gd_scene load_steps=9 format=3 uid="uid://djiv7dx1ho2l8"]
 
 [ext_resource type="Script" path="res://Scenes/opening_cutscene.gd" id="1_a4eyi"]
+[ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="1_eoks7"]
 [ext_resource type="Texture2D" uid="uid://cqtsrhq7xdgsp" path="res://Assets/Stills/IMG_8195.jpg" id="3_nm21t"]
 [ext_resource type="Texture2D" uid="uid://brw4ovo014r0q" path="res://Assets/Stills/houseInside.png" id="3_w6x83"]
 [ext_resource type="Texture2D" uid="uid://bs3splkakr2wy" path="res://Assets/Stills/HatGrab.png" id="4_b2eu6"]
-
-[sub_resource type="Animation" id="Animation_ofcm2"]
-resource_name = "opening_cutscene"
-length = 18.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("01:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.133333, 1.7, 4.23333, 5.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.123934, 0.334465, 0.57246, 0), Color(0.12549, 0.333333, 0.572549, 1), Color(0.12549, 0.333333, 0.572549, 1), Color(0.123934, 0.334465, 0.57246, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("02:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(6.33333, 7.7, 10, 11.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.320244, 0.320244, 0.320244, 0), Color(0.353813, 0.353813, 0.353813, 1), Color(0.353813, 0.353813, 0.353813, 1), Color(0.301758, 0.301758, 0.301758, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("03:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(11.8333, 13.2333, 15.7, 17.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.257839, 0.257839, 0.257839, 0), Color(0.258824, 0.258824, 0.258824, 1), Color(0.258824, 0.258824, 0.258824, 1), Color(0.257839, 0.257839, 0.257839, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_37tae"]
 length = 0.001
@@ -59,6 +20,142 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Honey the power went out!"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ofcm2"]
+resource_name = "opening_cutscene"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 1.7, 4.23333, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.123934, 0.334465, 0.57246, 0), Color(0.266667, 0.32549, 0.427451, 1), Color(0.266667, 0.32549, 0.427451, 1), Color(0.123934, 0.334465, 0.57246, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("02:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6.33333, 7.7, 10, 11.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.320244, 0.320244, 0.320244, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.301758, 0.301758, 0.301758, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("03:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(11.8333, 13.2333, 15.7, 17.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.257839, 0.257839, 0.257839, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.257839, 0.257839, 0.257839, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/Label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.93333, 3.6, 5.86667, 6.6, 9.53333, 11.3, 12.8667, 14.4667, 17.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.4, 6.63333, 12.6667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Honey the power went out!", "Could you go and see what's wrong with the power?", "Be carefull honey. I thought I heard noised outside!"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.36667, 3.3, 4.63333, 5.5, 7.1, 8.43333, 10.0333, 11.2333, 12.8667, 14.2, 15.8, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6gssq"]
 _data = {
@@ -73,7 +170,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_eoks7")
 script = ExtResource("1_a4eyi")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -42.0
+offset_right = 85.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="01" type="TextureRect" parent="."]
 layout_mode = 1
@@ -86,11 +197,13 @@ texture = ExtResource("3_nm21t")
 expand_mode = 5
 
 [node name="02" type="TextureRect" parent="."]
-modulate = Color(0.320244, 0.320244, 0.320244, 0)
+modulate = Color(0.301758, 0.301758, 0.301758, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -299.649
+offset_bottom = 59.6487
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_w6x83")
@@ -111,5 +224,31 @@ expand_mode = 5
 libraries = {
 "": SubResource("AnimationLibrary_6gssq")
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -224.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = -187.0
+offset_right = -51.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Honey the power went out!"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
