@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bu3patb680jal"]
+[gd_scene load_steps=45 format=4 uid="uid://bu3patb680jal"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_cm4m6"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://clp8tcijgl8uc" path="res://BuildingBlocks/Barn.tscn" id="34_yu4ph"]
 [ext_resource type="PackedScene" uid="uid://cvwwjgcwarce6" path="res://Assets/Corn!.glb" id="35_onyy2"]
 [ext_resource type="Texture2D" uid="uid://bs5dndh1cijdn" path="res://Assets/lights.png" id="36_vk1mo"]
+[ext_resource type="Texture2D" uid="uid://chfpghd24r24x" path="res://Assets/power.png" id="37_sfb4f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6l45"]
 
@@ -735,3 +736,9 @@ hint_message = "Activate all the BIG LIGHTS to win the level."
 
 [node name="Barrel2" parent="." instance=ExtResource("22_bug07")]
 transform = Transform3D(-3.07468e-08, 0.703405, -0.14499, -0.718193, -3.13932e-08, 0, -6.3377e-09, 0.14499, 0.703405, -19.1657, 0.196701, 3.69068)
+
+[node name="Trigger5" parent="." instance=ExtResource("24_g1x83")]
+transform = Transform3D(7.97663, 0, 1.57537, 0, 8.13071, 0, -1.57537, 0, 7.97663, -22.8166, -0.213437, 9.54061)
+one_time = true
+hint_image = ExtResource("37_sfb4f")
+hint_message = "FILL the Battery Array to LIGHT up this area."

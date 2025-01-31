@@ -1,6 +1,6 @@
 extends Node
 
-const DEBUG = true
+const DEBUG = false
 
 signal load_scene
 signal update_ui
@@ -14,6 +14,7 @@ signal look_at
 signal push_special_dialog
 signal check_level_objective
 signal push_hint
+signal clear_hints
 signal play_music
 signal stop_music
 

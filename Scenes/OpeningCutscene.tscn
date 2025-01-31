@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://djiv7dx1ho2l8"]
 
 [ext_resource type="Script" path="res://Scenes/opening_cutscene.gd" id="1_a4eyi"]
-[ext_resource type="Texture2D" uid="uid://br41xg71w7vnc" path="res://Assets/Stills/IMG_8190.jpg" id="2_vp1bj"]
 [ext_resource type="Texture2D" uid="uid://cqtsrhq7xdgsp" path="res://Assets/Stills/IMG_8195.jpg" id="3_nm21t"]
-[ext_resource type="AudioStream" uid="uid://byxq4mf4atjuo" path="res://Sound/sunrise.mp3" id="4_kt3rk"]
+[ext_resource type="Texture2D" uid="uid://brw4ovo014r0q" path="res://Assets/Stills/houseInside.png" id="3_w6x83"]
+[ext_resource type="Texture2D" uid="uid://bs3splkakr2wy" path="res://Assets/Stills/HatGrab.png" id="4_b2eu6"]
 
-[sub_resource type="Animation" id="Animation_a2s5n"]
-resource_name = "Slideshow"
-length = 120.0
+[sub_resource type="Animation" id="Animation_ofcm2"]
+resource_name = "opening_cutscene"
+length = 18.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,64 +15,37 @@ tracks/0/path = NodePath("01:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(17.3667, 20.3667, 27.2333, 30),
+"times": PackedFloat32Array(0.133333, 1.7, 4.23333, 5.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0.123934, 0.334465, 0.57246, 0), Color(0.12549, 0.333333, 0.572549, 1), Color(0.12549, 0.333333, 0.572549, 1), Color(0.123934, 0.334465, 0.57246, 0)]
 }
-tracks/1/type = "audio"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Music")
+tracks/1/path = NodePath("02:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_kt3rk")
-}],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(6.33333, 7.7, 10, 11.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.320244, 0.320244, 0.320244, 0), Color(0.353813, 0.353813, 0.353813, 1), Color(0.353813, 0.353813, 0.353813, 1), Color(0.301758, 0.301758, 0.301758, 0)]
 }
-tracks/1/use_blend = true
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("01:position")
+tracks/2/path = NodePath("03:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(17.3667, 29.7333),
-"transitions": PackedFloat32Array(0.406126, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-222, -287)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("03:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2.06667, 14.4333),
-"transitions": PackedFloat32Array(0.406126, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-222, -287)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("03:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2, 5, 11.8667, 14.6333),
+"times": PackedFloat32Array(11.8333, 13.2333, 15.7, 17.0333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0.257839, 0.257839, 0.257839, 0), Color(0.258824, 0.258824, 0.258824, 1), Color(0.258824, 0.258824, 0.258824, 1), Color(0.257839, 0.257839, 0.257839, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_dts0k"]
+[sub_resource type="Animation" id="Animation_37tae"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -84,25 +57,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("01:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m72jv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gssq"]
 _data = {
-"RESET": SubResource("Animation_dts0k"),
-"Slideshow": SubResource("Animation_a2s5n")
+"RESET": SubResource("Animation_37tae"),
+"opening_cutscene": SubResource("Animation_ofcm2")
 }
 
 [node name="OpeningCutscene" type="Control"]
@@ -114,52 +75,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a4eyi")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Cutscene"
-
-[node name="Timer" type="Timer" parent="."]
-
 [node name="01" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 255.0
-offset_bottom = 294.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_vp1bj")
-expand_mode = 5
-
-[node name="03" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 255.0
-offset_bottom = 439.221
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_nm21t")
 expand_mode = 5
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+[node name="02" type="TextureRect" parent="."]
+modulate = Color(0.320244, 0.320244, 0.320244, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_w6x83")
+expand_mode = 5
+
+[node name="03" type="TextureRect" parent="."]
+modulate = Color(0.257839, 0.257839, 0.257839, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_b2eu6")
+expand_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m72jv")
+"": SubResource("AnimationLibrary_6gssq")
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

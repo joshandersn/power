@@ -8,8 +8,4 @@ func _ready() -> void:
 
 func proceed_level() -> void:
 	await get_tree().create_timer(3).timeout
-	Game.load_scene.emit(load("res://Scenes/level01.tscn"))
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	Game.load_scene.emit(load("res://Scenes/OpeningCutscene.tscn"))

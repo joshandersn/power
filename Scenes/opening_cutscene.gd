@@ -1,10 +1,7 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Timer.start()
+	$AnimationPlayer.play("opening_cutscene")
 
-
-func _on_timer_timeout() -> void:
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	Game.load_scene.emit(load("res://Scenes/level01.tscn"))

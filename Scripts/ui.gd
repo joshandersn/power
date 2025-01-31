@@ -8,6 +8,7 @@ func _ready() -> void:
 	Game.lose.connect(lose)
 	Game.push_special_dialog.connect(special_dialog)
 	Game.push_hint.connect(push_hint)
+	Game.clear_hints.connect(clear_hints)
 	initalize_ui()
 
 func lose() -> void:
