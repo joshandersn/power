@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw2n4uqf6yac"]
+
+[ext_resource type="Script" path="res://Gadgets/tree.gd" id="1_3x0e4"]
+[ext_resource type="PackedScene" uid="uid://bubocg8cqx5l1" path="res://Assets/Tree.glb" id="2_l7d8d"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jd3sm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rheks"]
+radius = 0.299569
+
+[node name="Tree" type="StaticBody3D"]
+script = ExtResource("1_3x0e4")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_jd3sm")
+
+[node name="Tree" parent="." instance=ExtResource("2_l7d8d")]
+transform = Transform3D(0.292846, 0, 0, 0, 0.292846, 0, 0, 0, 0.292846, 0.0288891, -1.28286, 0.62329)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_rheks")
+
+[node name="A" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906935, 0.977477, 0.593969)
+
+[node name="B" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703509, 1.2995, -0.762173)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

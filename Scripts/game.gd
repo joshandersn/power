@@ -24,3 +24,4 @@ var current_level: PackedScene
 # Session
 var enemy_count: int
 var defences: Array[Node3D]
+var goblin_kills: int

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqax8s62i3xmi"]
+[gd_scene load_steps=18 format=3 uid="uid://dqax8s62i3xmi"]
 
 [ext_resource type="Script" path="res://Gadgets/boiler.gd" id="1_mnqfa"]
 [ext_resource type="PackedScene" uid="uid://c7thefpvvwvog" path="res://Assets/Boiler.glb" id="3_olgu4"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b86lxs1vxk0hd" path="res://Sound/fire01.wav" id="5_sptxf"]
 [ext_resource type="AudioStream" uid="uid://csdg2k2h3fgff" path="res://Sound/unplug.wav" id="6_iao6t"]
 [ext_resource type="AudioStream" uid="uid://bg1me6rmfnxgl" path="res://Sound/steam01.wav" id="7_5b6pt"]
+[ext_resource type="PackedScene" uid="uid://drrjexq6547ow" path="res://Gadgets/OmniLight.tscn" id="8_7u64v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
 radius = 1.02421
@@ -91,14 +92,12 @@ stream = ExtResource("5_sptxf")
 [node name="plugSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_iao6t")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13621, 0.586433, 0)
-visible = false
-light_color = Color(0.886275, 0.333333, 0, 1)
-light_energy = 2.067
-
 [node name="burnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5b6pt")
+
+[node name="OmniLight" parent="." instance=ExtResource("8_7u64v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33267, 0.925015, -0.166481)
+light_color = Color(1, 0.301961, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

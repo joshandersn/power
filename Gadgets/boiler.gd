@@ -1,10 +1,21 @@
 extends Area3D
 
+@export var start_burning := false
+
 @onready var item_resource = load("res://Gadgets/boiler.tres")
 var output_node: Node3D
 var power_current := 5.0
 const is_output := true
 
+func _ready() -> void:
+	if start_burning:
+		item_resource.power = 9999
+		$Smoke.emitting = true
+		$sound.playing = true
+		$MeshInstance3D.visible = true
+		$OmniLight.active = true
+	$OmniLight.update_item()
+		
 
 func eject_object(object) -> void:
 	object.position += Vector3(0, 0.5, 0)
@@ -43,16 +54,19 @@ func _on_serve_timer_timeout() -> void:
 			$Smoke.emitting = true
 			$sound.playing = true
 			$MeshInstance3D.visible = true
-			$OmniLight3D.visible = true
+			$OmniLight.active = true
 		else:
 			$ServeTimer.stop()
 			$Smoke.emitting = false
 			$sound.playing = false
 			$MeshInstance3D.visible = false
-			$OmniLight3D.visible = false
+			$OmniLight.active = false
+		$OmniLight.update_item()
 	else:
 		$ServeTimer.stop()
 		$Smoke.emitting = false
 		$sound.playing = false
 		$MeshInstance3D.visible = false
-		$OmniLight3D.visible = false
+		$OmniLight.active = false
+		$OmniLight.update_item()
+		

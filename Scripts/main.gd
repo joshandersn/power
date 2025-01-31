@@ -56,8 +56,8 @@ func _ready() -> void:
 	Game.play_music.connect(play_music)
 	Game.stop_music.connect(stop_music)
 	if Game.DEBUG:
-		#quick_load(load("res://Scenes/level01.tscn"))
-		quick_load(load("res://Scenes/tutorial.tscn"))
+		quick_load(load("res://Scenes/level01.tscn"))
+		#quick_load(load("res://Scenes/tutorial.tscn"))
 	else:
 		quick_load(load("res://Scenes/titleScreen.tscn"))
 

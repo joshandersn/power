@@ -117,6 +117,7 @@ mouse_filter = 2
 texture = ExtResource("3_ykelu")
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

@@ -22,8 +22,8 @@ height = 1.0
 radius = 1.0
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
-collision_layer = 4
-collision_mask = 5
+collision_layer = 20
+collision_mask = 21
 script = ExtResource("1_tdvmb")
 
 [node name="Detection" type="Area3D" parent="."]

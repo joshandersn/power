@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://clp8tcijgl8uc"]
+
+[ext_resource type="PackedScene" uid="uid://c8ji4blgcytis" path="res://Assets/Barn2.glb" id="1_sceoj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufgvy"]
+size = Vector3(5.82535, 5.16437, 8.0152)
+
+[node name="House" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40697, 2.17819, -3.60538)
+shape = SubResource("BoxShape3D_ufgvy")
+
+[node name="Barn2" parent="." instance=ExtResource("1_sceoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38834, -0.367326, -1.35812)

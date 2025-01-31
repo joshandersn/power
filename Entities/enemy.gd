@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var speed := 1.5
+@export var hit_freq := 0.2
 @export var target: Node3D
 
 var near_light_source: bool
@@ -19,6 +20,8 @@ func incenerate() -> void:
 			$die.stream = load("res://Sound/goblinDie2.wav")
 		$die.play()
 		await get_tree().create_timer(2).timeout
+		Game.goblin_kills += 1
+		Game.check_level_objective.emit()
 		queue_free()
 
 func take_damage() -> void:
@@ -88,7 +91,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 	if "is_player" in body or body.is_in_group("Defence"):
 		reached_target = body
 		if !$HitTimer.time_left:
-			$HitTimer.start()
+			$HitTimer.start(hit_freq)
 
 func _on_hitbox_body_exited(body: Node3D) -> void:
 	if "is_player" in body or body.is_in_group("Defence"):

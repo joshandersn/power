@@ -4,4 +4,4 @@ func _ready() -> void:
 	$Play.grab_focus()
 
 func _on_play_pressed() -> void:
-	Game.load_scene.emit(load("res://Scenes/OpeningCutscene.tscn"))
+	Game.load_scene.emit(load("res://Scenes/tutorial.tscn"))

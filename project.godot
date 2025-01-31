@@ -126,6 +126,7 @@ debug={
 3d_physics/layer_2="items"
 3d_physics/layer_3="entity"
 3d_physics/layer_4="plug"
+3d_physics/layer_5="goblin"
 
 [rendering]
 
