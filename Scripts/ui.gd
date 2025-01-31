@@ -28,8 +28,9 @@ func push_hint(image: Texture2D, message: String) -> void:
 	new_hint.image = image
 	new_hint.message = message
 	clear_hints()
+	await get_tree().create_timer(1).timeout
 	$Hints.add_child(new_hint)
-	$HintTimer.start(5)
+	$HintTimer.start(8)
 	$hint.play()
 	
 func clear_hints() -> void:

@@ -13,14 +13,15 @@ size = Vector3(1.75366, 1.11023, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ii5sp"]
 size = Vector3(1.22772, 1.24213, 1.21741)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_oblf1"]
-radius = 1.256
+[sub_resource type="BoxShape3D" id="BoxShape3D_5nwj7"]
+size = Vector3(2.35046, 1.64343, 1.73071)
 
 [sub_resource type="QuadMesh" id="QuadMesh_rofu7"]
 
 [node name="Socket" type="Area3D" groups=["Socket"]]
 collision_layer = 2
 collision_mask = 2
+priority = 1
 script = ExtResource("1_y2hsj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -35,8 +36,8 @@ transform = Transform3D(1, -2.91897e-07, 0.000112323, 4.83172e-07, 0.999999, -0.
 shape = SubResource("BoxShape3D_ii5sp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668343, 0.674291, 0.305115)
-shape = SubResource("SphereShape3D_oblf1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491917, 0.996007, 0.347473)
+shape = SubResource("BoxShape3D_5nwj7")
 
 [node name="InsertPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00957781, 0.444708, 0.0671561)

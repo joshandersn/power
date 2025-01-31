@@ -47,12 +47,13 @@ func update_outputs():
 		is_output = true
 
 func insert_item(object: Node3D) -> void:
-	if object.item_resource.plug:
-		if output_node:
-			eject_object(output_node)
-			output_node.plugged_into = null
-			$InsertLimit.start()
-			output_node = null
+	if object.item_resource.plug and !output_node:
+		#if output_node:
+			#print("A")
+			#eject_object(output_node)
+			#output_node.plugged_into = null
+			#$InsertLimit.start()
+			#output_node = object
 		output_node = object
 		object.plugged_into = self
 		object.global_position = $PlugPos.global_position

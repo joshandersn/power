@@ -16,7 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	
-	var distance = (cable_a.position - cable_b.position)
+	var distance = (cable_a.global_position - cable_b.global_position)
 	if cable_a.is_held and distance.length() > 2:
 		cable_b.linear_velocity = distance
 	elif cable_b.is_held and distance.length() > 2:

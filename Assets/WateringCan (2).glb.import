@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cjivttbeuvk65"
-path="res://.godot/imported/WateringCan.glb-e80ebde6114e5af3709fe697428016a6.scn"
+path="res://.godot/imported/WateringCan (2).glb-90f58a46b83e3e3735402d286bacc2c9.scn"
 
 [deps]
 
-source_file="res://Sound/WateringCan.glb"
-dest_files=["res://.godot/imported/WateringCan.glb-e80ebde6114e5af3709fe697428016a6.scn"]
+source_file="res://Assets/WateringCan (2).glb"
+dest_files=["res://.godot/imported/WateringCan (2).glb-90f58a46b83e3e3735402d286bacc2c9.scn"]
 
 [params]
 
