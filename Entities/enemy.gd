@@ -56,12 +56,24 @@ func _physics_process(delta: float) -> void:
 
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
+		if velocity.length() > 0.5:
+			$Anim.play("Run")
+			$Anim.pixel_size = 0.0015
+		else:
+			$Anim.play("Idle")
+			$Anim.pixel_size = 0.0018
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
+
+
+		if direction.x > 0.1:
+			$Anim.flip_h = false
+		elif direction.x < 0.1:
+			$Anim.flip_h = true
 
 		move_and_slide()
 	
