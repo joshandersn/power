@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpqd7qs18dur5"]
+[gd_scene load_steps=12 format=3 uid="uid://dpqd7qs18dur5"]
 
 [ext_resource type="Script" path="res://Gadgets/socket.gd" id="1_y2hsj"]
 [ext_resource type="PackedScene" uid="uid://3emifvye52al" path="res://Assets/Battery_Hub.glb" id="2_vmy85"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://biu2aq3ps1eq1" path="res://Gadgets/statusLight.tscn" id="4_hpqxn"]
 [ext_resource type="AudioStream" uid="uid://tp1hl6d5jmhn" path="res://Sound/plug in.mp3" id="5_0p6wx"]
 [ext_resource type="AudioStream" uid="uid://csdg2k2h3fgff" path="res://Sound/unplug.wav" id="6_2obf6"]
+[ext_resource type="AudioStream" uid="uid://bjq1wwqgj83p" path="res://Sound/done01.wav" id="7_i7qca"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6b7at"]
 size = Vector3(1.75366, 1.11023, 1)
@@ -71,6 +72,9 @@ volume_db = -15.0
 [node name="plugPlugin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2obf6")
 volume_db = -5.0
+
+[node name="Done" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_i7qca")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="InsertLimit" to="." method="_on_insert_limit_timeout"]

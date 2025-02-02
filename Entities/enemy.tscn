@@ -287,7 +287,7 @@ shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_hc0eb")
 animation = &"Idle"
-frame_progress = 0.610385
+frame_progress = 0.866768
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

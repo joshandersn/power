@@ -114,3 +114,8 @@ func _on_return_pressed() -> void:
 	get_tree().paused = false
 	$Pause.visible = get_tree().paused
 	Game.load_scene.emit(load("res://Scenes/titleScreen.tscn"))
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	Game.difficulty = index
+	Game.difficulty_update.emit()

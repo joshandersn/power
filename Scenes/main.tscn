@@ -537,6 +537,30 @@ offset_bottom = 657.0
 theme_override_font_sizes/font_size = 40
 text = "Return to Title"
 
+[node name="OptionButton" type="OptionButton" parent="UI/Pause"]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 351.0
+offset_right = 1091.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 40
+selected = 1
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Goblins are real"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="UI/Pause"]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 317.0
+offset_right = 738.0
+offset_bottom = 342.0
+theme_override_font_sizes/font_size = 20
+text = "Difficulty"
+
 [node name="LoseBG" type="ColorRect" parent="UI"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -631,5 +655,6 @@ volume_db = -15.0
 [connection signal="pressed" from="UI/Pause/Restart" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/Quit" to="UI" method="_on_quit_pressed"]
 [connection signal="pressed" from="UI/Pause/Return" to="UI" method="_on_return_pressed"]
+[connection signal="item_selected" from="UI/Pause/OptionButton" to="UI" method="_on_option_button_item_selected"]
 [connection signal="pressed" from="UI/LoseBG/Button" to="UI" method="_on_button_pressed"]
 [connection signal="timeout" from="UI/HintTimer" to="UI" method="_on_hint_timer_timeout"]

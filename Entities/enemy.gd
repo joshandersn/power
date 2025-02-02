@@ -10,6 +10,21 @@ var is_stunned: bool
 
 var being_killed := false
 
+func _ready() -> void:
+	difficulty_update()
+	Game.difficulty_update.connect(difficulty_update)
+
+func difficulty_update() -> void:
+	if Game.difficulty == 0:
+		hit_freq = 1.5
+		speed = 1.5
+	elif Game.difficulty == 1:
+		hit_freq = 0.5
+		speed = 2
+	elif Game.difficulty == 2:
+		hit_freq = 0.2
+		speed = 2.3
+
 func incenerate() -> void:
 	if !being_killed:
 		being_killed = true

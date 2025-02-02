@@ -18,7 +18,12 @@ signal clear_hints
 signal play_music
 signal stop_music
 
+var difficulty = 1
+signal difficulty_update
+
 var input_method := "keyboard"
+signal input_method_update
+
 var player_last_direction: Vector3
 var current_level: PackedScene
 

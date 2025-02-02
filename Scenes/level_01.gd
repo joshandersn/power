@@ -11,9 +11,12 @@ func _ready() -> void:
 		Game.push_dialog.emit("Look GOBLINS took all the batteries! Try and find a safe way to get them")
 		Game.look_at.emit(look_at_object, 4)
 
+@onready var goblin_gate = $GoblinGate
+
 func proceed_level():
-	if Game.goblin_kills >= 1 and $GoblinGate and is_instance_valid($GoblinGate):
-		$GoblinGate.queue_free()
+	if Game.goblin_kills >= 1 and goblin_gate and is_instance_valid(goblin_gate):
+		goblin_gate = null
+		$goblin_gate.queue_free()
 		
 	if $SuperLight.active or $SuperLight2.active:
 		Game.play_music.emit(load("res://Sound/overworld_beat.mp3"))

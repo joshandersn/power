@@ -35,6 +35,8 @@ func receive_power(amt):
 		inserted_item.receive_power(amt)
 		inserted_item.update_item()
 		if inserted_item.item_resource.power >= 100:
+			if $StatusLight.active == false:
+				$Done.play()
 			$StatusLight.active = true
 		else:
 			$StatusLight.active = false
