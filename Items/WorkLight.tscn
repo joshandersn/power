@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvu5rhbq64dqb"]
+[gd_scene load_steps=20 format=3 uid="uid://dvu5rhbq64dqb"]
 
 [ext_resource type="PackedScene" uid="uid://c4psucw2hky4q" path="res://Gadgets/ConeLight.tscn" id="1_283g0"]
 [ext_resource type="Script" path="res://Items/work_light.gd" id="1_stoc6"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://lo2q2rm0s6fo" path="res://Assets/Small_Worklight.glb" id="5_py3cc"]
 [ext_resource type="PackedScene" uid="uid://ynijdp07yp2x" path="res://Assets/Socket.glb" id="6_uaa6l"]
 [ext_resource type="AudioStream" uid="uid://bwljam7yk3rxw" path="res://Sound/tin02.wav" id="6_yrfe2"]
-[ext_resource type="AudioStream" uid="uid://cg0lsqk8q41wy" path="res://Sound/hit03.wav" id="7_lqm7l"]
 [ext_resource type="AudioStream" uid="uid://b4q3q68xh7pf1" path="res://Sound/tin01.wav" id="7_op51n"]
 [ext_resource type="AudioStream" uid="uid://csdg2k2h3fgff" path="res://Sound/unplug.wav" id="8_4lgrc"]
 [ext_resource type="AudioStream" uid="uid://cpv4bgxyb6ymd" path="res://Sound/buzz01.wav" id="9_1rk0o"]
@@ -163,7 +162,7 @@ libraries = {
 transform = Transform3D(-0.106158, 0, 9.28061e-09, 0, 0.106158, 0, -9.28061e-09, 0, -0.106158, -0.0224682, -0.361749, 0.63098)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("7_lqm7l")
+stream = ExtResource("7_op51n")
 
 [node name="plugSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_4lgrc")

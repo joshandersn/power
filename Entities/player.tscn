@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://dqjf7xe6278u7"]
+[gd_scene load_steps=116 format=3 uid="uid://dqjf7xe6278u7"]
 
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_66pwa"]
 [ext_resource type="Material" uid="uid://demvvkrlb5k7r" path="res://Materials/blue.tres" id="2_86vdo"]
@@ -105,6 +105,8 @@
 [ext_resource type="Texture2D" uid="uid://c7hsleqdtyqsi" path="res://Assets/Animations/Guy_Runcycle/0033.png" id="70_vmo0d"]
 [ext_resource type="Texture2D" uid="uid://ciyjf62qwk1v3" path="res://Assets/Animations/Guy_Runcycle/0034.png" id="71_64ruq"]
 [ext_resource type="Texture2D" uid="uid://dpo1152nmetjg" path="res://Assets/Animations/Guy_Idol/0070.png" id="71_tatww"]
+[ext_resource type="AudioStream" uid="uid://b2y3e6w8pnpbl" path="res://Sound/step01.wav" id="106_0lu6i"]
+[ext_resource type="AudioStream" uid="uid://cg0lsqk8q41wy" path="res://Sound/hit03.wav" id="107_wjab3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u54bi"]
 radius = 0.83754
@@ -600,6 +602,13 @@ animation = &"JumpCarry"
 [node name="IdleTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("106_0lu6i")
+volume_db = -10.0
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("107_wjab3")
 
 [connection signal="area_entered" from="PickupField" to="." method="_on_pickup_field_area_entered"]
 [connection signal="area_exited" from="PickupField" to="." method="_on_pickup_field_area_exited"]

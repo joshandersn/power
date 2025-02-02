@@ -14,9 +14,8 @@ func _ready() -> void:
 @onready var goblin_gate = $GoblinGate
 
 func proceed_level():
-	if Game.goblin_kills >= 1 and goblin_gate and is_instance_valid(goblin_gate):
-		goblin_gate = null
-		$goblin_gate.queue_free()
+	if Game.goblin_kills >= 1:
+		goblin_gate.set_collision_layer_value(5, false)
 		
 	if $SuperLight.active or $SuperLight2.active:
 		Game.play_music.emit(load("res://Sound/overworld_beat.mp3"))
@@ -26,3 +25,7 @@ func proceed_level():
 		Game.push_dialog.emit("That's it! Those goblins should leave us alone now.")
 		await get_tree().create_timer(5).timeout
 		Game.load_scene.emit(load("res://Scenes/EndingCutscene.tscn"))
+
+
+func _on_gate_timer_timeout() -> void:
+	goblin_gate.set_collision_layer_value(5, false)

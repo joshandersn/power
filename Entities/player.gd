@@ -41,6 +41,7 @@ func pickup(object: Node3D) -> void:
 		if "knocked_over" in object and object.knocked_over:
 			object.prop_back_up()
 		else:
+			$Pickup.play()
 			picked_up_item = object
 			object.freeze = true
 			if "is_held" in picked_up_item:
@@ -133,6 +134,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	if direction.length() > 0.1:
+		if $walk.playing == false:
+			$walk.play()
 		idle = false
 		if picked_up_item:
 			if !is_on_floor():
@@ -145,6 +148,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				$Anim.play("Run")
 	else:
+		$walk.playing = false
 		if !$IdleTimer.time_left:
 			$IdleTimer.start()
 		if !picked_up_item:
