@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://dqjf7xe6278u7"]
+[gd_scene load_steps=137 format=3 uid="uid://dqjf7xe6278u7"]
 
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_66pwa"]
 [ext_resource type="Material" uid="uid://demvvkrlb5k7r" path="res://Materials/blue.tres" id="2_86vdo"]
@@ -39,46 +39,67 @@
 [ext_resource type="Texture2D" uid="uid://bjij4n1r42xxj" path="res://Assets/Animations/Guy_CarryCycle/0034.png" id="37_jyo72"]
 [ext_resource type="Texture2D" uid="uid://ce1a8ol20wt58" path="res://Assets/Animations/Guy_Idol/0003.png" id="38_1cron"]
 [ext_resource type="Texture2D" uid="uid://bk66qcq03sq8s" path="res://Assets/Animations/Guy_Runcycle/0001.png" id="38_y8sde"]
+[ext_resource type="Texture2D" uid="uid://c5g1itf6w4tu6" path="res://Assets/Animations/Guy_Death/0080.png" id="38_ymfei"]
 [ext_resource type="Texture2D" uid="uid://xva0ns8q50fc" path="res://Assets/Animations/Guy_Runcycle/0002.png" id="39_2iih1"]
+[ext_resource type="Texture2D" uid="uid://sua4rpk7o6f2" path="res://Assets/Animations/Guy_Death/0060.png" id="39_f15tg"]
 [ext_resource type="Texture2D" uid="uid://cngfpvxsctf3j" path="res://Assets/Animations/Guy_Idol/0004.png" id="39_q564o"]
 [ext_resource type="Texture2D" uid="uid://co52ssdua0rf" path="res://Assets/Animations/Guy_Runcycle/0003.png" id="40_5wodq"]
+[ext_resource type="Texture2D" uid="uid://cqgnbsnvawmbb" path="res://Assets/Animations/Guy_Death/0061.png" id="40_biux4"]
 [ext_resource type="Texture2D" uid="uid://by6i8o4b6rgbl" path="res://Assets/Animations/Guy_Idol/0005.png" id="40_n0qvb"]
 [ext_resource type="Texture2D" uid="uid://bfuxvgtw56th7" path="res://Assets/Animations/Guy_Runcycle/0004.png" id="41_hjqec"]
 [ext_resource type="Texture2D" uid="uid://cad5knmcajrij" path="res://Assets/Animations/Guy_Idol/0006.png" id="41_m7eck"]
+[ext_resource type="Texture2D" uid="uid://dv3kxaxua6x1s" path="res://Assets/Animations/Guy_Death/0062.png" id="41_uunpw"]
+[ext_resource type="Texture2D" uid="uid://ctml1rw47ahce" path="res://Assets/Animations/Guy_Death/0063.png" id="42_4nxaw"]
 [ext_resource type="Texture2D" uid="uid://cery48pyoljln" path="res://Assets/Animations/Guy_Idol/0008.png" id="42_mac8v"]
 [ext_resource type="Texture2D" uid="uid://cqknb0t8tsxc" path="res://Assets/Animations/Guy_Runcycle/0005.png" id="42_tu2bl"]
 [ext_resource type="Texture2D" uid="uid://1lqjxw6xauqm" path="res://Assets/Animations/Guy_Idol/0009.png" id="43_7agco"]
 [ext_resource type="Texture2D" uid="uid://dgbxnj4vggxt0" path="res://Assets/Animations/Guy_Runcycle/0006.png" id="43_qfs5e"]
+[ext_resource type="Texture2D" uid="uid://csjnmoma81myc" path="res://Assets/Animations/Guy_Death/0064.png" id="43_rpy6k"]
+[ext_resource type="Texture2D" uid="uid://bycg0wlkoniki" path="res://Assets/Animations/Guy_Death/0065.png" id="44_6ur6e"]
 [ext_resource type="Texture2D" uid="uid://cehlroyx78v75" path="res://Assets/Animations/Guy_Idol/0011.png" id="44_b4w37"]
 [ext_resource type="Texture2D" uid="uid://bajchvw6tp8q" path="res://Assets/Animations/Guy_Runcycle/0007.png" id="44_d1a6r"]
 [ext_resource type="Texture2D" uid="uid://b8o3abptog803" path="res://Assets/Animations/Guy_Runcycle/0008.png" id="45_cop08"]
 [ext_resource type="Texture2D" uid="uid://bb4yvptlqrvoe" path="res://Assets/Animations/Guy_Idol/0014.png" id="45_mg3ck"]
+[ext_resource type="Texture2D" uid="uid://b2h4u47fool56" path="res://Assets/Animations/Guy_Death/0066.png" id="45_miav6"]
+[ext_resource type="Texture2D" uid="uid://b5kndyyg63byk" path="res://Assets/Animations/Guy_Death/0067.png" id="46_amkhu"]
 [ext_resource type="Texture2D" uid="uid://m88fqddx5j0a" path="res://Assets/Animations/Guy_Runcycle/0009.png" id="46_cuw1g"]
 [ext_resource type="Texture2D" uid="uid://bxq37spgke3b2" path="res://Assets/Animations/Guy_Idol/0017.png" id="46_ellmy"]
+[ext_resource type="Texture2D" uid="uid://bsnbwvpncd25p" path="res://Assets/Animations/Guy_Death/0068.png" id="47_04xr6"]
 [ext_resource type="Texture2D" uid="uid://jppsbx7o2rlr" path="res://Assets/Animations/Guy_Idol/0018.png" id="47_bwv88"]
 [ext_resource type="Texture2D" uid="uid://cvkxbsnqflpq4" path="res://Assets/Animations/Guy_Runcycle/0010.png" id="47_thihf"]
 [ext_resource type="Texture2D" uid="uid://b030jss5alnio" path="res://Assets/Animations/Guy_Runcycle/0011.png" id="48_6xyv6"]
+[ext_resource type="Texture2D" uid="uid://b7m3v24m1co8g" path="res://Assets/Animations/Guy_Death/0069.png" id="48_7j0y5"]
 [ext_resource type="Texture2D" uid="uid://bx6l5jbdmksyj" path="res://Assets/Animations/Guy_Idol/0022.png" id="48_weww5"]
 [ext_resource type="Texture2D" uid="uid://ijugkoku7qju" path="res://Assets/Animations/Guy_Idol/0023.png" id="49_8sjjj"]
 [ext_resource type="Texture2D" uid="uid://cgingapond5ft" path="res://Assets/Animations/Guy_Runcycle/0012.png" id="49_r0n6u"]
+[ext_resource type="Texture2D" uid="uid://63fdhgecb83c" path="res://Assets/Animations/Guy_Death/0070.png" id="49_wa0kr"]
 [ext_resource type="Texture2D" uid="uid://cfk5743153lrf" path="res://Assets/Animations/Guy_Idol/0025.png" id="50_ab4mq"]
 [ext_resource type="Texture2D" uid="uid://dtavxvtbds8vw" path="res://Assets/Animations/Guy_Runcycle/0013.png" id="50_svqib"]
+[ext_resource type="Texture2D" uid="uid://6cfvfdotac7q" path="res://Assets/Animations/Guy_Death/0071.png" id="50_v4piw"]
 [ext_resource type="Texture2D" uid="uid://b58p7vllblwev" path="res://Assets/Animations/Guy_Runcycle/0014.png" id="51_hg5jg"]
 [ext_resource type="Texture2D" uid="uid://bo55jn2oq4ndt" path="res://Assets/Animations/Guy_Idol/0026.png" id="51_keb6g"]
+[ext_resource type="Texture2D" uid="uid://d38d2088siyno" path="res://Assets/Animations/Guy_Death/0072.png" id="51_vmsd7"]
 [ext_resource type="Texture2D" uid="uid://d4nhp7ktoaety" path="res://Assets/Animations/Guy_Runcycle/0015.png" id="52_1tte8"]
+[ext_resource type="Texture2D" uid="uid://0uljgpcloa5f" path="res://Assets/Animations/Guy_Death/0073.png" id="52_45ylr"]
 [ext_resource type="Texture2D" uid="uid://cmvirwc6k3rc8" path="res://Assets/Animations/Guy_Idol/0030.png" id="52_b0hm7"]
 [ext_resource type="Texture2D" uid="uid://b5dq4xyp2xkee" path="res://Assets/Animations/Guy_Idol/0031.png" id="53_1pulm"]
 [ext_resource type="Texture2D" uid="uid://doa8sxvdsxsft" path="res://Assets/Animations/Guy_Runcycle/0016.png" id="53_assfg"]
+[ext_resource type="Texture2D" uid="uid://b47y4jxi72mvj" path="res://Assets/Animations/Guy_Death/0074.png" id="53_f1si0"]
 [ext_resource type="Texture2D" uid="uid://df42co31qsqd5" path="res://Assets/Animations/Guy_Runcycle/0017.png" id="54_bmu33"]
+[ext_resource type="Texture2D" uid="uid://bw8t6502jobat" path="res://Assets/Animations/Guy_Death/0075.png" id="54_cbm7g"]
 [ext_resource type="Texture2D" uid="uid://pqg48hiaqrmq" path="res://Assets/Animations/Guy_Idol/0034.png" id="54_mp0p4"]
 [ext_resource type="Texture2D" uid="uid://jij6sueukwqw" path="res://Assets/Animations/Guy_Runcycle/0018.png" id="55_4wven"]
+[ext_resource type="Texture2D" uid="uid://blxpbpwtguxqp" path="res://Assets/Animations/Guy_Death/0076.png" id="55_eo4r0"]
 [ext_resource type="Texture2D" uid="uid://cc68ear4sp7c7" path="res://Assets/Animations/Guy_Idol/0036.png" id="55_vvd0d"]
 [ext_resource type="Texture2D" uid="uid://dnqp2qkjuiy3f" path="res://Assets/Animations/Guy_Idol/0042.png" id="56_272rh"]
 [ext_resource type="Texture2D" uid="uid://hj6qjrtms3bu" path="res://Assets/Animations/Guy_Runcycle/0019.png" id="56_mbjqe"]
+[ext_resource type="Texture2D" uid="uid://d1apwlmybkj13" path="res://Assets/Animations/Guy_Death/0077.png" id="56_w3p4d"]
+[ext_resource type="Texture2D" uid="uid://bug8d7hyfplbs" path="res://Assets/Animations/Guy_Death/0078.png" id="57_irrc2"]
 [ext_resource type="Texture2D" uid="uid://mqbd7k6frn8f" path="res://Assets/Animations/Guy_Runcycle/0020.png" id="57_xubg6"]
 [ext_resource type="Texture2D" uid="uid://dqgqjcit0vnn7" path="res://Assets/Animations/Guy_Idol/0043.png" id="57_y7fr5"]
 [ext_resource type="Texture2D" uid="uid://dp3y6n4ukqc0w" path="res://Assets/Animations/Guy_Idol/0048.png" id="58_g7el3"]
 [ext_resource type="Texture2D" uid="uid://c1k4se1y0n2nu" path="res://Assets/Animations/Guy_Runcycle/0021.png" id="58_hqefm"]
+[ext_resource type="Texture2D" uid="uid://rg6vlvq03735" path="res://Assets/Animations/Guy_Death/0079.png" id="58_wb88l"]
 [ext_resource type="Texture2D" uid="uid://cxox206qjthxa" path="res://Assets/Animations/Guy_Runcycle/0022.png" id="59_1hn30"]
 [ext_resource type="Texture2D" uid="uid://qgvvjr822tfd" path="res://Assets/Animations/Guy_Idol/0049.png" id="59_mv1r5"]
 [ext_resource type="Texture2D" uid="uid://cisjr6etkta5t" path="res://Assets/Animations/Guy_Idol/0050.png" id="60_6ms7f"]
@@ -279,6 +300,82 @@ animations = [{
 "loop": true,
 "name": &"Carry",
 "speed": 48.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_ymfei")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_f15tg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_biux4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_uunpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_4nxaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_rpy6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_6ur6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_miav6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_amkhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_04xr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_7j0y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_wa0kr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_v4piw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_vmsd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_45ylr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_f1si0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_cbm7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_eo4r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_w3p4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_irrc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_wb88l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_ymfei")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -597,7 +694,7 @@ billboard = 1
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_ogb0w")
-animation = &"JumpCarry"
+animation = &"Dead"
 
 [node name="IdleTimer" type="Timer" parent="."]
 wait_time = 5.0

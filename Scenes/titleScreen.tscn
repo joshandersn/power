@@ -468,7 +468,7 @@ offset_top = 234.0
 offset_right = 733.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 100
-text = "Power Panic"
+text = "Goblin Country"
 uppercase = true
 
 [node name="OptionButton" type="OptionButton" parent="UI"]

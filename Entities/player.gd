@@ -14,7 +14,10 @@ var held_plug: Node3D
 var can_pickup := true
 var detected_plug: Node3D
 
+var dead = false
 func lose():
+	dead = true
+	$Anim.play("Death")
 	Game.lose.emit()
 
 func goblin_action() -> void:
@@ -133,40 +136,41 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
-	if direction.length() > 0.1:
-		if $walk.playing == false:
-			$walk.play()
-		idle = false
-		if picked_up_item:
-			if !is_on_floor():
-				$Anim.play("JumpCarry")
-			else:
-				$Anim.play("Carry")
-		else:
-			if !is_on_floor():
-				$Anim.play("Jump")
-				$walk.playing = false
-			else:
-				$Anim.play("Run")
-	else:
-		$walk.playing = false
-		if !$IdleTimer.time_left:
-			$IdleTimer.start()
-		if !picked_up_item:
-			if idle:
-				$Anim.play("IdleLook")
+	if !dead:
+		if direction.length() > 0.1:
+			if $walk.playing == false:
+				$walk.play()
+			idle = false
+			if picked_up_item:
+				if !is_on_floor():
+					$Anim.play("JumpCarry")
+				else:
+					$Anim.play("Carry")
 			else:
 				if !is_on_floor():
 					$Anim.play("Jump")
-					
+					$walk.playing = false
+				else:
+					$Anim.play("Run")
+		else:
+			$walk.playing = false
+			if !$IdleTimer.time_left:
+				$IdleTimer.start()
+			if !picked_up_item:
+				if idle:
+					$Anim.play("IdleLook")
+				else:
+					if !is_on_floor():
+						$Anim.play("Jump")
+						
+					else:
+						$Anim.play("Idle")
+			else:
+				if !is_on_floor():
+					$Anim.play("Jump")
+					$walk.playing = false
 				else:
 					$Anim.play("Idle")
-		else:
-			if !is_on_floor():
-				$Anim.play("Jump")
-				$walk.playing = false
-			else:
-				$Anim.play("Idle")
 		
 	if direction.x > 0.1:
 		$Anim.flip_h = false
@@ -235,3 +239,6 @@ func _on_idle_timer_timeout() -> void:
 func _on_anim_animation_looped() -> void:
 	if $Anim.animation == "IdleLook":
 		idle = false
+	if $Anim.animation == "Death":
+		$Anim.play("Dead")
+	
