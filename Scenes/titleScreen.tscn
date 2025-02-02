@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dvq27kwals3vt"]
+[gd_scene load_steps=32 format=4 uid="uid://dvq27kwals3vt"]
 
 [ext_resource type="Script" path="res://Scenes/titleScreenUI.gd" id="1_51pf0"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_g1qr5"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dvu5rhbq64dqb" path="res://Items/WorkLight.tscn" id="21_63gca"]
 [ext_resource type="PackedScene" uid="uid://c8rubgifvu7ns" path="res://Gadgets/Cable.tscn" id="23_pjsl4"]
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="24_aw7d7"]
+[ext_resource type="Texture2D" uid="uid://di6ii55dmmg3h" path="res://Assets/Logo.png" id="25_krs6q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6l45"]
 
@@ -431,8 +432,8 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 text = "[right]
-Much gratitude to THE TEAM!
----
+BIGMODE GAMEJAM 2025
+
 Josh Anderson [b]@Joshandern[/b]
 Isaac Anderson [b]@zoofries[/b]
 Abby Anderson [b]@abyyaeh[/b]
@@ -451,25 +452,6 @@ offset_bottom = -123.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Credits"
-
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 1
-offset_left = 120.0
-offset_top = 333.0
-offset_right = 658.0
-offset_bottom = 393.0
-theme_override_font_sizes/font_size = 50
-text = "Bigmode Gamejam 2025"
-
-[node name="Label2" type="Label" parent="UI"]
-layout_mode = 1
-offset_left = 118.0
-offset_top = 234.0
-offset_right = 733.0
-offset_bottom = 354.0
-theme_override_font_sizes/font_size = 100
-text = "Goblin Country"
-uppercase = true
 
 [node name="OptionButton" type="OptionButton" parent="UI"]
 layout_mode = 1
@@ -502,6 +484,14 @@ offset_bottom = -288.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "Difficulty"
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 214.0
+offset_right = 582.0
+offset_bottom = 555.0
+texture = ExtResource("25_krs6q")
 
 [connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Credits" to="UI" method="_on_credits_pressed"]
