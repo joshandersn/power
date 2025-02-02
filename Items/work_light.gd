@@ -24,7 +24,7 @@ func prop_back_up() -> void:
 	$AnimationPlayer.play("PropUp")
 
 func goblin_action() -> void:
-	if !knocked_over:
+	if !knocked_over and Game.difficulty == 2:
 		$AnimationPlayer.play("knockOver")
 		knocked_over = true
 		update_item()

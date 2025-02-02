@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dvq27kwals3vt"]
+[gd_scene load_steps=33 format=4 uid="uid://dvq27kwals3vt"]
 
 [ext_resource type="Script" path="res://Scenes/titleScreenUI.gd" id="1_51pf0"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_g1qr5"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c8rubgifvu7ns" path="res://Gadgets/Cable.tscn" id="23_pjsl4"]
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="24_aw7d7"]
 [ext_resource type="Texture2D" uid="uid://di6ii55dmmg3h" path="res://Assets/Logo.png" id="25_krs6q"]
+[ext_resource type="PackedScene" uid="uid://cvwwjgcwarce6" path="res://Assets/Corn!.glb" id="26_qho4k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6l45"]
 
@@ -379,7 +380,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0374, -0.74733, -4.3821)
 [node name="WorkLight" parent="." instance=ExtResource("21_63gca")]
 transform = Transform3D(-0.699688, 0, -0.714448, 0, 1, 0, 0.714448, 0, -0.699688, 4.08422, 0.645841, -3.15716)
 start_active = true
-can_pickup = null
+can_pickup = true
 
 [node name="Cable2" parent="." instance=ExtResource("23_pjsl4")]
 transform = Transform3D(0.419088, 0, 0.907946, 0.00605337, 0.999978, -0.0027941, -0.907926, 0.00666711, 0.419078, -0.232503, 0.0694535, 8.04491)
@@ -470,7 +471,7 @@ item_count = 3
 popup/item_0/text = "Easy"
 popup/item_1/text = "Normal"
 popup/item_1/id = 1
-popup/item_2/text = "Goblins are real"
+popup/item_2/text = "Goblins are real (Goblins can knock over Items)"
 popup/item_2/id = 2
 
 [node name="Label3" type="Label" parent="UI"]
@@ -493,6 +494,9 @@ offset_top = 214.0
 offset_right = 582.0
 offset_bottom = 555.0
 texture = ExtResource("25_krs6q")
+
+[node name="Corn!" parent="." instance=ExtResource("26_qho4k")]
+transform = Transform3D(0.524655, 0, -0.851315, 0, 1, 0, 0.851315, 0, 0.524655, 2.48509, -0.0426049, -12.9672)
 
 [connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Credits" to="UI" method="_on_credits_pressed"]

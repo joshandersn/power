@@ -10,6 +10,7 @@ func pause_and_look(subject, time := 2) -> void:
 	target = subject
 	get_tree().paused = true
 	$Timer.start(time)
+	follow_speed = 5
 
 func _ready() -> void:
 	Game.look_at.connect(pause_and_look)
@@ -28,3 +29,4 @@ func _on_timer_timeout() -> void:
 	target = init_target
 	get_tree().paused = false
 	$Camera3D.fov = init_fov
+	follow_speed = 10

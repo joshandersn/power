@@ -302,6 +302,9 @@ transform = Transform3D(0.994007, -0.103997, 0.0336884, 3.35254e-08, 0.30817, 0.
 [node name="Stick4" parent="." instance=ExtResource("6_lbjot")]
 transform = Transform3D(0.14446, -0.941353, 0.304937, 3.39705e-08, 0.30817, 0.951331, -0.989511, -0.13743, 0.0445182, 6.73975, 0.506341, -1.06294)
 
+[node name="Stick5" parent="." instance=ExtResource("6_lbjot")]
+transform = Transform3D(0.253622, 0.920226, -0.298094, 1.64116e-08, 0.30817, 0.951331, 0.967303, -0.24128, 0.0781592, -11.6608, 0.338669, 4.3231)
+
 [node name="Stick6" parent="." instance=ExtResource("6_lbjot")]
 transform = Transform3D(0.974044, -0.224521, 0.0287796, 0.0500449, 0.337596, 0.93996, -0.220756, -0.914122, 0.34007, -8.98754, 0.961462, 7.18632)
 
@@ -585,7 +588,4 @@ point_a = NodePath("../A")
 point_b = NodePath("../B")
 
 [node name="Cinderblock4" parent="." instance=ExtResource("10_4ld0j")]
-transform = Transform3D(0.392144, 0, -0.919904, 0, 1, 0, 0.919904, 0, 0.392144, -12.1465, 0.178625, 4.2126)
-
-[node name="Cinderblock5" parent="." instance=ExtResource("10_4ld0j")]
-transform = Transform3D(0.83981, 0, -0.542881, 0, 1, 0, 0.542881, 0, 0.83981, -12.1465, 0.843104, 4.2126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2479, -0.0426044, 4.46428)

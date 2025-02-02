@@ -494,7 +494,7 @@ shape = SubResource("SphereShape3D_2lt1e")
 [node name="HitTimer" type="Timer" parent="."]
 
 [node name="StunTime" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [node name="hit" type="AudioStreamPlayer3D" parent="."]
