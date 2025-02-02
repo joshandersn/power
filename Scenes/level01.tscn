@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bu3patb680jal"]
+[gd_scene load_steps=45 format=4 uid="uid://bu3patb680jal"]
 
 [ext_resource type="Script" path="res://Scenes/level_01.gd" id="1_cm4m6"]
 [ext_resource type="PackedScene" uid="uid://ci612bgc6r3x1" path="res://BuildingBlocks/floor.tscn" id="1_vx0we"]
@@ -37,7 +37,6 @@
 [ext_resource type="PackedScene" uid="uid://cvwwjgcwarce6" path="res://Assets/Corn!.glb" id="35_onyy2"]
 [ext_resource type="Texture2D" uid="uid://bs5dndh1cijdn" path="res://Assets/lights.png" id="36_vk1mo"]
 [ext_resource type="Texture2D" uid="uid://chfpghd24r24x" path="res://Assets/power.png" id="37_sfb4f"]
-[ext_resource type="PackedScene" uid="uid://b6r1g0axogd5i" path="res://Entities/enemy.tscn" id="38_ric6e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6l45"]
 
@@ -732,6 +731,10 @@ transform = Transform3D(-0.230399, 0, 0.765049, 0, 0.79899, 0, -0.765049, 0, -0.
 [node name="Corn!4" parent="." instance=ExtResource("35_onyy2")]
 transform = Transform3D(0.976855, 0, 2.17178, 0, 2.38136, 0, -2.17178, 0, 0.976855, 36.8073, -0.28756, -47.5302)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.0547767, 0, -0.998499, 0, 1, 0, 0.998499, 0, 0.0547767, 26.0686, 2.85029, 23.8849)
+light_color = Color(0, 1, 0, 1)
+
 [node name="Corn!5" parent="." instance=ExtResource("35_onyy2")]
 transform = Transform3D(0.0315535, 0, -0.575174, 0, 0.576039, 0, 0.575174, 0, 0.0315535, 26.0686, -1.28846, 26.8822)
 
@@ -754,8 +757,5 @@ hint_message = "FILL the Battery Array to LIGHT up this area."
 wait_time = 100.0
 one_shot = true
 autostart = true
-
-[node name="Enemy" parent="." instance=ExtResource("38_ric6e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.507, 0.972923, -7.62521)
 
 [connection signal="timeout" from="GateTimer" to="." method="_on_gate_timer_timeout"]

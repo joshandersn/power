@@ -476,8 +476,33 @@ offset_right = 659.0
 offset_bottom = -221.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
-text = "Goblins & Batteries"
+text = "Power Panic"
 uppercase = true
+
+[node name="OptionButton" type="OptionButton" parent="UI"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 770.0
+offset_right = 553.0
+offset_bottom = 827.0
+theme_override_font_sizes/font_size = 40
+selected = 1
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Goblins are real"
+popup/item_2/id = 2
+
+[node name="Label3" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 736.0
+offset_right = 200.0
+offset_bottom = 761.0
+theme_override_font_sizes/font_size = 20
+text = "Difficulty"
 
 [connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Credits" to="UI" method="_on_credits_pressed"]
+[connection signal="item_selected" from="UI/OptionButton" to="UI" method="_on_option_button_item_selected"]

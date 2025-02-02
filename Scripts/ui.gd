@@ -20,7 +20,7 @@ func lose() -> void:
 	$LoseBG/Button.disabled = false
 	
 func update_ui() -> void:
-	pass
+	$Pause/OptionButton.select(Game.difficulty)
 	
 @onready var hint = load("res://UI/hint.tscn")
 
@@ -119,3 +119,4 @@ func _on_return_pressed() -> void:
 func _on_option_button_item_selected(index: int) -> void:
 	Game.difficulty = index
 	Game.difficulty_update.emit()
+	Game.update_ui.emit()

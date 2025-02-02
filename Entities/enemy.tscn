@@ -1,31 +1,56 @@
-[gd_scene load_steps=84 format=3 uid="uid://b6r1g0axogd5i"]
+[gd_scene load_steps=109 format=3 uid="uid://b6r1g0axogd5i"]
 
 [ext_resource type="Script" path="res://Entities/enemy.gd" id="1_tdvmb"]
+[ext_resource type="Texture2D" uid="uid://c4fdl2gu0wv7p" path="res://Assets/Animations/Goblin_Death/0115.png" id="2_064sg"]
 [ext_resource type="AudioStream" uid="uid://darqcf632ewj1" path="res://Sound/boing.wav" id="2_tt0yd"]
+[ext_resource type="Texture2D" uid="uid://busekulkid1nn" path="res://Assets/Animations/Goblin_Death/0116.png" id="3_0id3j"]
 [ext_resource type="AudioStream" uid="uid://d3c6wwa6neavv" path="res://Sound/goblinDie2.wav" id="3_6s357"]
+[ext_resource type="Texture2D" uid="uid://beot16epofxia" path="res://Assets/Animations/Goblin_Death/0117.png" id="4_6tc1w"]
 [ext_resource type="Texture2D" uid="uid://7n1tjkrtjvpc" path="res://Assets/Animations/Goblin_Idol/0049.png" id="4_t53ks"]
+[ext_resource type="Texture2D" uid="uid://ciu2ojgnknosm" path="res://Assets/Animations/Goblin_Death/0118.png" id="5_pffh5"]
 [ext_resource type="Texture2D" uid="uid://iho58f133dl4" path="res://Assets/Animations/Goblin_Idol/0050.png" id="5_ywxxp"]
 [ext_resource type="Texture2D" uid="uid://1ndc7r7o5iuo" path="res://Assets/Animations/Goblin_Idol/0051.png" id="6_cfr3s"]
+[ext_resource type="Texture2D" uid="uid://b1pg7rpfcjqv2" path="res://Assets/Animations/Goblin_Death/0119.png" id="6_gkpo5"]
 [ext_resource type="Texture2D" uid="uid://b4ryhh4uxk62t" path="res://Assets/Animations/Goblin_Idol/0052.png" id="7_76ds0"]
+[ext_resource type="Texture2D" uid="uid://cetafjewsueav" path="res://Assets/Animations/Goblin_Death/0120.png" id="7_lqche"]
 [ext_resource type="Texture2D" uid="uid://ditx5n0fljkcm" path="res://Assets/Animations/Goblin_Idol/0053.png" id="8_brwf4"]
+[ext_resource type="Texture2D" uid="uid://dctgmvbx7fo5c" path="res://Assets/Animations/Goblin_Death/0121.png" id="8_jdgbm"]
 [ext_resource type="Texture2D" uid="uid://bsx1wu114lyud" path="res://Assets/Animations/Goblin_Idol/0054.png" id="9_3k6l4"]
+[ext_resource type="Texture2D" uid="uid://bynwxma2h70tp" path="res://Assets/Animations/Goblin_Death/0122.png" id="9_4dywq"]
 [ext_resource type="Texture2D" uid="uid://4ouv14kvfo8c" path="res://Assets/Animations/Goblin_Idol/0055.png" id="10_23y7c"]
+[ext_resource type="Texture2D" uid="uid://b70arix1wnqxw" path="res://Assets/Animations/Goblin_Death/0123.png" id="10_m4ei0"]
 [ext_resource type="Texture2D" uid="uid://bg6phny1qsb6" path="res://Assets/Animations/Goblin_Idol/0056.png" id="11_1frko"]
+[ext_resource type="Texture2D" uid="uid://fkelxe6r31uf" path="res://Assets/Animations/Goblin_Death/0124.png" id="11_44emr"]
 [ext_resource type="Texture2D" uid="uid://bts02ef8kwv3f" path="res://Assets/Animations/Goblin_Idol/0057.png" id="12_s13vq"]
+[ext_resource type="Texture2D" uid="uid://dw5nc0dfptsap" path="res://Assets/Animations/Goblin_Death/0125.png" id="12_uck8l"]
 [ext_resource type="Texture2D" uid="uid://fxf0ghsjdstp" path="res://Assets/Animations/Goblin_Idol/0058.png" id="13_foa5c"]
+[ext_resource type="Texture2D" uid="uid://0t4sqjf6lj4j" path="res://Assets/Animations/Goblin_Death/0126.png" id="13_ldoi5"]
 [ext_resource type="Texture2D" uid="uid://d37yp2bugthan" path="res://Assets/Animations/Goblin_Idol/0059.png" id="14_p1quh"]
+[ext_resource type="Texture2D" uid="uid://cssuctulnb8db" path="res://Assets/Animations/Goblin_Death/0127.png" id="14_vwt6x"]
 [ext_resource type="Texture2D" uid="uid://cx7lqphqa6q4s" path="res://Assets/Animations/Goblin_Idol/0060.png" id="15_5r0tq"]
+[ext_resource type="Texture2D" uid="uid://fkq1kqmo17ft" path="res://Assets/Animations/Goblin_Death/0128.png" id="15_qha6x"]
+[ext_resource type="Texture2D" uid="uid://bj4l3xlqivs86" path="res://Assets/Animations/Goblin_Death/0129.png" id="16_0qfrb"]
 [ext_resource type="Texture2D" uid="uid://no4po3x6l1id" path="res://Assets/Animations/Goblin_Idol/0061.png" id="16_8ov8u"]
 [ext_resource type="Texture2D" uid="uid://wfcvf5h82rhl" path="res://Assets/Animations/Goblin_Idol/0062.png" id="17_6618b"]
+[ext_resource type="Texture2D" uid="uid://ifrw67a2unud" path="res://Assets/Animations/Goblin_Death/0130.png" id="17_erg7m"]
+[ext_resource type="Texture2D" uid="uid://cbh82bgeg8we0" path="res://Assets/Animations/Goblin_Death/0131.png" id="18_sdmtt"]
 [ext_resource type="Texture2D" uid="uid://cib0gieacbta5" path="res://Assets/Animations/Goblin_Idol/0063.png" id="18_ts85m"]
+[ext_resource type="Texture2D" uid="uid://co0jnff14vo64" path="res://Assets/Animations/Goblin_Death/0132.png" id="19_7vt7n"]
 [ext_resource type="Texture2D" uid="uid://bo0i1tqoa5ugl" path="res://Assets/Animations/Goblin_Idol/0064.png" id="19_34rjt"]
+[ext_resource type="Texture2D" uid="uid://c21f5iscdnin1" path="res://Assets/Animations/Goblin_Death/0133.png" id="20_2h6uj"]
 [ext_resource type="Texture2D" uid="uid://pepbsx24t1qf" path="res://Assets/Animations/Goblin_Idol/0065.png" id="20_nu10c"]
 [ext_resource type="Texture2D" uid="uid://7cc32he3np24" path="res://Assets/Animations/Goblin_Idol/0066.png" id="21_47rok"]
+[ext_resource type="Texture2D" uid="uid://dve4assffsoeg" path="res://Assets/Animations/Goblin_Death/0134.png" id="21_c8wpa"]
 [ext_resource type="Texture2D" uid="uid://c8u7rd4qwrxtd" path="res://Assets/Animations/Goblin_Idol/0067.png" id="22_g5qk6"]
+[ext_resource type="Texture2D" uid="uid://cf6i4rk2ll8rh" path="res://Assets/Animations/Goblin_Death/0135.png" id="22_lvt0k"]
 [ext_resource type="Texture2D" uid="uid://dpdiohqem265w" path="res://Assets/Animations/Goblin_Idol/0068.png" id="23_5icmw"]
+[ext_resource type="Texture2D" uid="uid://trf8k0d2aogh" path="res://Assets/Animations/Goblin_Death/0136.png" id="23_ki3sd"]
+[ext_resource type="Texture2D" uid="uid://bbq5bd1kjp7co" path="res://Assets/Animations/Goblin_Death/0137.png" id="24_bajps"]
 [ext_resource type="Texture2D" uid="uid://dlib2s3pnfbrq" path="res://Assets/Animations/Goblin_Idol/0069.png" id="24_ua5rw"]
 [ext_resource type="Texture2D" uid="uid://dorilu7w7xmq7" path="res://Assets/Animations/Goblin_Idol/0070.png" id="25_opfgi"]
+[ext_resource type="Texture2D" uid="uid://c4acelqfs8w1r" path="res://Assets/Animations/Goblin_Death/0138.png" id="25_scomi"]
 [ext_resource type="Texture2D" uid="uid://c7miejiuw8n0c" path="res://Assets/Animations/Goblin_Idol/0071.png" id="26_ox24e"]
+[ext_resource type="Texture2D" uid="uid://djf1kho5uroqw" path="res://Assets/Animations/Goblin_Death/0139.png" id="26_s8fxw"]
 [ext_resource type="Texture2D" uid="uid://4pcqnxcckpds" path="res://Assets/Animations/Goblin_Run/0001.png" id="27_og4t3"]
 [ext_resource type="Texture2D" uid="uid://segay4q8i630" path="res://Assets/Animations/Goblin_Run/0002.png" id="28_bxe2o"]
 [ext_resource type="Texture2D" uid="uid://xwdhluo5nbne" path="res://Assets/Animations/Goblin_Run/0003.png" id="29_hbtqy"]
@@ -83,6 +108,86 @@ radius = 4.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hc0eb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_064sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0id3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6tc1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pffh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gkpo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lqche")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jdgbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4dywq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m4ei0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_44emr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uck8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ldoi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vwt6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qha6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0qfrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_erg7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_sdmtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7vt7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2h6uj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_c8wpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_lvt0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ki3sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bajps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_scomi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_s8fxw")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 24.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_t53ks")
@@ -363,7 +468,8 @@ billboard = 1
 shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_hc0eb")
-animation = &"Idle"
+animation = &"Die"
+frame_progress = 0.331428
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

@@ -9,11 +9,11 @@ const is_output := true
 
 func _ready() -> void:
 	if start_burning:
-		item_resource.power = 9999
 		$Smoke.emitting = true
 		$sound.playing = true
 		$MeshInstance3D.visible = true
 		$OmniLight.active = true
+		#item_resource.power = 9999
 	$OmniLight.update_item()
 		
 
@@ -49,6 +49,7 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_serve_timer_timeout() -> void:
 	if output_node and output_node.plugged_into:
+		print(item_resource.power)
 		if item_resource.power >= power_current:
 			output_node.pass_power(power_current)
 			$Smoke.emitting = true

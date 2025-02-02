@@ -34,10 +34,8 @@ func incenerate() -> void:
 		else:
 			$die.stream = load("res://Sound/goblinDie2.wav")
 		$die.play()
-		await get_tree().create_timer(2).timeout
-		Game.goblin_kills += 1
-		Game.check_level_objective.emit()
-		queue_free()
+		$Anim.play("Die")
+
 
 func take_damage() -> void:
 	if !is_stunned:
@@ -71,16 +69,16 @@ func _physics_process(delta: float) -> void:
 							input_dir = -(position - target.position)
 
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
-
-		if !is_stunned:
-			if velocity.length() > 0.8:
-				$Anim.play("Run")
-				$Anim.pixel_size = 0.0015
-			else:
-				$Anim.play("Idle")
-				$Anim.pixel_size = 0.0018
 		
-			
+		if !being_killed:
+			if !is_stunned:
+				if velocity.length() > 0.8:
+					$Anim.play("Run")
+					$Anim.pixel_size = 0.0015
+				else:
+					$Anim.play("Idle")
+					$Anim.pixel_size = 0.0018
+				
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
@@ -145,3 +143,8 @@ func _on_stun_time_timeout() -> void:
 func _on_anim_animation_looped() -> void:
 	if $Anim.animation == "Stun":
 		$Anim.play("OnGround")
+	
+	if $Anim.animation == "Die":
+		Game.goblin_kills += 1
+		Game.check_level_objective.emit()
+		queue_free()

@@ -389,54 +389,6 @@ libraries = {
 "": SubResource("AnimationLibrary_yf3fg")
 }
 
-[node name="dialog" type="ColorRect" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -295.0
-offset_top = -198.0
-offset_right = 295.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0, 0, 0, 1)
-
-[node name="WifeProfile" type="TextureRect" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -385.0
-offset_top = -190.0
-offset_right = 187.0
-offset_bottom = 382.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.223339, 0.223339)
-texture = ExtResource("5_mmobc")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -241.0
-offset_top = -188.0
-offset_right = 278.0
-offset_bottom = -65.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 30
-text = "Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife."
-scroll_active = false
-
 [node name="LoseAnim" type="AnimationPlayer" parent="UI"]
 libraries = {
 "": SubResource("AnimationLibrary_g8rl2")
@@ -626,6 +578,54 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 35
 disabled = true
 text = "Try Again"
+
+[node name="dialog" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -295.0
+offset_top = -198.0
+offset_right = 295.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="WifeProfile" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -190.0
+offset_right = 187.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.223339, 0.223339)
+texture = ExtResource("5_mmobc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -188.0
+offset_right = 278.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+text = "Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife. Sample Text from your wife."
+scroll_active = false
 
 [node name="HintTimer" type="Timer" parent="UI"]
 
