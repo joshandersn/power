@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @onready var item_resource := load("res://Items/CinderBlock.tres")
+@export var can_pickup := true
 
 
 func _on_hitbox_body_entered(body: Node3D) -> void:

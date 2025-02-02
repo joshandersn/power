@@ -342,6 +342,7 @@ transform = Transform3D(0.765281, 0, 0.643696, 0, 1, 0, -0.643696, 0, 0.765281, 
 
 [node name="WorkLight" parent="." instance=ExtResource("15_cj87s")]
 transform = Transform3D(0.922248, 0, -0.386598, 0, 1, 0, 0.386598, 0, 0.922248, 19.0901, 0.382838, 11.0974)
+can_pickup = true
 
 [node name="Stick" parent="." instance=ExtResource("16_vxi5e")]
 transform = Transform3D(0.953423, -0.00799336, 0.301529, 0.301232, -0.0263887, -0.953185, 0.0155761, 0.99962, -0.0227517, 27.5326, 0.445387, -13.9095)
@@ -447,9 +448,11 @@ transform = Transform3D(0.381683, 0, -0.924293, 0, 1, 0, 0.924293, 0, 0.381683, 
 
 [node name="WorkLightTall" parent="." instance=ExtResource("18_4g5n7")]
 transform = Transform3D(-0.733386, 0, -0.679813, 0, 1, 0, 0.679813, 0, -0.733386, -25.1359, 0.477929, 3.79285)
+can_pickup = true
 
 [node name="WorkLight2" parent="." instance=ExtResource("15_cj87s")]
 transform = Transform3D(0.319092, 0, -0.947724, 0, 1, 0, 0.947724, 0, 0.319092, -14.7036, 0.327951, 11.7458)
+can_pickup = true
 
 [node name="Boiler3" parent="." instance=ExtResource("14_yrtyh")]
 transform = Transform3D(0.99204, 0, 0.125922, 0, 1, 0, -0.125922, 0, 0.99204, -3.7013, -0.213436, 18.1627)
@@ -480,6 +483,7 @@ transform = Transform3D(0.151968, 0, 0.988385, 0, 1, 0, -0.988385, 0, 0.151968, 
 
 [node name="WorkLightTall2" parent="." instance=ExtResource("18_4g5n7")]
 transform = Transform3D(-0.654477, 0, -0.756083, 0, 1, 0, 0.756083, 0, -0.654477, 8.33416, 0.373062, -8.72733)
+can_pickup = true
 
 [node name="Socket4" parent="." instance=ExtResource("17_6n11j")]
 transform = Transform3D(0.843232, 0, 0.53755, 0, 1, 0, -0.53755, 0, 0.843232, -0.30535, -0.213436, -13.8491)

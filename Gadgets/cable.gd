@@ -2,7 +2,6 @@ extends Node3D
 
 @export var line_radius := 0.1
 @export var line_resolution := 64
-
 @export var cable_a: Node3D
 @export var cable_b: Node3D
 

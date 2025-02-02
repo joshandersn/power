@@ -379,6 +379,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0374, -0.74733, -4.3821)
 [node name="WorkLight" parent="." instance=ExtResource("21_63gca")]
 transform = Transform3D(-0.699688, 0, -0.714448, 0, 1, 0, 0.714448, 0, -0.699688, 4.08422, 0.645841, -3.15716)
 start_active = true
+can_pickup = null
 
 [node name="Cable2" parent="." instance=ExtResource("23_pjsl4")]
 transform = Transform3D(0.419088, 0, 0.907946, 0.00605337, 0.999978, -0.0027941, -0.907926, 0.00666711, 0.419078, -0.232503, 0.0694535, 8.04491)

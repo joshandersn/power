@@ -128,6 +128,7 @@ lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_3ojxu")
+can_pickup = null
 item_resource = SubResource("Resource_5egel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

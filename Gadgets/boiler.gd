@@ -14,6 +14,7 @@ func tutorial_tool():
 		tutorial_object.queue_free()
 
 func _ready() -> void:
+	item_resource = item_resource.duplicate()
 	if start_burning:
 		$Smoke.emitting = true
 		$sound.playing = true

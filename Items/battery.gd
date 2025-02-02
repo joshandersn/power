@@ -1,6 +1,13 @@
 extends RigidBody3D
 
 @export var starting_power := 0
+@export var can_pickup := true
+
+@export var tutorial_object: Node3D
+
+func tutorial_tool():
+	if is_instance_valid(tutorial_object) and tutorial_object:
+		tutorial_object.queue_free()
 
 var item_resource: res_item
 const is_output := true
@@ -25,6 +32,8 @@ func update_item() -> void:
 	$juice.position.y = $juice.mesh.height/2 - 0.25 
 	$OmniLight.active = !!(item_resource.power > 50)
 	$OmniLight.update_item()
+	if item_resource.power >= 100:
+		tutorial_tool()
 
 var sound_play = true
 

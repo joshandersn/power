@@ -1,4 +1,5 @@
 extends RigidBody3D
+@export var can_pickup := true
 
 @export var item_resource: res_item
 @export var other_plug: Node3D

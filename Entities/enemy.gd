@@ -10,6 +10,12 @@ var is_stunned: bool
 
 var being_killed := false
 
+@export var tutorial_object: Node3D
+
+func tutorial_tool():
+	if is_instance_valid(tutorial_object) and tutorial_object:
+		tutorial_object.queue_free()
+
 func _ready() -> void:
 	difficulty_update()
 	Game.difficulty_update.connect(difficulty_update)
@@ -27,6 +33,7 @@ func difficulty_update() -> void:
 
 func incenerate() -> void:
 	if !being_killed:
+		tutorial_tool()
 		being_killed = true
 		randomize()
 		if (randi() % 2):
