@@ -183,8 +183,8 @@ tracks/9/path = NodePath("Credits:text")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(87.6666, 99.2667, 109.333, 119.067, 128.733, 138.9, 149.2, 158.967, 168.733, 178.533, 187.933, 201.433),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(87.6666, 99.2667, 109.333, 119.067, 128.733, 138.9, 149.2, 158.967, 168.733, 178.533, 187.933, 201.433, 211.767),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["[center]Directed By
 [b]Josh Anderson[/b]", "[center]3D Models and Animation
@@ -206,6 +206,7 @@ tracks/9/keys = {
 [b]Jonas Anderson[/b]
 ", "[center]Bigmode GameJam
 [b]2025[/b]
+", "[center]Goblins are real.
 "]
 }
 tracks/10/type = "value"
@@ -215,10 +216,10 @@ tracks/10/path = NodePath("Credits:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(88.1, 90, 92.5667, 94.5667, 99.6667, 101.567, 104.133, 106.133, 109.567, 111.467, 114.033, 116.033, 119.433, 121.333, 123.9, 125.9, 129.333, 131.233, 133.8, 135.8, 139.3, 141.2, 143.767, 145.767, 149.267, 151.167, 153.733, 155.733, 159.2, 161.1, 163.667, 165.667, 169.133, 171.033, 173.6, 175.6, 178.8, 180.7, 183.267, 185.267, 188.033, 192.333, 195.767, 198.933, 201.485, 204.3, 208.3, 211.185),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(88.1, 90, 92.5667, 94.5667, 99.6667, 101.567, 104.133, 106.133, 109.567, 111.467, 114.033, 116.033, 119.433, 121.333, 123.9, 125.9, 129.333, 131.233, 133.8, 135.8, 139.3, 141.2, 143.767, 145.767, 149.267, 151.167, 153.733, 155.733, 159.2, 161.1, 163.667, 165.667, 169.133, 171.033, 173.6, 175.6, 178.8, 180.7, 183.267, 185.267, 188.033, 192.333, 195.767, 198.933, 201.485, 204.3, 207.067, 209.6, 212.033, 214.748),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -334,10 +335,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -222.0
-offset_top = -287.0
-offset_right = 33.0
-offset_bottom = 7.0
+offset_right = 255.0
+offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_g62so")
@@ -424,7 +423,6 @@ stream = ExtResource("7_bgtt7")
 expand = true
 
 [node name="Credits" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

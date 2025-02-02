@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
-		if velocity.length() > 0.5:
+		if velocity.length() > 0.8:
 			$Anim.play("Run")
 			$Anim.pixel_size = 0.0015
 		else:
