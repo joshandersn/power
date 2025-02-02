@@ -454,37 +454,33 @@ text = "Credits"
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 121.0
-offset_top = -196.0
-offset_right = 659.0
-offset_bottom = -136.0
-grow_vertical = 2
+offset_left = 120.0
+offset_top = 333.0
+offset_right = 658.0
+offset_bottom = 393.0
 theme_override_font_sizes/font_size = 50
 text = "Bigmode Gamejam 2025"
 
 [node name="Label2" type="Label" parent="UI"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 121.0
-offset_top = -281.0
-offset_right = 659.0
-offset_bottom = -221.0
-grow_vertical = 2
+offset_left = 118.0
+offset_top = 234.0
+offset_right = 733.0
+offset_bottom = 354.0
 theme_override_font_sizes/font_size = 100
 text = "Power Panic"
 uppercase = true
 
 [node name="OptionButton" type="OptionButton" parent="UI"]
-layout_mode = 0
-offset_left = 123.0
-offset_top = 770.0
-offset_right = 553.0
-offset_bottom = 827.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -281.0
+offset_right = 550.0
+offset_bottom = -224.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 selected = 1
 item_count = 3
@@ -495,11 +491,15 @@ popup/item_2/text = "Goblins are real"
 popup/item_2/id = 2
 
 [node name="Label3" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 124.0
-offset_top = 736.0
-offset_right = 200.0
-offset_bottom = 761.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = -313.0
+offset_right = 197.0
+offset_bottom = -288.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "Difficulty"
 

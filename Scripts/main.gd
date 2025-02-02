@@ -19,10 +19,12 @@ func finish_load() -> void:
 	$UI/FadeAnim.play("FadeOut")
 	
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pause") and Game.current_level != load("res://Scenes/titleScreen.tscn"):
-		get_tree().paused = !get_tree().paused
-		$UI/Pause.visible = get_tree().paused
-		$UI/Pause/Resume.grab_focus()
+	if Input.is_action_just_pressed("pause"):
+		if Game.current_level != load("res://Scenes/titleScreen.tscn"):
+			get_tree().paused = !get_tree().paused
+			$UI/Pause.visible = get_tree().paused
+			$UI/Pause/Resume.grab_focus()
+			Game.update_ui.emit()
 
 	if Input.is_action_just_pressed("debug"):
 		load_scene(load("res://Scenes/EndingCutscene.tscn"))

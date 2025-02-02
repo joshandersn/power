@@ -6,6 +6,10 @@ func _ready() -> void:
 	$Timer.start()
 	Game.stop_music.emit()
 	$AnimationPlayer.play("Slideshow")
+	Game.update_ui.connect(update_ui)
+
+func update_ui() -> void:
+	$Paused.visible = get_tree().paused
 
 func _on_timer_timeout() -> void:
 	pass
