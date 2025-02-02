@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1je3b8dtal6s"
+path="res://.godot/imported/soft ver 2.mp3-cacade2aa1b5160145445b07b8397f4b.mp3str"
+
+[deps]
+
+source_file="res://Sound/soft ver 2.mp3"
+dest_files=["res://.godot/imported/soft ver 2.mp3-cacade2aa1b5160145445b07b8397f4b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

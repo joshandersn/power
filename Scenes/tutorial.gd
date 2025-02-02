@@ -9,3 +9,6 @@ func _ready() -> void:
 func proceed_level() -> void:
 	await get_tree().create_timer(3).timeout
 	Game.load_scene.emit(load("res://Scenes/OpeningCutscene.tscn"))
+	
+func delete_this(object) -> void:
+	object.queue_free()

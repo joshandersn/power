@@ -8,7 +8,11 @@ var output_node: Node3D
 var is_output: bool
 var power_current := 1
 
+@export var tutorial_object: Node3D
 
+func tutorial_tool():
+	if is_instance_valid(tutorial_object) and tutorial_object:
+		tutorial_object.queue_free()
 
 func eject_object(object) -> void:
 	inserted_item = null
@@ -75,6 +79,7 @@ func insert_item(object: Node3D) -> void:
 			can_insert = true
 		else:
 			$plugin.play()
+			tutorial_tool()
 			object.inserted_into = self
 			inserted_item = object
 			item_resource = inserted_item.item_resource

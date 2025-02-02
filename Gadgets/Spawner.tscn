@@ -7,6 +7,7 @@
 script = ExtResource("1_gpopy")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="HoleInTheGround" parent="." instance=ExtResource("2_0td7t")]
 transform = Transform3D(0.524095, 0, 0, 0, 0.524095, 0, 0, 0, 0.524095, -0.0221342, -0.233226, 0.0538514)

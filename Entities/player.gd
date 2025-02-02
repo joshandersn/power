@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var speed := 3
 @onready var init_speed = speed
 @export var throw_power := 5
+@export var can_drop := false
 
 var health = 3
 var max_health = 3
@@ -44,18 +45,19 @@ func pickup(object: Node3D) -> void:
 		if "knocked_over" in object and object.knocked_over:
 			object.prop_back_up()
 		else:
-			$Pickup.play()
-			picked_up_item = object
-			object.freeze = true
-			if "is_held" in picked_up_item:
-				picked_up_item.is_held = true
-			detected_plug = null
-			can_pickup = false
-			if "inserted_into" in object:
-				if object.inserted_into:
-					object.inserted_into.have_item_removed()
-			pickup_field.resize(0)
-			$PickupTimer.start()
+			if "can_pickup" in object and object.can_pickup:
+				$Pickup.play()
+				picked_up_item = object
+				object.freeze = true
+				if "is_held" in picked_up_item:
+					picked_up_item.is_held = true
+				detected_plug = null
+				can_pickup = false
+				if "inserted_into" in object:
+					if object.inserted_into:
+						object.inserted_into.have_item_removed()
+				pickup_field.resize(0)
+				$PickupTimer.start()
 
 func throw_item() -> void:
 	if picked_up_item:
@@ -79,6 +81,8 @@ func drop_item() -> void:
 		var dir = Game.player_last_direction.normalized()
 		picked_up_item.rotation.y = atan2(-dir.x, -dir.z)
 		picked_up_item = null
+		$PickupField.monitoring = false
+		$PickupField.monitoring = true
 	else:
 		push_warning("no item is held!")
 		
@@ -98,7 +102,11 @@ func _input(_event: InputEvent) -> void:
 		if pickup_field.size() >= 1 and !picked_up_item:
 			pickup(pickup_field[0])
 		elif picked_up_item:
-			drop_item()
+			if can_drop:
+				drop_item()
+			else:
+				throw_item() 
+
 	elif Input.is_action_just_pressed("throw") and picked_up_item:
 		throw_item()
 

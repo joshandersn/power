@@ -7,6 +7,12 @@ var output_node: Node3D
 var power_current := 5.0
 const is_output := true
 
+@export var tutorial_object: Node3D
+
+func tutorial_tool():
+	if is_instance_valid(tutorial_object) and tutorial_object:
+		tutorial_object.queue_free()
+
 func _ready() -> void:
 	if start_burning:
 		$Smoke.emitting = true
@@ -43,6 +49,7 @@ func _on_body_entered(body: Node3D) -> void:
 		$ServeTimer.start()
 	if body.item_resource.fuel:
 		item_resource.power += body.item_resource.fuel
+		tutorial_tool()
 		$ServeTimer.start()
 		$burnSound.play()
 		body.queue_free()

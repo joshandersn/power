@@ -2,13 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://nf6rb8ma3t81" path="res://Assets/theme.tres" id="1_abd7n"]
 [ext_resource type="Script" path="res://Scenes/ending_cutscene.gd" id="1_tl6mm"]
-[ext_resource type="AudioStream" uid="uid://byxq4mf4atjuo" path="res://Sound/sunrise.mp3" id="2_kaxpt"]
 [ext_resource type="Texture2D" uid="uid://br41xg71w7vnc" path="res://Assets/Stills/IMG_8190.jpg" id="3_g62so"]
 [ext_resource type="Texture2D" uid="uid://cs2k44kplryri" path="res://Assets/Stills/IMG_8200.jpg" id="4_7m77w"]
 [ext_resource type="Texture2D" uid="uid://cqtsrhq7xdgsp" path="res://Assets/Stills/IMG_8195.jpg" id="5_op5u1"]
 [ext_resource type="Texture2D" uid="uid://ot70pjp8y0h3" path="res://Assets/Stills/IMG_8194.jpg" id="6_xw2df"]
 [ext_resource type="VideoStream" path="res://Assets/hands.ogv" id="7_bgtt7"]
 [ext_resource type="Texture2D" uid="uid://cfs6vinjoysbn" path="res://Assets/Stills/car.png" id="7_wiy44"]
+[ext_resource type="AudioStream" uid="uid://1je3b8dtal6s" path="res://Sound/soft ver 2.mp3" id="9_xyib0"]
 
 [sub_resource type="Animation" id="Animation_dts0k"]
 length = 0.001
@@ -61,6 +61,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("7_bgtt7")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("05:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-116, -499)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("05:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2779, 2083)]
+}
 
 [sub_resource type="Animation" id="Animation_a2s5n"]
 resource_name = "Slideshow"
@@ -72,7 +96,7 @@ tracks/0/path = NodePath("01:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(16.9, 19.9, 31.9333, 34.7),
+"times": PackedFloat32Array(9.13333, 11.5667, 16.8, 19.5667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -87,7 +111,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_kaxpt")
+"stream": ExtResource("9_xyib0")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -99,7 +123,7 @@ tracks/2/path = NodePath("01:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(16.9, 34.4333),
+"times": PackedFloat32Array(9.13333, 19.3),
 "transitions": PackedFloat32Array(0.406126, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-222, -287)]
@@ -111,7 +135,7 @@ tracks/3/path = NodePath("03:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.06667, 14.4333),
+"times": PackedFloat32Array(2.06667, 9.53327),
 "transitions": PackedFloat32Array(0.406126, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-222, -287)]
@@ -123,7 +147,7 @@ tracks/4/path = NodePath("03:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2, 5, 11.8667, 14.6333),
+"times": PackedFloat32Array(2, 4, 6.96667, 9.73327),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -135,7 +159,7 @@ tracks/5/path = NodePath("02:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(35.6, 38.6, 46, 48.7667),
+"times": PackedFloat32Array(17.2, 19.2667, 23.4333, 25.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -147,7 +171,7 @@ tracks/6/path = NodePath("02:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(35.6, 48.5),
+"times": PackedFloat32Array(17.2, 25.5333),
 "transitions": PackedFloat32Array(0.406126, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-222, -287)]
@@ -159,7 +183,7 @@ tracks/7/path = NodePath("04:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(70.2333, 73.2333, 82.4333, 85.1999),
+"times": PackedFloat32Array(34.5667, 37.4, 40.9667, 43.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -171,7 +195,7 @@ tracks/8/path = NodePath("04:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(70.2333, 84.9333),
+"times": PackedFloat32Array(34.5667, 43.6334),
 "transitions": PackedFloat32Array(0.406126, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-222, -287)]
@@ -183,7 +207,7 @@ tracks/9/path = NodePath("Credits:text")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(87.6666, 99.2667, 109.333, 119.067, 128.733, 138.9, 149.2, 158.967, 168.733, 178.533, 187.933, 201.433, 211.767),
+"times": PackedFloat32Array(43.8666, 50.6333, 58.6327, 66.934, 75.1667, 84.3, 93.3663, 102.134, 110.4, 119.134, 128.033, 136.248, 151.534),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["[center]Directed By
@@ -216,7 +240,7 @@ tracks/10/path = NodePath("Credits:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(88.1, 90, 92.5667, 94.5667, 99.6667, 101.567, 104.133, 106.133, 109.567, 111.467, 114.033, 116.033, 119.433, 121.333, 123.9, 125.9, 129.333, 131.233, 133.8, 135.8, 139.3, 141.2, 143.767, 145.767, 149.267, 151.167, 153.733, 155.733, 159.2, 161.1, 163.667, 165.667, 169.133, 171.033, 173.6, 175.6, 178.8, 180.7, 183.267, 185.267, 188.033, 192.333, 195.767, 198.933, 201.485, 204.3, 207.067, 209.6, 212.033, 214.748),
+"times": PackedFloat32Array(44.3, 45.8667, 47.5333, 49.1, 51.0333, 52.9336, 55.0333, 56.9333, 58.8667, 60.7667, 63.4667, 65.4667, 67.3, 69.2, 71.9, 73.9, 75.7667, 77.6667, 80.9, 82.9, 84.7, 86.6, 89.7333, 91.7333, 93.4333, 95.3334, 98.3667, 100.367, 102.367, 104.267, 107.133, 109.133, 110.8, 112.7, 115.6, 117.6, 119.401, 121.533, 123.8, 126.267, 128.133, 130, 132.633, 134.833, 136.3, 138.1, 140, 141.467, 151.8, 154.515),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -240,7 +264,7 @@ tracks/12/path = NodePath("VideoStreamPlayer")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(65.6),
+"times": PackedFloat32Array(26.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -254,7 +278,7 @@ tracks/13/path = NodePath("05:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(50.7667, 53.7667, 61.1667, 63.9334),
+"times": PackedFloat32Array(29.1333, 31, 33.8333, 36.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -266,10 +290,10 @@ tracks/14/path = NodePath("05:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(50.6, 63.5),
-"transitions": PackedFloat32Array(0.406126, 1),
+"times": PackedFloat32Array(29.1333, 36.1666),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-222, -287)]
+"values": [Vector2(-332, -802), Vector2(-54, -373)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -278,7 +302,7 @@ tracks/15/path = NodePath("Button:modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(211.552, 214.367),
+"times": PackedFloat32Array(153.3, 156.115),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -290,12 +314,24 @@ tracks/16/path = NodePath("Button")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(211.8),
+"times": PackedFloat32Array(153.548),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"grab_focus"
 }]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("05:size")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(29.1333, 36.1666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2639, 1978), Vector2(2035, 1525)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m72jv"]
@@ -395,14 +431,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -222.0
-offset_top = -287.0
-offset_right = 33.0
-offset_bottom = 263.454
+offset_left = -54.0
+offset_top = -373.0
+offset_right = 61.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_wiy44")
-expand_mode = 5
+expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

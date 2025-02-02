@@ -128,7 +128,7 @@ func _on_hitbox_body_exited(body: Node3D) -> void:
 		$HitTimer.stop()
 
 func _on_hit_timer_timeout() -> void:
-	if reached_target:
+	if reached_target and !is_stunned:
 		reached_target.goblin_action()
 		randomize()
 		if (randi() % 2):

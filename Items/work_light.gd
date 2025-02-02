@@ -2,6 +2,7 @@
 extends RigidBody3D
 
 @export var start_active: bool
+@export var can_pickup := true
 
 @export var item_resource: res_item
 @export var output_node: Node3D:
