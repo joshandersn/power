@@ -43,6 +43,7 @@ func take_damage() -> void:
 	if !is_stunned:
 		is_stunned = true
 		$StunTime.start()
+		$Anim.play("Stun")
 		if (randi() % 2):
 			$die.stream = load("res://Sound/goblinGrunt.wav")
 		else:
@@ -71,12 +72,15 @@ func _physics_process(delta: float) -> void:
 
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.z)).normalized()
 
-		if velocity.length() > 0.8:
-			$Anim.play("Run")
-			$Anim.pixel_size = 0.0015
-		else:
-			$Anim.play("Idle")
-			$Anim.pixel_size = 0.0018
+		if !is_stunned:
+			if velocity.length() > 0.8:
+				$Anim.play("Run")
+				$Anim.pixel_size = 0.0015
+			else:
+				$Anim.play("Idle")
+				$Anim.pixel_size = 0.0018
+		
+			
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
@@ -136,3 +140,8 @@ func _on_hit_timer_timeout() -> void:
 
 func _on_stun_time_timeout() -> void:
 	is_stunned = false
+
+
+func _on_anim_animation_looped() -> void:
+	if $Anim.animation == "Stun":
+		$Anim.play("OnGround")

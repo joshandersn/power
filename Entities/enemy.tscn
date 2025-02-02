@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b6r1g0axogd5i"]
+[gd_scene load_steps=84 format=3 uid="uid://b6r1g0axogd5i"]
 
 [ext_resource type="Script" path="res://Entities/enemy.gd" id="1_tdvmb"]
 [ext_resource type="AudioStream" uid="uid://darqcf632ewj1" path="res://Sound/boing.wav" id="2_tt0yd"]
@@ -60,7 +60,23 @@
 [ext_resource type="Texture2D" uid="uid://dffi18nt087g5" path="res://Assets/Animations/Goblin_Run/0032.png" id="58_lewgh"]
 [ext_resource type="Texture2D" uid="uid://dh43hqdi48odp" path="res://Assets/Animations/Goblin_Run/0033.png" id="59_7ohjj"]
 [ext_resource type="Texture2D" uid="uid://wbpgdmyw82a5" path="res://Assets/Animations/Goblin_Run/0034.png" id="60_dsvyi"]
+[ext_resource type="Texture2D" uid="uid://c06hafefq0ag8" path="res://Assets/Animations/Goblin_Stun/0085.png" id="60_tfwe3"]
 [ext_resource type="Texture2D" uid="uid://cwty3uhiff76s" path="res://Assets/Animations/Goblin_Run/0035.png" id="61_8gmxy"]
+[ext_resource type="Texture2D" uid="uid://dw1uqvkai0sxp" path="res://Assets/Animations/Goblin_Stun/0086.png" id="61_ac57b"]
+[ext_resource type="Texture2D" uid="uid://bwthfwxmfangr" path="res://Assets/Animations/Goblin_Stun/0087.png" id="62_hqyhb"]
+[ext_resource type="Texture2D" uid="uid://re2i2jlp51n8" path="res://Assets/Animations/Goblin_Stun/0088.png" id="63_7gr88"]
+[ext_resource type="Texture2D" uid="uid://6dywq5ut2ksr" path="res://Assets/Animations/Goblin_Stun/0089.png" id="64_s1ty2"]
+[ext_resource type="Texture2D" uid="uid://cqp3k6l3dn57g" path="res://Assets/Animations/Goblin_Stun/0090.png" id="65_4l5b1"]
+[ext_resource type="Texture2D" uid="uid://cqyn4egp5ixmu" path="res://Assets/Animations/Goblin_Stun/0091.png" id="66_k53j1"]
+[ext_resource type="Texture2D" uid="uid://d1jme44xvfqrk" path="res://Assets/Animations/Goblin_Stun/0092.png" id="67_8mxtv"]
+[ext_resource type="Texture2D" uid="uid://jicb717h73e2" path="res://Assets/Animations/Goblin_Stun/0093.png" id="68_qqt31"]
+[ext_resource type="Texture2D" uid="uid://be8wfqnbagtul" path="res://Assets/Animations/Goblin_Stun/0094.png" id="69_phdlw"]
+[ext_resource type="Texture2D" uid="uid://uxtkm1cjlgwe" path="res://Assets/Animations/Goblin_Stun/0095.png" id="70_8u4id"]
+[ext_resource type="Texture2D" uid="uid://b4elmp7d2k7c4" path="res://Assets/Animations/Goblin_Stun/0096.png" id="71_vkb36"]
+[ext_resource type="Texture2D" uid="uid://bjyma0f32quqn" path="res://Assets/Animations/Goblin_Stun/0097.png" id="72_oso5b"]
+[ext_resource type="Texture2D" uid="uid://dv1nq1m32cwr6" path="res://Assets/Animations/Goblin_Stun/0098.png" id="73_btstf"]
+[ext_resource type="Texture2D" uid="uid://c4mu71bufkcr4" path="res://Assets/Animations/Goblin_Stun/0099.png" id="74_lgj2y"]
+[ext_resource type="Texture2D" uid="uid://sggkx5i7uhql" path="res://Assets/Animations/Goblin_Stun/0100.png" id="75_72djl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u54bi"]
 radius = 4.0
@@ -140,6 +156,14 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_lgj2y")
+}],
+"loop": true,
+"name": &"OnGround",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -250,6 +274,59 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("60_tfwe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_ac57b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_hqyhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_7gr88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_s1ty2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_4l5b1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_k53j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_8mxtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_qqt31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_phdlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_8u4id")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_vkb36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_oso5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_btstf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_lgj2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_72djl")
+}],
+"loop": true,
+"name": &"Stun",
+"speed": 24.0
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkjes"]
@@ -287,7 +364,6 @@ shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_hc0eb")
 animation = &"Idle"
-frame_progress = 0.866768
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -322,6 +398,7 @@ stream = ExtResource("2_tt0yd")
 stream = ExtResource("3_6s357")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="animation_looped" from="Anim" to="." method="_on_anim_animation_looped"]
 [connection signal="timeout" from="FearTimer" to="." method="_on_fear_timer_timeout"]
 [connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
