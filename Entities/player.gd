@@ -145,6 +145,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			if !is_on_floor():
 				$Anim.play("Jump")
+				$walk.playing = false
 			else:
 				$Anim.play("Run")
 	else:
@@ -157,11 +158,13 @@ func _physics_process(delta: float) -> void:
 			else:
 				if !is_on_floor():
 					$Anim.play("Jump")
+					
 				else:
 					$Anim.play("Idle")
 		else:
 			if !is_on_floor():
 				$Anim.play("Jump")
+				$walk.playing = false
 			else:
 				$Anim.play("Idle")
 		
